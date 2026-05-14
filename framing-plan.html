@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Deck Framing Plan">
+    <title>Pool Deck Framing Plan & Cut List — v8.1 LOCKED</title>
+    <style>
+        :root {
+            --stone: #6b6560;
+            --stone-light: #9a9590;
+            --stone-dark: #4a4540;
+            --cream: #f5f0eb;
+            --warm-white: #faf8f6;
+            --sage: #7a8b6e;
+            --sage-light: #a3b094;
+            --terracotta: #c17a5c;
+            --terracotta-light: #d99a7a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--cream);
+            color: var(--stone-dark);
+            line-height: 1.7;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            min-height: 100dvh;
+        }
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--warm-white);
+            padding: 50px 40px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--stone);
+        }
+        h1 {
+            font-size: 2.2em;
+            color: var(--stone-dark);
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 1em;
+            color: var(--stone);
+            font-weight: 300;
+        }
+        h2 {
+            font-size: 1.35em;
+            color: var(--stone-dark);
+            margin: 35px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--terracotta);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2 .num {
+            background: var(--terracotta);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            flex-shrink: 0;
+        }
+        h3 {
+            font-size: 1.1em;
+            color: var(--stone-dark);
+            margin: 25px 0 10px;
+            font-weight: 600;
+        }
+        p { margin-bottom: 12px; }
+        .lead {
+            font-size: 1.05em;
+            color: var(--stone);
+            margin-bottom: 20px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, var(--sage) 0%, #5a6b4e 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .highlight-box h3 { color: white; margin-top: 0; }
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid var(--terracotta);
+            padding: 12px 18px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95em;
+        }
+        .warning strong { color: var(--terracotta); }
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid var(--sage);
+            padding: 12px 18px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95em;
+        }
+        .tip strong { color: var(--sage); }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.92em;
+        }
+        th {
+            background: var(--stone-dark);
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--cream);
+        }
+        tr:nth-child(even) { background: var(--warm-white); }
+        .diagram {
+            background: #fff;
+            border: 2px solid var(--cream);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.82em;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .cut-card {
+            background: white;
+            border: 2px solid var(--cream);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .cut-card .from {
+            font-size: 0.8em;
+            color: var(--stone-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .cut-card .yield {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: var(--stone-dark);
+        }
+        .cut-card .offcut {
+            font-size: 0.85em;
+            color: var(--terracotta);
+            margin-top: 4px;
+        }
+        .cut-card .offcut strong { color: var(--terracotta); }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .big-number {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--terracotta);
+            line-height: 1;
+        }
+        .stat-card {
+            background: white;
+            border: 2px solid var(--cream);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card .label {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--stone-light);
+            margin-bottom: 8px;
+        }
+        @media (max-width: 600px) {
+            .page { padding: 25px 20px; }
+            h1 { font-size: 1.7em; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .diagram { font-size: 0.72em; padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <h1>Pool Deck Framing Plan & Cut List</h1>
+            <div class="subtitle">2×6 Main Deck (11.5' deep) + 5/4 Decking Layout — <strong>v8.1 LOCKED</strong> · May 14, 2026</div>
+        </header>
+
+        <div class="highlight-box">
+            <h3>📐 Design Summary</h3>
+            <p><strong>Main deck:</strong> 13' wide × 11.5' deep · 2×6 joists at 16" O.C., running front-to-back · <strong>Doubled 2×6 rims</strong> all around · Full 11.5' length = no joist cuts needed</p>
+            <p><strong>Curved section:</strong> 13' wide × ~3.5' deep · 2×4 joists fanning from ledger toward pool</p>
+            <p><strong>Total depth:</strong> ~15' · <strong>Decking:</strong> Perpendicular "Break Line" border solves 12'→13' width</p>
+        </div>
+
+        <!-- STATS -->
+        <div class="grid-2" style="margin: 25px 0;">
+            <div class="stat-card">
+                <div class="label">Main Deck</div>
+                <div class="big-number">11.5'</div>
+                <div style="font-size: 0.85em; color: var(--stone); margin-top: 5px;">deep × 13' wide</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Curved Section</div>
+                <div class="big-number">~3.5'</div>
+                <div style="font-size: 0.85em; color: var(--stone); margin-top: 5px;">deep × 13' wide</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">2×6 Stock Used</div>
+                <div class="big-number">13</div>
+                <div style="font-size: 0.85em; color: var(--stone); margin-top: 5px;">of 31 pieces (~11.5')</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Decking Used</div>
+                <div class="big-number">~34</div>
+                <div style="font-size: 0.85em; color: var(--stone); margin-top: 5px;">of 38 boards (5/4×6)</div>
+            </div>
+        </div>
+
+        <!-- FRAMING PLAN -->
+        <h2><span class="num">01</span>2×6 Framing Plan</h2>
+
+        <p class="lead">Main deck is the back 11.5' of the total ~15' depth. Front ~3.5' is the curved section on 2×4 joists. The key win: your ~11.5' stock becomes full-length joists with <strong>zero cuts</strong>.</p>
+
+        <h3>Joist Layout Diagram (Looking Down)</h3>
+        <div class="diagram">
+BACK EDGE (away from pool, box step here)
+←————————————————————————————————————————————————————————→
+                         13' wide
+
+┌─ Back Rim Joist (2×6 × 2, 13') —————————————————————————┐
+│   ← doubled 2×6, face-screwed together                   │
+│    ○  ○  ○  ○  ○  ○  ○  ○  ○     ← Field Joists          │
+│    │  │  │  │  │  │  │  │  │      (2×6, 11.5',           │
+│    │  │  │  │  │  │  │  │  │       16" O.C.)             │
+│    │  │  │  │  │  │  │  │  │                             │
+│    │  │  │  │  │  │  │  │  │       ← 11.5' deep          │
+│    │  │  │  │  │  │  │  │  │                             │
+│    │  │  │  │  │  │  │  │  │                             │
+│    │  │  │  │  │  │  │  │  │                             │
+│    │  │  │  │  │  │  │  │  │                             │
+│    │  │  │  │  │  │  │  │  │                             │
+│    │  │  │  │  │  │  │  │  │                             │
+│    │  │  │  │  │  │  │  │  │                             │
+│    │  │  │  │  │  │  │  │  │                             │
+│    │  │  │  │  │  │  │  │  │                             │
+│    │  │  │  │  │  │  │  │  │                             │
+├─ Side Rim (2×6 × 2, 11.5')─┤  ├─ Side Rim (2×6 × 2, 11.5')┤
+│    (Left, doubled, full)    │  │   (Right, doubled, full)  │
+│                             │  │                             │
+├─ 2×4 LEDGER (13') ———————————————————————————————————————─┤
+│     ↑ Transition line (~11.5' from back)                   │
+│     ↓ Curved section (2×4 joists fan toward pool)          │
+│                                                            │
+│           ○     ○     ○     ○     ○     ○     ○              │
+│           │     │     │     │     │     │     │              │
+│           │     │     │     │     │     │     │              │
+│           └———————————————————————————————————————┘          │
+│                    ↑ Pool coping (~3.5' from ledger)       │
+│                                                            │
+└————————————————————————————————————————————————————————————┘
+        </div>
+
+        <h3>Full Cut List — 2×6 Lumber</h3>
+
+        <div class="tip">
+            <strong>💡 Doubled Rims for Strength</strong><br>
+            All four rim joists are <strong>doubled 2×6</strong> (two boards face-screwed together). This makes the frame beefier, gives the border sleeper something solid to anchor to, and matches the substantial look of the railings. You have the lumber to spare.
+        </div>
+
+        <table>
+            <tr>
+                <th>Piece</th>
+                <th>Qty</th>
+                <th>Cut From</th>
+                <th>Length</th>
+                <th>Offcut</th>
+                <th>Use for Offcut</th>
+            </tr>
+            <tr>
+                <td><strong>Back Rim Joist (doubled)</strong></td>
+                <td>2</td>
+                <td>2×6 × 14'</td>
+                <td>13' each</td>
+                <td>2× 1'</td>
+                <td>Blocking pieces</td>
+            </tr>
+            <tr>
+                <td><strong>Left Side Rim (doubled)</strong></td>
+                <td>2</td>
+                <td>2×6 × ~11.5'</td>
+                <td>11.5' (full)</td>
+                <td>None!</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td><strong>Right Side Rim (doubled)</strong></td>
+                <td>2</td>
+                <td>2×6 × ~11.5'</td>
+                <td>11.5' (full)</td>
+                <td>None!</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td><strong>Field Joists</strong></td>
+                <td>9</td>
+                <td>2×6 × ~11.5' (×9)</td>
+                <td>11.5' (full)</td>
+                <td>None!</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td><strong>Mid-Span Blocking</strong></td>
+                <td>10</td>
+                <td>2× 1' offcuts + extra</td>
+                <td>~14.5" each</td>
+                <td>—</td>
+                <td>Prevents joist twist</td>
+            </tr>
+            <tr>
+                <td><strong>Border Sleeper</strong></td>
+                <td>1</td>
+                <td>2×6 × 14'</td>
+                <td>13'</td>
+                <td>1'</td>
+                <td>Runs left→right under border, supports perpendicular pieces</td>
+            </tr>
+        </table>
+
+        <div class="tip">
+            <strong>💡 The Big Win: Zero Joist Cuts</strong><br>
+            All 11 joist pieces (2 rims + 9 field) are used at their full stock length. No waste, no measuring mistakes, no crooked cuts. The only cut is the back rim (13' from 14'). Your ~11.5' pieces were made for this.
+        </div>
+
+        <div class="tip">
+            <strong>💡 Joist Spacing Math</strong><br>
+            13' = 156". At 16" O.C. with rim on both sides: joists at 0, 16, 32, 48, 64, 80, 96, 112, 128, 144, and rim at 156". That's 11 joists total (9 field + 2 rim). Last bay (144" to 156") is 12" — totally fine.
+        </div>
+
+        <h3>Blocking Plan</h3>
+        <p>Blocking runs <strong>perpendicular to joists</strong> (left→right), at mid-span (~5.75' from back edge). This prevents the 11.5' joists from twisting and adds stiffness.</p>
+        <ul>
+            <li>One row of blocking at ~5.75' from back edge</li>
+            <li>10 pieces total (one per bay between joists)</li>
+            <li>9 pieces: ~14.5" long (16" bay minus 1.5" joist width)</li>
+            <li>1 piece: ~10.5" long (12" edge bay minus 1.5" joist width)</li>
+            <li>Cut from the 1' back rim offcut + any 14' offcuts you have</li>
+            <li>Face-screw to joists with 2.5" exterior screws</li>
+        </ul>
+
+        <div class="warning">
+            <strong>⚠️ Ledger Support</strong><br>
+            The 2×4 ledger (13') needs solid backing where the 2×4 curved joists attach. Screw the ledger to the ends of the 2×6 field joists <strong>AND</strong> add short 2×6 blocking pieces between joist ends where the ledger spans. Use 3" screws, 2 per connection.
+        </div>
+
+        <!-- DECKING LAYOUT -->
+        <h2><span class="num">02</span>5/4 Decking Layout — The 13' Solution</h2>
+
+        <p class="lead">Your boards are 12'. Your deck is 13' wide. Here's the cleanest way to handle it without waste or ugly butt joints in the walking area.</p>
+
+        <h3>The "Landing Strip" Method (Recommended)</h3>
+
+        <div class="diagram">
+MAIN DECK — Looking Down (Left→Right decking direction)
+
+←————————————————————————————————————————————————————————————————————→
+                            13' total width
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                      │
+│  ┌──────────────────────────────────────────┐  ┌────────────────┐  │
+│  │                                            │  │                │  │
+│  │     MAIN FIELD — 12' wide                  │  │   LANDING      │  │
+│  │     Full 12' boards, no cuts               │  │   STRIP        │  │
+│  │     24 rows front-to-back                  │  │   1' wide      │  │
+│  │                                            │  │                │  │
+│  │  ←—— Boards run this direction ———→        │  │ Boards run     │  │
+│  │                                            │  │ same direction │  │
+│  │                                            │  │ butt-joined    │  │
+│  │                                            │  │ to main field  │  │
+│  │                                            │  │                │  │
+│  │                                            │  │                │  │
+│  │                                            │  │                │  │
+│  │                                            │  │                │  │
+│  │                                            │  │                │  │
+│  └──────────────────────────────────────────┘  └────────────────┘  │
+│                                                                      │
+│  ◄──────── 12' —————————————————————————►  ◄─ 1' ————►          │
+│                                                                      │
+│  ↑ Back edge (box step here)        Ledger + pool edge →            │
+└─────────────────────────────────────────────────────────────────────┘
+
+BOARD LAYOUT (rows across 11.5' depth):
+
+Row 1 (front, near ledger):    12' board + 1' butt-joined piece
+Row 2:                          12' board + 1' butt-joined piece
+Row 3:                          12' board + 1' butt-joined piece
+... (24 rows total)
+
+The 1' pieces are cut from board ends and supported by
+blocking under the butt joint.
+        </div>
+
+        <p><strong>How it works:</strong></p>
+        <ol>
+            <li>Frame a 1' wide "landing strip" along the <strong>BACK edge</strong> (the edge away from the pool, where the box step will be)</li>
+            <li>The main field is 12' wide — covered perfectly by your 12' boards running left→right</li>
+            <li>The 1' strip is filled with shorter pieces butt-joined to the 12' boards</li>
+            <li>The butt joint sits over the back rim joist + a piece of 2×6 blocking for extra support</li>
+            <li>Because it's against the back edge under the step, it's barely visible and never walked on directly</li>
+        </ol>
+
+        <h3>Decking Cut List</h3>
+
+        <table>
+            <tr>
+                <th>Section</th>
+                <th>Boards Needed</th>
+                <th>Length</th>
+                <th>Cut From</th>
+            </tr>
+            <tr>
+                <td><strong>Main Field</strong> (12' wide × 11.5' deep)</td>
+                <td>24 boards</td>
+                <td>12' (full length, no cut)</td>
+                <td>24× 5/4×6 × 12'</td>
+            </tr>
+            <tr>
+                <td><strong>Landing Strip</strong> (1' wide × 11.5' deep)</td>
+                <td>24 pieces</td>
+                <td>~1' each</td>
+                <td>Cut from 3 board ends (24' total)</td>
+            </tr>
+            <tr>
+                <td><strong>Curved Section</strong> (~3.5' deep)</td>
+                <td>~8 rows</td>
+                <td>~2–4' each (varies)</td>
+                <td>~3 boards, cut to lengths</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL USED</strong></td>
+                <td><strong>~34 boards</strong></td>
+                <td>—</td>
+                <td><strong>38 on hand → ~4 spare</strong></td>
+            </tr>
+        </table>
+
+        <div class="tip">
+            <strong>💡 Decking Row Count Math</strong><br>
+            Main deck is 11.5' deep = 138". Each 5/4×6 board is ~5.5" wide + ¼" gap = 5.75" effective. 138" ÷ 5.75" = 24 rows. You can adjust the gap slightly (⅛"–⅜") to make the last row land clean on the rim without ripping a board.
+        </div>
+
+        <div class="tip">
+            <strong>💡 Curved Section Decking</strong><br>
+            Curved section is ~3.5' deep = 42". Boards run perpendicular (front-to-back), so they're cut to ~2–4' lengths. At ~5.75" effective width, 42" ÷ 5.75" = 7.3 → ~8 rows. Each piece is short, so one 12' board yields 3 pieces. About 3 boards cover the curved section.
+        </div>
+
+        <h3>Option B: The "Break Line" Border (Fancy)</h3>
+
+        <p>Instead of butt-joining 1' pieces running the same direction, frame a <strong>perpendicular border</strong> using 1' long decking pieces running front-to-back (same direction as the joists). This looks intentional — like a picture frame or an inlaid border:</p>
+
+        <div class="diagram">
+"BREAK LINE" BORDER — Perpendicular Picture-Frame Style
+
+        Main Field (12' wide)          Border (1' wide, 11.5' deep)
+        ┌────────────────────────┐  ┌────────────────────────┐
+        │                        │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │ ←—— boards left→right │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │                        │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │ ←—— same direction ——→ │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │                        │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │ ←—— 12' full boards —→ │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │                        │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │                        │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │                        │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │                        │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │                        │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │                        │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        │                        │  │  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ │
+        └────────────────────────┘  └────────────────────────┘
+                                    ↑
+                              Back edge / box step
+
+        The 1' border pieces run FRONT-TO-BACK (perpendicular to main field).
+        This creates a visual "break line" that looks designed, not patched.
+        </div>
+
+        <p><strong>How it works:</strong></p>
+        <ol>
+            <li>Frame a 1' wide border along the <strong>BACK edge</strong> (away from pool, where the box step will be)</li>
+            <li>The border pieces run <strong>front-to-back</strong> (perpendicular to the main field boards)</li>
+            <li>Each piece is ~1' long × 5.5" wide, running across the 1' strip depth</li>
+            <li>You need ~24 of them (one per row)</li>
+            <li>They sit on the doubled back rim + a 2×6 "sleeper" board running left→right for support</li>
+            <li>The perpendicular direction creates a visual border — like an accent stripe</li>
+        </ol>
+
+        <div class="tip">
+            <strong>✅ SELECTED: Break Line Border (Option B)</strong><br>
+            Perpendicular border looks intentional — like you <strong>planned</strong> the direction change. It frames the main field and draws the eye. Doubled 2×6 rims make it even beefier.
+        </div>
+
+        <h3>Side-by-Side Comparison</h3>
+
+        <div class="diagram">
+OPTION A: LANDING STRIP (Not Selected — for reference only)
+
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│  ┌──────────────────────────────────────────┐  ┌──────────┐  │
+│  │                                          │  │          │  │
+│  │     MAIN FIELD                           │  │ STRIP    │  │
+│  │     12' boards                           │  │ 1' wide  │  │
+│  │     left → right                         │  │ same dir │  │
+│  │                                          │  │ butt     │  │
+│  │                                          │  │ joined   │  │
+│  │                                          │  │          │  │
+│  │                                          │  │          │  │
+│  │                                          │  │          │  │
+│  └──────────────────────────────────────────┘  └──────────┘  │
+│                                                             │
+│  ↑ Back edge — strip hidden under box step                  │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+        ─────────────────────────────────────────────────────────────
+
+OPTION B: BREAK LINE BORDER ✅ SELECTED — Perpendicular Picture Frame
+
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│  ┌──────────────────────────────────────────┐  ┌──────────┐  │
+│  │                                          │  │ ↑↑↑↑↑↑↑ │  │
+│  │     MAIN FIELD                           │  │ ↑↑↑↑↑↑↑ │  │
+│  │     12' boards                           │  │ BORDER   │  │
+│  │     left → right                         │  │ ↑↑↑↑↑↑↑ │  │
+│  │                                          │  │ perpend  │  │
+│  │                                          │  │ icular   │  │
+│  │                                          │  │ ↑↑↑↑↑↑↑ │  │
+│  │                                          │  │ ↑↑↑↑↑↑↑ │  │
+│  └──────────────────────────────────────────┘  └──────────┘  │
+│                                                             │
+│  ↑ Back edge — border is VISIBLE, frames the deck           │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+✅ Pros:
++ Looks intentional — like a designed accent stripe
++ Picture-frame effect is visually appealing  
++ Hides the fact that boards are 12' on 13' deck
++ Perpendicular joints are stronger (interlocking)
++ Doubled 2×6 rims make the whole frame beefier
+
+Cons:
+- Slightly more complex — need 2×6 sleeper under border
+- Border is visible (which is the point, but some prefer clean)
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Support the Butt Joints — BOTH Options</strong><br>
+            Whether you use the landing strip or break line method, every butt joint needs solid support underneath. Screw a 2×6 or 2×4 "sleeper" block between joists directly under each joint. Pre-drill to prevent splitting. On the break line option, the sleeper also provides a nailing surface for the perpendicular border pieces.
+        </div>
+
+        <h3>Decking Cut List — Both Options</h3>
+
+        <table>
+            <tr>
+                <th>Section</th>
+                <th>Boards Needed</th>
+                <th>Length</th>
+                <th>Option A (Landing Strip)</th>
+                <th>Option B (Break Line)</th>
+            </tr>
+            <tr>
+                <td>Main Field</td>
+                <td>24</td>
+                <td>12' (full)</td>
+                <td>Same for both</td>
+                <td>Same for both</td>
+            </tr>
+            <tr>
+                <td>Back strip/border</td>
+                <td>3</td>
+                <td>Cut into 24× 1' pieces</td>
+                <td>Run parallel (left→right)</td>
+                <td>Run perpendicular (front→back)</td>
+            </tr>
+            <tr>
+                <td>Curved section</td>
+                <td>~3</td>
+                <td>~2–4' each</td>
+                <td>Same for both</td>
+                <td>Same for both</td>
+            </tr>
+            <tr>
+                <td>Extra sleeper (border only)</td>
+                <td>1</td>
+                <td>13' (or spliced)</td>
+                <td>Not needed</td>
+                <td>2×6 running left→right under border</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td><strong>~28</strong></td>
+                <td>—</td>
+                <td><strong>10 boards spare</strong></td>
+                <td><strong>9 boards spare + use one 2×6</strong></td>
+            </tr>
+        </table>
+
+        <!-- 2x4 LEDGER -->
+        <h2><span class="num">03</span>2×4 Ledger & Curved Section Notes</h2>
+
+        <h3>Ledger (2×4 × 13')</h3>
+        <ul>
+            <li>Runs across full 13' width at transition line (~11.5' from back edge)</li>
+            <li>Screwed to ends of 2×6 field joists AND to 2×6 blocking between joist ends</li>
+            <li>Top of ledger should be flush with top of 2×6 joists (or ½" below — decking will bridge)</li>
+            <li>Provides bearing surface for 2×4 curved joists that fan toward pool</li>
+        </ul>
+
+        <h3>Curved Joists (2×4)</h3>
+        <ul>
+            <li>Fan outward from ledger toward pool edge</li>
+            <li>Center joist: ~3.5' long (longest)</li>
+            <li>Edge joists: ~2' long (shortest)</li>
+            <li>Cut ends at angle to follow pool curve (9–11 faceted pieces)</li>
+            <li>Space ~12–16" O.C., face-screw to ledger with 2.5" screws</li>
+            <li>Joist ends rest on ECO M pedestals near coping</li>
+        </ul>
+
+        <h3>2×4 Material Needed</h3>
+        <table>
+            <tr>
+                <th>Piece</th>
+                <th>Qty</th>
+                <th>Approx Length</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Ledger</td>
+                <td>1</td>
+                <td>13'</td>
+                <td>One long 2×4, or splice two shorter pieces</td>
+            </tr>
+            <tr>
+                <td>Center curved joist</td>
+                <td>1</td>
+                <td>~3.5'</td>
+                <td>Longest, straightest piece</td>
+            </tr>
+            <tr>
+                <td>Mid curved joists</td>
+                <td>~6</td>
+                <td>2.5'–3'</td>
+                <td>Varying lengths, fanning out</td>
+            </tr>
+            <tr>
+                <td>Edge curved joists</td>
+                <td>2</td>
+                <td>~2'</td>
+                <td>Shortest, at corners</td>
+            </tr>
+            <tr>
+                <td>Curved face board (optional)</td>
+                <td>1</td>
+                <td>~13' (faceted)</td>
+                <td>Along front edge for clean look</td>
+            </tr>
+        </table>
+
+        <!-- PEDESTALS -->
+        <h2><span class="num">04</span>Pedestal Placement Plan</h2>
+
+        <p class="lead">One pedestal under every joist intersection. About 30–35 pedestals total. You have 38 on hand (19 M + 19 L).</p>
+
+        <div class="diagram">
+PEDESTAL GRID (looking down at main deck)
+
+○ = Pedestal (ECO M or L, depending on height needed)
+
+Back Edge
+←——————————————————————————————————————————————————————→
+ 13' wide
+
+    ○    ○    ○    ○    ○    ○    ○    ○    ○    ○    ○
+    │    │    │    │    │    │    │    │    │    │    │
+    ○    ○    ○    ○    ○    ○    ○    ○    ○    ○    ○
+    │    │    │    │    │    │    │    │    │    │    │
+    ○    ○    ○    ○    ○    ○    ○    ○    ○    ○    ○
+    │    │    │    │    │    │    │    │    │    │    │
+    ○    ○    ○    ○    ○    ○    ○    ○    ○    ○    ○
+
+    ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑
+   Rim  J1   J2   J3   J4   J5   J6   J7   J8   J9   Rim
+
+Joists run front-to-back (into the page).
+4 rows of pedestals across 11.5' depth = ~3.8' spacing.
+11 pedestals per row × 4 rows = 44... too many.
+
+ACTUAL PLAN:
+- 3 pedestals per joist (at ends + mid-span)
+- 11 joists (2 rim + 9 field)
+- 11 × 3 = 33 pedestals for main deck
+- Plus ~8–10 for curved section
+- Total: ~40–45 pedestals
+
+You have 38 total. Adjust spacing:
+- Put 2 pedestals per joist for interior spans
+  (11.5' span OK with 2 pedestals: ~3.8' spacing)
+- Add 3rd pedestal on outer rim joists only
+- 11 joists × 2.5 average = ~28 for main deck
+- Plus ~8 for curved section
+- Total: ~36 pedestals — within your 38.
+        </div>
+
+        <table>
+            <tr>
+                <th>Location</th>
+                <th>Pedestals</th>
+                <th>Model</th>
+                <th>Approx Height</th>
+            </tr>
+            <tr>
+                <td>Main deck field joists (×9)</td>
+                <td>2 per joist = 18</td>
+                <td>ECO M (1.4"–2.6")</td>
+                <td>~0.5"–1" (low, just leveling)</td>
+            </tr>
+            <tr>
+                <td>Main deck rim + corners</td>
+                <td>10</td>
+                <td>ECO L (2.6"–5.1") or concrete bases</td>
+                <td>~1"–2" (corners may need more lift)</td>
+            </tr>
+            <tr>
+                <td>Curved section joists</td>
+                <td>~8</td>
+                <td>ECO M (1.4"–2.6")</td>
+                <td>~0.5"–1" (minimal lift needed)</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td><strong>~36</strong></td>
+                <td>—</td>
+                <td><strong>38 on hand → 2 spare</strong></td>
+            </tr>
+        </table>
+
+        <div class="tip">
+            <strong>💡 Pedestal Spacing for 11.5' Joists</strong><br>
+            For 2×6 joists at ~11.5' span, use 2 pedestals per joist (one near each end) plus a 3rd at mid-span on the center joist and rim joists. The 11.5' span is fine with 2 supports for foot traffic — it's a deck, not a dance floor.
+        </div>
+
+        <!-- SUMMARY -->
+        <h2><span class="num">05</span>Summary: Build Day Cut Order</h2>
+
+        <p class="lead">Stain everything first, then cut. Here's the order:</p>
+
+        <ol>
+            <li><strong>Back rim:</strong> Cut one 14' 2×6 down to 13'. Offcut (1') → save for blocking.</li>
+            <li><strong>Side rims:</strong> Use two ~11.5' 2×6s at full length. NO cuts needed!</li>
+            <li><strong>Field joists:</strong> Use nine ~11.5' 2×6s at full length. NO cuts needed!</li>
+            <li><strong>Blocking:</strong> From offcut pile, cut 10 blocking pieces: nine at ~14.5", one at ~10.5".</li>
+            <li><strong>Ledger:</strong> Cut one 2×4 to 13' (or splice two shorter pieces with a 2' overlap and screws).</li>
+            <li><strong>Decking:</strong> Set aside 24 full 12' boards for main field. Cut 3 boards into 24× ~1' pieces for landing strip.</li>
+            <li><strong>Curved joists:</strong> Cut 2×4s to fan lengths: 1× ~3.5', ~6× 2'–3', 2× ~2'.</li>
+        </ol>
+
+        <div class="warning">
+            <strong>⚠️ Don't Forget</strong><br>
+            All cuts get stain on the fresh end grain BEFORE assembly. End grain drinks stain — hit it twice. The offcuts for blocking also need their ends sealed if they'll be exposed.
+        </div>
+
+        <div class="highlight-box">
+            <h3>📊 Stock Check</h3>
+            <p><strong>2×6 (~11.5') used:</strong> 13 of 31 pieces (4 for doubled side rims + 9 field joists) → 18 remaining for other projects</p>
+            <p><strong>2×6 (14') used:</strong> 3 of 11 pieces (2 for doubled back rim + 1 sleeper) → 8 remaining</p>
+            <p><strong>5/4×6 decking used:</strong> ~34 of 38 boards → ~4 spares for mistakes</p>
+            <p><strong>Pedestals used:</strong> ~36 of 38 → 2 spares</p>
+        </div>
+
+    </div>
+</body>
+</html>
