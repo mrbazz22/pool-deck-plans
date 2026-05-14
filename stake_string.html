@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#6b6560">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Stake & String">
+    <title>Pool Deck Stake & String Layout — v8.1</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f0eb;
+            color: #4a4540;
+            line-height: 1.6;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            width: 100%;
+            min-height: 100dvh;
+        }
+        
+        .page {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 25px 30px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #6b6560;
+        }
+        
+        h1 {
+            font-size: 1.7em;
+            color: #4a4540;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 0.85em;
+            color: #9a9590;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .lead {
+            background: #f5f0eb;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            border-left: 4px solid #c17a5c;
+        }
+        
+        h2 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: white;
+            background: #6b6560;
+            padding: 8px 14px;
+            border-radius: 6px;
+            margin: 25px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2 .num {
+            background: #c17a5c;
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        h3 {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #4a4540;
+            margin: 18px 0 8px;
+            border-bottom: 2px solid #e8e2db;
+            padding-bottom: 5px;
+        }
+        
+        .diagram {
+            background: #faf8f6;
+            border: 2px solid #e8e2db;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            line-height: 1.4;
+            overflow-x: auto;
+            margin: 15px 0;
+            white-space: pre;
+        }
+        
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid #c17a5c;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 0.85em;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning strong { color: #c17a5c; }
+        
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid #7a8b6e;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 0.85em;
+            border-radius: 0 8px 8px 0;
+        }
+        .tip strong { color: #7a8b6e; }
+        
+        .step {
+            display: flex;
+            gap: 12px;
+            margin: 12px 0;
+            align-items: flex-start;
+            font-size: 0.9em;
+        }
+        .step .num {
+            background: #c17a5c;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.85em;
+        }
+        th {
+            background: #6b6560;
+            color: white;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e8e2db;
+        }
+        tr:nth-child(even) { background: #faf8f6; }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 15px 0;
+        }
+        
+        .card {
+            background: #faf8f6;
+            border: 2px solid #e8e2db;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .card .label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9a9590;
+            margin-bottom: 5px;
+        }
+        .card .value {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #4a4540;
+        }
+        
+        ul { margin: 10px 0 12px 20px; font-size: 0.9em; }
+        li { margin-bottom: 6px; }
+        
+        .highlight {
+            background: #c17a5c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #e8e2db;
+            text-align: center;
+            font-size: 0.75em;
+            color: #9a9590;
+        }
+        
+        @media (max-width: 500px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .page { padding: 15px; }
+            .diagram { font-size: 0.75em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        
+        <header>
+            <h1>Pool Deck Stake & String Layout</h1>
+            <div class="subtitle">Site Prep Guide — v8.1 LOCKED · May 14, 2026</div>
+        </header>
+
+        <div class="lead">
+            <strong>🎯 Goal:</strong> Mark the exact deck footprint on the ground before any digging or grading. Uses only stakes, string, a tape measure, and a helper. No fancy tools needed.
+        </div>
+
+        <!-- TOOLS NEEDED -->
+        <h2><span class="num">1</span>Tools & Materials</h2>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="label">Stakes</div>
+                <div class="value">8–10 wooden stakes</div>
+                <div class="label" style="margin-top:8px">2×2 or 1×2 scraps · 18–24" long · Hammer or mallet</div>
+            </div>
+            <div class="card">
+                <div class="label">String</div>
+                <div class="value">100' mason line</div>
+                <div class="label" style="margin-top:8px">Bright color (orange/yellow) · Nylon or cotton · Don't use fishing line</div>
+            </div>
+            <div class="card">
+                <div class="label">Tape Measure</div>
+                <div class="value">25' minimum</div>
+                <div class="label" style="margin-top:8px">50' better for diagonals · Metal blade preferred</div>
+            </div>
+            <div class="card">
+                <div class="label">Level + Square</div>
+                <div class="value">2' level + speed square</div>
+                <div class="label" style="margin-top:8px">For checking grade and 90° corners</div>
+            </div>
+            <div class="card">
+                <div class="label">Spray Paint</div>
+                <div class="value">Fluorescent orange</div>
+                <div class="label" style="margin-top:8px">Mark ground where stakes go · Also mark pedestal spots</div>
+            </div>
+            <div class="card">
+                <div class="label">Helper</div>
+                <div class="value">1 person</div>
+                <div class="label" style="margin-top:8px">Two-person job for accuracy · Solo = lots of walking</div>
+            </div>
+        </div>
+
+        <!-- REFERENCE POINT -->
+        <h2><span class="num">2</span>Find Your Reference Point</h2>
+
+        <p style="font-size:0.9em;margin:10px 0">
+            Every measurement starts from one fixed point. For this deck, the best reference is the <strong>pool coping (the rim)</strong>. It's already level, round, and won't move.
+        </p>
+
+        <div class="tip">
+            <strong>💡 Mark the center of the pool first</strong> · Measure across the coping in 2 directions (like a + sign) · Where they cross = center · Drive a temporary stake · All radial measurements start here
+        </div>
+
+        <table>
+            <tr>
+                <th>Measurement</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Distance</th>
+            </tr>
+            <tr>
+                <td>Pool diameter</td>
+                <td>Coping edge</td>
+                <td>Opposite coping edge</td>
+                <td><strong>24'</strong></td>
+            </tr>
+            <tr>
+                <td>Pool radius</td>
+                <td>Center stake</td>
+                <td>Any coping point</td>
+                <td><strong>12'</strong></td>
+            </tr>
+            <tr>
+                <td>Deck overhang past coping</td>
+                <td>Coping edge</td>
+                <td>Deck front edge</td>
+                <td><strong>~1"</strong></td>
+            </tr>
+            <tr>
+                <td>Deck center from pool center</td>
+                <td>Pool center</td>
+                <td>Deck center</td>
+                <td><strong>~12'6"</strong> (12' radius + ~6" overhang/offset)</td>
+            </tr>
+        </table>
+
+        <!-- FOOTPRINT DIAGRAM -->
+        <h2><span class="num">3</span>The Footprint (Top View)</h2>
+
+        <div class="diagram">
+                            NORTH (House/yard direction)
+                                ↑
+                                │
+    ←———————————————————————————————————————————————————————————→
+                                │
+              ┌———————————————————————————————————————————————┐
+              │                                               │
+              │     BACK EDGE (Step location)                 │
+              │     Stake A ←———————————————————→ Stake B     │
+              │          13' wide                             │
+              │                                               │
+              │     LEFT SIDE            RIGHT SIDE           │
+              │     Stake D              Stake C                │
+              │     │                        │                  │
+              │     │                        │                  │
+              │     │    MAIN DECK           │  ← 11.5' deep    │
+              │     │    (2×6 frame)         │                  │
+              │     │                        │                  │
+              │     │                        │                  │
+              ├—————┼————————————————————————┼——————————————————┤
+              │     │  ← LEDGER (2×4)        │                  │
+              │     │                        │                  │
+              │     │    CURVED SECTION      │  ← ~3.5' deep    │
+              │     │    (2×4 joists fan     │                  │
+              │     │     toward pool)       │                  │
+              │     │                        │                  │
+              │     └————————————————————————┘                  │
+              │              ↑                                    │
+              │         ~1" overhang past coping                 │
+              │                                               │
+              │           ● Pool Coping (24' diameter)         │
+              │                                               │
+              └———————————————————————————————————————————————┘
+    </div>
+
+        <div class="tip">
+            <strong>💡 Stakes A, B, C, D</strong> define the main rectangle. The curved front is measured from the pool center outward. The ledger sits on the transition line between main deck and curve.
+        </div>
+
+        <!-- STEP BY STEP -->
+        <h2><span class="num">4</span>Step-by-Step Layout</h2>
+
+        <h3>Step 1: Mark the Back Edge (Stake A → Stake B)</h3>
+        <div class="step">
+            <span class="num">1</span>
+            <div>Decide where the <strong>back of the deck</strong> goes. This is where the step will be. Usually ~15' from the pool coping.</div>
+        </div>
+        <div class="step">
+            <span class="num">2</span>
+            <div>Drive <strong>Stake A</strong> at left corner of back edge. Use mallet until firm.</div>
+        </div>
+        <div class="step">
+            <span class="num">3</span>
+            <div>Measure <strong>13' exactly</strong> to the right. Drive <strong>Stake B</strong>. Tie string A→B tight at ground level.</div>
+        </div>
+        <div class="step">
+            <span class="num">4</span>
+            <div><strong>Verify:</strong> String should be straight, taut, touching ground. Spray paint along string for visible line.</div>
+        </div>
+
+        <h3>Step 2: Mark the Left & Right Sides (Perpendicular from A & B)</h3>
+        <div class="step">
+            <span class="num">5</span>
+            <div>At <strong>Stake A</strong>, use the <strong>3-4-5 triangle method</strong> to find a perpendicular line:
+                <ul>
+                    <li>Measure 3' along string A→B, mark with tape or thumb</li>
+                    <li>From that mark, measure 4' out into yard (away from pool)</li>
+                    <li>Adjust until the diagonal = exactly 5'</li>
+                    <li>That's your 90° angle — direction of left side</li>
+                </ul>
+            </div>
+        </div>
+        <div class="step">
+            <span class="num">6</span>
+            <div>Drive <strong>Stake D</strong> at ~11.5' from A along that perpendicular. Tie string A→D.</div>
+        </div>
+        <div class="step">
+            <span class="num">7</span>
+            <div>Repeat at <strong>Stake B</strong> — 3-4-5 triangle right side. Drive <strong>Stake C</strong> at ~11.5'. Tie string B→C.</div>
+        </div>
+
+        <div class="tip">
+            <strong>💡 Pro tip:</strong> Instead of 3-4-5, you can also use a framing square or measure diagonals: A→C and B→D should be <strong>exactly equal</strong> (both ~17' 3"). If they're not, your rectangle isn't square.
+        </div>
+
+        <h3>Step 3: Mark the Transition Line (Ledger Location)</h3>
+        <div class="step">
+            <span class="num">8</span>
+            <div>Measure <strong>11.5'</strong> from string A→B (back edge) toward the pool. Mark with spray paint across the full 13' width.</div>
+        </div>
+        <div class="step">
+            <span class="num">9</span>
+            <div>This is your <strong>2×4 ledger line</strong> — the transition between main deck (behind) and curved section (ahead).</div>
+        </div>
+        <div class="step">
+            <span class="num">10</span>
+            <div>Drive two temporary stakes along this line (left and right) and tie a string. This string will guide curved joist placement later.</div>
+        </div>
+
+        <h3>Step 4: Mark the Curved Front Edge</h3>
+        <div class="step">
+            <span class="num">11</span>
+            <div>From your <strong>pool center stake</strong>, tie a string that's <strong>12'6" long</strong> (12' pool radius + ~6" for overhang/offset).</div>
+        </div>
+        <div class="step">
+            <span class="num">12</span>
+            <div>Swing this string in an arc across the front of the deck area. Mark the ground with spray paint every 6–12". This is your <strong>curved deck edge</strong>.</div>
+        </div>
+        <div class="step">
+            <span class="num">13</span>
+            <div>The curve should intersect the left/right side strings (A→D and B→C) at points about <strong>3.5'</strong> from the transition line. This is your check — if it's way off, re-verify pool center.</div>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Double-check:</strong> The curved edge should be roughly parallel to the pool coping, about 1" outside it. Step back and eyeball it — if it looks wrong, it probably is.
+        </div>
+
+        <!-- PEDESTAL LAYOUT -->
+        <h2><span class="num">5</span>Pedestal Layout (Where the Feet Go)</h2>
+
+        <p style="font-size:0.9em;margin:10px 0">
+            Once the perimeter strings are up, mark where each pedestal will sit. Pedestals go at <strong>joist intersections</strong> — under every field joist, at rim crossings, and under blocking.
+        </p>
+
+        <div class="diagram">
+BACK EDGE (Stake A ———————————————————————————— Stake B)
+←——————————————————————————————————————————————————————————→
+
+     ○       ○       ○       ○       ○       ○       ○
+     │       │       │       │       │       │       │
+     │       │       │       │       │       │       │
+     ○       ○       ○       ○       ○       ○       ○
+     │       │       │       │       │       │       │
+     │       │       │       │       │       │       │
+     ○       ○       ○       ○       ○       ○       ○   ← Mid-span blocking
+     │       │       │       │       │       │       │       ←   (pedestals here too)
+     │       │       │       │       │       │       │
+     ○       ○       ○       ○       ○       ○       ○
+     │       │       │       │       │       │       │
+     │       │       │       │       │       │       │
+     A●———————————————————————————————————————————————————●B
+       ○     ○     ○     ○     ○     ○     ○     ○
+       │     │     │     │     │     │     │     │
+       │     │     │     │     │     │     │     │
+       └———————————————————————————————————————————————┘
+                     ↑ Pool coping (24' diameter)
+
+     ○ = Pedestal location (ECO M or L depending on ground height)
+     ● = Corner stake
+     Lines = String lines (remove after grading, before building)
+        </div>
+
+        <table>
+            <tr>
+                <th>Row</th>
+                <th>From back</th>
+                <th>Pedestals</th>
+                <th>Type</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Back rim</td>
+                <td>0'</td>
+                <td>3–4</td>
+                <td>ECO L</td>
+                <td>Highest point, may need more lift</td>
+            </tr>
+            <tr>
+                <td>Joist line 3</td>
+                <td>~4'</td>
+                <td>3</td>
+                <td>ECO M/L</td>
+                <td>Mix based on ground slope</td>
+            </tr>
+            <tr>
+                <td>Joist line 5 (mid)</td>
+                <td>~6'</td>
+                <td>3</td>
+                <td>ECO M</td>
+                <td>Middle of main deck</td>
+            </tr>
+            <tr>
+                <td>Joist line 7</td>
+                <td>~9'</td>
+                <td>3</td>
+                <td>ECO M</td>
+                <td>Near transition</td>
+            </tr>
+            <tr>
+                <td>Ledger line</td>
+                <td>~11.5'</td>
+                <td>3–4</td>
+                <td>ECO M</td>
+                <td>Supports ledger + joist ends</td>
+            </tr>
+            <tr>
+                <td>Curved joists</td>
+                <td>~13–15'</td>
+                <td>~8</td>
+                <td>ECO M</td>
+                <td>Lowest profile near coping</td>
+            </tr>
+            <tr style="background:#e8f5e9">
+                <td><strong>TOTAL</strong></td>
+                <td>—</td>
+                <td><strong>~36</strong></td>
+                <td>—</td>
+                <td><strong>38 on hand → 2 spares</strong></td>
+            </tr>
+        </table>
+
+        <div class="tip">
+            <strong>💡 Start with ECO M everywhere</strong> · Where ground is low, swap in ECO L · Where ground is high, add flat stone under ECO M · Threaded barrel gives ±½" fine-tuning
+        </div>
+
+        <!-- GRADING -->
+        <h2><span class="num">6</span>Grading & Site Prep</h2>
+
+        <h3>What to Remove</h3>
+        <ul>
+            <li>Grass and topsoil (first 2–3 inches)</li>
+            <li>Roots, rocks, stumps inside the footprint</li>
+            <li>Anything organic that will decompose and settle</li>
+        </ul>
+
+        <h3>What to Add</h3>
+        <ul>
+            <li><strong>Crushed stone:</strong> 2–3 tons of ¾" stone, spread and tamp with hand tamper or plate compactor</li>
+            <li><strong>Flat stone pavers:</strong> One under each pedestal location (more stable than gravel alone)</li>
+            <li><strong>Combo:</strong> Flat stone at corners + high-traffic spots, gravel in between</li>
+        </ul>
+
+        <h3>Level Check</h3>
+        <div class="step">
+            <span class="num">1</span>
+            <div>Lay a straight 2×6 across the footprint in multiple directions.</div>
+        </div>
+        <div class="step">
+            <span class="num">2</span>
+            <div>Check with a level. Goal: <strong>±1" across entire 13' × ~15' area</strong>. Slight slope away from pool for drainage is OK.</div>
+        </div>
+        <div class="step">
+            <span class="num">3</span>
+            <div>If low spots: add stone and tamp. If high spots: dig out or scrape down.</div>
+        </div>
+        <div class="step">
+            <span class="num">4</span>
+            <div>Tamp everything firm. Walk on it — should feel solid, not spongy.</div>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Critical:</strong> The stone base is what carries the load. Pedestals on soft ground = deck sinks. Take your time here.
+        </div>
+
+        <!-- REMOVING STRINGS -->
+        <h2><span class="num">7</span>Removing Strings & Stakes</h2>
+
+        <p style="font-size:0.9em;margin:10px 0">
+            Strings are temporary — remove them <strong>before building</strong>. The painted lines on the ground are your reference.
+        </p>
+
+        <ul>
+            <li><strong>After grading:</strong> Remove all strings. Paint lines may get covered — remark them if needed.</li>
+            <li><strong>Keep corner stakes:</strong> Leave A, B, C, D in place until frame is assembled. They help you eyeball square.</li>
+            <li><strong>Remove before decking:</strong> All stakes come out once frame is up and level. Don't build over them.</li>
+        </ul>
+
+        <!-- SUMMARY TABLE -->
+        <h2><span class="num">8</span>Quick Reference Numbers</h2>
+
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Value</th>
+                <th>Check</th>
+            </tr>
+            <tr>
+                <td>Back edge width</td>
+                <td><strong>13' 0"</strong></td>
+                <td>A→B string</td>
+            </tr>
+            <tr>
+                <td>Main deck depth</td>
+                <td><strong>11' 6"</strong></td>
+                <td>A→D or B→C</td>
+            </tr>
+            <tr>
+                <td>Transition line</td>
+                <td><strong>11' 6"</strong> from back</td>
+                <td>String across at 11.5'</td>
+            </tr>
+            <tr>
+                <td>Curved section depth</td>
+                <td><strong>~3' 6"</strong></td>
+                <td>Transition to coping</td>
+            </tr>
+            <tr>
+                <td>Total depth</td>
+                <td><strong>~15'</strong></td>
+                <td>Back edge to coping</td>
+            </tr>
+            <tr>
+                <td>Diagonal check</td>
+                <td><strong>17' 3"</strong></td>
+                <td>A→C = B→D</td>
+            </tr>
+            <tr>
+                <td>Pool center to deck center</td>
+                <td><strong>~12' 6"</strong></td>
+                <td>Swing string arc</td>
+            </tr>
+            <tr>
+                <td>Overhang past coping</td>
+                <td><strong>~1"</strong></td>
+                <td>Eyeball from pool edge</td>
+            </tr>
+            <tr>
+                <td>Pedestal count</td>
+                <td><strong>~36</strong></td>
+                <td>38 on hand</td>
+            </tr>
+        </table>
+
+        <footer>
+            <p>Pool Deck Stake & String Layout — v8.1 LOCKED · May 14, 2026</p>
+            <p>13' × ~15' Freestanding · Doubled Rims · Break Line Border · No Posts</p>
+        </footer>
+    </div>
+</body>
+</html>
