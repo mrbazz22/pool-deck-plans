@@ -213,6 +213,16 @@
             color: #9a9590;
         }
         
+        .diagram-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 12px auto;
+            border: 2px solid #e8e2db;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
         @media (max-width: 500px) {
             .grid-2 { grid-template-columns: 1fr; }
             .page { padding: 15px; }
@@ -234,6 +244,18 @@
 
         <div class="lead">
             <strong>🎯 Goal:</strong> Mark the exact deck footprint on the ground before any digging or grading. Uses only stakes, string, a tape measure, and a helper. No fancy tools needed.
+        </div>
+
+        <h3>Reference Diagrams</h3>
+        <div class="grid-2">
+            <div class="card" style="text-align:center">
+                <img src="diagrams/joist_layout_v11.1.png" alt="Joist layout" class="diagram-img" style="margin:0 0 8px 0">
+                <div class="label">Joist Layout</div>
+            </div>
+            <div class="card" style="text-align:center">
+                <img src="diagrams/decking_layout_v11.1.png" alt="Decking layout" class="diagram-img" style="margin:0 0 8px 0">
+                <div class="label">Decking Layout</div>
+            </div>
         </div>
 
         <!-- TOOLS NEEDED -->

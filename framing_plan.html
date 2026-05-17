@@ -193,6 +193,16 @@
             color: var(--stone-light);
             margin-bottom: 8px;
         }
+        .diagram-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border: 2px solid var(--cream);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
         @media (max-width: 600px) {
             .page { padding: 25px 20px; }
             h1 { font-size: 1.7em; }
@@ -245,39 +255,7 @@
         <p class="lead">Each section is framed independently as an 11' × ~12' rectangle. Joists run front-to-back at 11.5' length — no cuts. Doubled 2×6 rims on all four sides give ~12' total depth. The key win: zero joist cuts and identical sections.</p>
 
         <h3>Joist Layout Diagram (Per Section — Looking Down)</h3>
-        <div class="diagram">
-BACK EDGE (away from pool, box step here)
-←————————————————————————————————————————————————————————→
-                         11' wide
-
-┌─ Back Rim Joist (2×6 × 2, 11' — cut from 14' stock) —————————————————————┐
-│   ← doubled 2×6, face-screwed together                                   │
-│    ○  ○  ○  ○  ○  ○  ○  ○                 ← Field Joists                 │
-│    │  │  │  │  │  │  │  │                  (2×6, 11.5',                  │
-│    │  │  │  │  │  │  │  │                   16" O.C.)                    │
-│    │  │  │  │  │  │  │  │                                              │
-│    │  │  │  │  │  │  │  │       ← ~12' deep                           │
-│    │  │  │  │  │  │  │  │                                              │
-│    │  │  │  │  │  │  │  │                                              │
-│    │  │  │  │  │  │  │  │                                              │
-│    │  │  │  │  │  │  │  │                                              │
-│    │  │  │  │  │  │  │  │                                              │
-│    │  │  │  │  │  │  │  │                                              │
-│    │  │  │  │  │  │  │  │                                              │
-│    │  │  │  │  │  │  │  │                                              │
-│    │  │  │  │  │  │  │  │                                              │
-│    │  │  │  │  │  │  │  │                                              │
-├─ Side Rim (2×6 × 2, ~12')┤            ├─ Side Rim (2×6 × 2, ~12')┤
-│    (Left, doubled, full)   │            │   (Right, doubled, full)   │
-│                            │            │                            │
-├─ Front Rim (2×6 × 2, 11')———————————————————————————————————————————┤
-│   ← doubled, cut from 14' stock                                         │
-│                            ↑ Pool coping (front edge)                  │
-└————————————————————————————————————————————————————————————————————————┘
-
-TWO IDENTICAL SECTIONS side by side, separated by 6" center seam.
-Refer to diagrams/joist_layout_v11.1.png for full layout.
-        </div>
+        <img src="diagrams/joist_layout_v11.1.png" alt="Joist layout diagram showing rim joists, field joists, and pedestal placement for each 11×12 section" class="diagram-img">
 
         <h3>Full Cut List — 2×6 Lumber (Per Section × 2)</h3>
 
@@ -407,47 +385,7 @@ Refer to diagrams/joist_layout_v11.1.png for full layout.
 
         <h3>Decking Plan per Section</h3>
 
-        <div class="diagram">
-SECTION A — Looking Down (Field boards left→right)
-
-←————————————————————————————————————————————————————————————————————→
-                         11' wide
-
-┌─ Double Border (back) — boards run FRONT-TO-BACK (perpendicular) ——┐
-│  ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑    │
-│                                                                     │
-│  ← Double Border (left) — boards run LEFT→RIGHT (perpendicular)    │
-│  │  ┌────────────────────────────────────────┐  │                   │
-│  │  │                                        │  │                   │
-│  │  │     INNER FIELD                        │  │                   │
-│  │  │     9' 2" wide × 10' 2" deep             │  │                   │
-│  │  │                                        │  │                   │
-│  │  │     Boards run LEFT→RIGHT              │  │                   │
-│  │  │     (parallel to back edge)            │  │                   │
-│  │  │                                        │  │                   │
-│  │  │     ~16 rows at ~5.75" eff. width       │  │                   │
-│  │  │                                        │  │                   │
-│  │  │                                        │  │                   │
-│  │  └────────────────────────────────────────┘  │                   │
-│  │                                                │                   │
-│  → Double Border (right) — boards run LEFT→RIGHT   │                   │
-│                                                                     │
-│  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓    │
-├─ Double Border (front) — boards run FRONT-TO-BACK (perpendicular) —┤
-│                                                                     │
-│  ←—— 6" center seam gap ——→  ←—— SECTION B (identical) ——→          │
-│                                                                     │
-└————————————————————————————————————————————————————————————————————─┘
-
-BORDER DETAIL (double row, looking at edge):
-
-Outer row |████████████████████████████████|
-Inner row |████████████████████████████████|
-           ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑
-          2×6 blocking underneath every 16"
-
-Refer to diagrams/decking_layout_v11.1.png for full layout.
-        </div>
+        <img src="diagrams/decking_layout_v11.1.png" alt="Decking layout diagram showing field boards, double picture-frame borders, and center seam" class="diagram-img">
 
         <h3>Decking Cut List — Per Section</h3>
 
