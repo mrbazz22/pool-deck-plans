@@ -1,4 +1,4 @@
-# Pool Deck Plans — v11.3
+# Pool Deck Plans — v11.4
 
 **Simple freestanding rectangular pool deck. No overcomplication.**
 
@@ -86,7 +86,7 @@ This deck is built as **one continuous 22' × 12' rectangular frame** — nothin
 
 ## Version History
 
-- **v11.3** (May 2026) — **STRIPPED DOWN** to actual simple design. One 22'×12' frame. Single-row picture-frame border with 45° mitered corners. No center seam. No border blocking. ~16 mid-span blocking pieces. No "two sections" language. Matches actual Trex design intent.
+- **v11.4** (May 2026) — **STRIPPED DOWN** to actual simple design. One 22'×12' frame. Single-row picture-frame border with 45° mitered corners. No center seam. No border blocking. ~16 mid-span blocking pieces. No "two sections" language. Matches actual Trex design intent.
 - **v11.2** (May 2026) — Overcomplicated with 6" center seam, double-row borders, ~80 blocking pieces, "two visual sections" framing language. Did not match actual simple design.
 - **v11.1** (archived) — Incorrectly showed two separate 11' sections structurally.
 - **Earlier versions** — Progressive refinements from 10'×10' through 22'×12' with various railing, step, and material iterations.
