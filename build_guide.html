@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Pool Deck Guide">
-    <title>Pool Deck Build Guide — v11.1</title>
+    <title>Pool Deck Build Guide — v11.2</title>
     <style>
         :root {
             --stone: #6b6560;
@@ -21,9 +21,7 @@
             --terracotta: #c17a5c;
             --terracotta-light: #d99a7a;
         }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         html, body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--cream);
@@ -33,354 +31,73 @@
             width: 100%;
             min-height: 100dvh;
         }
-        
-        .page {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--warm-white);
-            padding: 60px 50px;
-            min-height: 100vh;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 40px;
-            border-bottom: 3px solid var(--stone);
-            position: relative;
-        }
-        
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 3px;
-            background: var(--terracotta);
-        }
-        
-        h1 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 2.8em;
-            color: var(--stone-dark);
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-        
-        .subtitle {
-            font-size: 1.15em;
-            color: var(--stone);
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        .project-meta {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-        
+        .page { max-width: 900px; margin: 0 auto; background: var(--warm-white); padding: 60px 50px; min-height: 100vh; }
+        header { text-align: center; margin-bottom: 50px; padding-bottom: 40px; border-bottom: 3px solid var(--stone); position: relative; }
+        header::after { content: ''; position: absolute; bottom: -3px; left: 50%; transform: translateX(-50%); width: 120px; height: 3px; background: var(--terracotta); }
+        h1 { font-size: 2.8em; color: var(--stone-dark); margin-bottom: 8px; letter-spacing: -0.5px; }
+        .subtitle { font-size: 1.15em; color: var(--stone); font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
+        .project-meta { display: flex; justify-content: center; gap: 40px; margin-top: 25px; flex-wrap: wrap; }
         .meta-item { text-align: center; }
-        .meta-item .label {
-            font-size: 0.75em;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--stone-light);
-            margin-bottom: 4px;
-        }
-        .meta-item .value {
-            font-weight: 600;
-            font-size: 1.1em;
-            color: var(--stone-dark);
-        }
-        
-        h2 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 1.5em;
-            color: var(--stone-dark);
-            margin: 50px 0 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--terracotta);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        h2 .num {
-            background: var(--terracotta);
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.65em;
-            flex-shrink: 0;
-        }
-        
-        h3 {
-            font-size: 1.15em;
-            color: var(--stone-dark);
-            margin: 30px 0 12px;
-            font-weight: 600;
-        }
-        
-        .lead {
-            font-size: 1.15em;
-            color: var(--stone);
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-        
+        .meta-item .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 1.5px; color: var(--stone-light); margin-bottom: 4px; }
+        .meta-item .value { font-weight: 600; font-size: 1.1em; color: var(--stone-dark); }
+        h2 { font-size: 1.5em; color: var(--stone-dark); margin: 50px 0 20px; padding-bottom: 12px; border-bottom: 2px solid var(--terracotta); display: flex; align-items: center; gap: 12px; }
+        h2 .num { background: var(--terracotta); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65em; flex-shrink: 0; }
+        h3 { font-size: 1.15em; color: var(--stone-dark); margin: 30px 0 12px; font-weight: 600; }
+        .lead { font-size: 1.15em; color: var(--stone); margin-bottom: 25px; line-height: 1.8; }
         p { margin-bottom: 15px; }
-        
         .highlight-box {
             background: linear-gradient(135deg, var(--sage) 0%, #5a6b4e 100%);
-            color: white;
-            padding: 25px 30px;
-            border-radius: 12px;
-            margin: 25px 0;
-            position: relative;
+            color: white; padding: 25px 30px; border-radius: 12px; margin: 25px 0; position: relative;
         }
-        
         .highlight-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             border-radius: 12px;
         }
-        
         .highlight-box > * { position: relative; }
         .highlight-box h3 { color: white; margin-top: 0; }
         .highlight-box p { margin-bottom: 10px; }
         .highlight-box p:last-child { margin-bottom: 0; }
-        
-        .materials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .material-card {
-            background: white;
-            border: 2px solid var(--cream);
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.2s;
-        }
-        
-        .material-card:hover {
-            border-color: var(--terracotta);
-            transform: translateY(-2px);
-        }
-        
-        .material-card .qty {
-            font-size: 2em;
-            font-weight: 700;
-            color: var(--terracotta);
-            line-height: 1;
-        }
-        
-        .material-card .desc {
-            font-size: 0.9em;
-            color: var(--stone);
-            margin-top: 8px;
-        }
-        
-        .material-card .note {
-            font-size: 0.8em;
-            color: var(--stone-light);
-            margin-top: 6px;
-            font-style: italic;
-        }
-        
-        ul, ol {
-            margin: 15px 0 20px 25px;
-        }
-        
+        .materials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 20px 0; }
+        .material-card { background: white; border: 2px solid var(--cream); border-radius: 10px; padding: 20px; transition: all 0.2s; }
+        .material-card:hover { border-color: var(--terracotta); transform: translateY(-2px); }
+        .material-card .qty { font-size: 2em; font-weight: 700; color: var(--terracotta); line-height: 1; }
+        .material-card .desc { font-size: 0.9em; color: var(--stone); margin-top: 8px; }
+        .material-card .note { font-size: 0.8em; color: var(--stone-light); margin-top: 6px; font-style: italic; }
+        ul, ol { margin: 15px 0 20px 25px; }
         li { margin-bottom: 10px; }
-        
-        .step-list {
-            list-style: none;
-            margin-left: 0;
-            counter-reset: step;
-        }
-        
-        .step-list li {
-            position: relative;
-            padding-left: 50px;
-            margin-bottom: 20px;
-            min-height: 30px;
-        }
-        
-        .step-list li::before {
-            counter-increment: step;
-            content: counter(step);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 32px;
-            height: 32px;
-            background: var(--terracotta);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.85em;
-        }
-        
-        .warning {
-            background: #fff3e0;
-            border-left: 4px solid var(--terracotta);
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .warning strong {
-            color: var(--terracotta);
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .tip {
-            background: #e8f5e9;
-            border-left: 4px solid var(--sage);
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .tip strong {
-            color: var(--sage);
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.95em;
-        }
-        
-        th {
-            background: var(--stone-dark);
-            color: white;
-            padding: 12px 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--cream);
-        }
-        
+        .step-list { list-style: none; margin-left: 0; counter-reset: step; }
+        .step-list li { position: relative; padding-left: 50px; margin-bottom: 20px; min-height: 30px; }
+        .step-list li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 32px; height: 32px; background: var(--terracotta); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; }
+        .warning { background: #fff3e0; border-left: 4px solid var(--terracotta); padding: 15px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .warning strong { color: var(--terracotta); display: block; margin-bottom: 5px; }
+        .tip { background: #e8f5e9; border-left: 4px solid var(--sage); padding: 15px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .tip strong { color: var(--sage); display: block; margin-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; }
+        th { background: var(--stone-dark); color: white; padding: 12px 15px; text-align: left; font-weight: 600; }
+        td { padding: 12px 15px; border-bottom: 1px solid var(--cream); }
         tr:nth-child(even) { background: var(--warm-white); }
         tr:hover { background: #f0ebe5; }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .team-member {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            border: 2px solid var(--cream);
-        }
-        
-        .team-member .role {
-            font-size: 1.1em;
-            font-weight: 700;
-            color: var(--stone-dark);
-            margin-bottom: 5px;
-        }
-        
-        .team-member .name {
-            font-size: 0.9em;
-            color: var(--stone);
-        }
-        
-        .team-member .task {
-            font-size: 0.8em;
-            color: var(--stone-light);
-            margin-top: 8px;
-            font-style: italic;
-        }
-        
-        .diagram-note {
-            background: var(--cream);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-        
-        footer {
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 2px solid var(--cream);
-            text-align: center;
-            color: var(--stone-light);
-            font-size: 0.85em;
-        }
-        
-        .diagram-img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 15px auto;
-            border: 2px solid var(--cream);
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        
-        .reference-img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 10px auto 20px;
-            border: 1px solid var(--cream);
-            border-radius: 6px;
-            opacity: 0.9;
-        }
-        
-        @media (max-width: 600px) {
-            .page { padding: 30px 20px; }
-            h1 { font-size: 2em; }
-            .project-meta { gap: 20px; }
-            .materials-grid { grid-template-columns: 1fr; }
-        }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .team-member { background: white; border-radius: 10px; padding: 20px; text-align: center; border: 2px solid var(--cream); }
+        .team-member .role { font-size: 1.1em; font-weight: 700; color: var(--stone-dark); margin-bottom: 5px; }
+        .team-member .name { font-size: 0.9em; color: var(--stone); }
+        .team-member .task { font-size: 0.8em; color: var(--stone-light); margin-top: 8px; font-style: italic; }
+        footer { margin-top: 60px; padding-top: 30px; border-top: 2px solid var(--cream); text-align: center; color: var(--stone-light); font-size: 0.85em; }
+        .diagram-img { max-width: 100%; height: auto; display: block; margin: 15px auto; border: 2px solid var(--cream); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .reference-img { max-width: 100%; height: auto; display: block; margin: 10px auto 20px; border: 1px solid var(--cream); border-radius: 6px; opacity: 0.9; }
+        @media (max-width: 600px) { .page { padding: 30px 20px; } h1 { font-size: 2em; } .project-meta { gap: 20px; } .materials-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="page">
         <header>
             <h1>Pool Deck Build Guide</h1>
-            <div class="subtitle">Two-Section Boardwalk — Final Design v11.1</div>
+            <div class="subtitle">One Continuous Frame — Final Design v11.2</div>
             <div class="project-meta">
                 <div class="meta-item">
                     <div class="label">Size</div>
-                    <div class="value">Two 11' × ~12'</div>
+                    <div class="value">22' × 12'</div>
                 </div>
                 <div class="meta-item">
                     <div class="label">Style</div>
@@ -398,32 +115,35 @@
         </header>
 
         <div class="highlight-box">
-            <h3>🏗️ Design Philosophy: Two-Section Boardwalk on Stone</h3>
-            <p>This is NOT a traditional deck. It's a <strong>boardwalk-style floating platform</strong> built as two independent sections that sit directly on flat stone or compacted gravel. No posts in the ground. No concrete footings. No ledger board. The entire structure rests on Eurotec ECO M/L pedestals, making it fully freestanding, ultra-low profile, and removable if needed.</p>
-            <p><strong>Key Features:</strong> Two 11' × ~12' sections side by side · 6" center seam · Double-row picture-frame border on every edge · Inner field boards run left→right · Border boards run perpendicular for a crafted, intentional look</p>
+            <h3>🏗️ Design Philosophy: One Continuous Frame, Two Visual Sections</h3>
+            <p>This is NOT a traditional deck. It's a <strong>boardwalk-style floating platform</strong> built as <strong>one continuous 22' × 12' frame</strong> that sits directly on flat stone or compacted gravel. No posts in the ground. No concrete footings. No ledger board. The entire structure rests on Eurotec ECO M/L pedestals, making it fully freestanding, ultra-low profile, and removable if needed.</p>
+            <p><strong>Key structural insight:</strong> There is ONE frame — not two separate sections. The "two sections" you see are created entirely by the <strong>picture-frame border pattern</strong> in the decking. The 6" center seam is a decking detail, not a structural break. The back and front rims are each ~22' of continuous doubled 2×6.</p>
             <p><strong>Height:</strong> Main deck ~7" above grade · Sits well above coping</p>
         </div>
 
-        <!-- MATERIALS -->
         <h2><span class="num">01</span>Materials &amp; Inventory</h2>
-        
         <p class="lead">Everything on hand is reclaimed lumber. The only purchases needed are stain, extra decking boards, and additional pedestals.</p>
-        
+
         <div class="materials-grid">
             <div class="material-card">
                 <div class="qty">~54</div>
                 <div class="desc">5/4 × 6 × ~12'</div>
-                <div class="note">38 on hand + need ~16 more · 40 field boards cut to ~9'6" · ~96 border pieces from offcuts + extra boards</div>
+                <div class="note">38 on hand + need ~16 more · Field boards + border stock + seam pieces</div>
             </div>
             <div class="material-card">
-                <div class="qty">8</div>
-                <div class="desc">2 × 6 × 14'</div>
-                <div class="note">Cut to ~12' for back/front rims · Doubled · 2 per rim, 4 per section × 2 sections · Offcuts → blocking</div>
+                <div class="qty">4</div>
+                <div class="desc">2 × 6 × ~22'</div>
+                <div class="note">Back rim (2) + front rim (2) · Doubled = 4 boards total · Continuous ~22' each</div>
             </div>
             <div class="material-card">
-                <div class="qty">~16</div>
-                <div class="desc">2 × 6 × ~11.5'</div>
-                <div class="note">Side rims + field joists · Full length, no cuts · Per section: 4 side rims + ~4–6 field joists</div>
+                <div class="qty">4</div>
+                <div class="desc">2 × 6 × ~12'</div>
+                <div class="note">Left side rim (2) + right side rim (2) · Doubled = 4 boards total</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">~17</div>
+                <div class="desc">2 × 6 × 11'6"</div>
+                <div class="note">Field joists · Full length, no cuts · ~17 joists at 16" O.C. across 22' width</div>
             </div>
             <div class="material-card">
                 <div class="qty">~80</div>
@@ -451,11 +171,6 @@
                 <div class="note">Solid color stain · 5 gal on hand · ~$0 (already purchased)</div>
             </div>
             <div class="material-card">
-                <div class="qty">✓</div>
-                <div class="desc">Roller + Covers + Brushes</div>
-                <div class="note">9" roller, ¼" nap covers, 3" quality brush, 2" edge brush · On hand</div>
-            </div>
-            <div class="material-card">
                 <div class="qty">4–5 tons</div>
                 <div class="desc">Crushed Stone / Gravel</div>
                 <div class="note">For leveling base under pedestals · Optional if using flat stone</div>
@@ -464,91 +179,65 @@
 
         <div class="warning">
             <strong>⚠️ Decking Math Check</strong>
-            Your 5/4×6 boards are ~12' long. Field boards are cut to ~9'6" — plenty of length. The ~2'6" offcuts become border pieces. With 40 field boards you get 40 offcuts; each yields ~2 border pieces. Need ~96 border pieces total, so you'll need ~8–10 extra full boards cut into border stock. Plan cuts carefully to minimize waste.
+            Your 5/4×6 boards are ~12' long. Field boards are cut to ~10' 6" — plenty of length. The ~1' 6" offcuts become border pieces. Plan cuts carefully to minimize waste.
         </div>
 
-        <!-- DESIGN OVERVIEW -->
         <h2><span class="num">02</span>Design Overview</h2>
-        
-        <p class="lead">Two 11' × ~12' freestanding sections side by side, separated by a 6" center seam. Each section gets a double-row picture-frame border on all four sides. No curved front edge. No ledger. No house connection. No posts in ground.</p>
+        <p class="lead">One continuous 22' × 12' freestanding frame. The "two sections" are purely visual — created by picture-frame borders and a 6" center seam in the decking. No structural break between sections. No ledger. No house connection. No posts in ground.</p>
 
         <h3>Structure at a Glance</h3>
         <ul>
-            <li><strong>Two sections:</strong> Each 11' wide × ~12' deep (11.5' joists + 3" doubled rims each end) · Framed separately, then decked · Separated by 6" center seam</li>
-            <li><strong>Support:</strong> Eurotec ECO M/L pedestals on flat stone or compacted gravel · NO posts in ground</li>
-            <li><strong>Framing:</strong> 2×6 joists (5.5") at 16" O.C., running front-to-back (perpendicular to back edge) · 11.5' length = zero joist cuts · ~12' total depth with doubled rims</li>
-            <li><strong>Rim joists:</strong> Doubled 2×6 on all four sides of each section · Back/front rims: ~12' from 14' stock · Side rims: 11' from 14' stock (or 11' cut from 14')</li>
+            <li><strong>One frame:</strong> 22' wide × 12' deep · Continuous doubled 2×6 rims on all four sides</li>
+            <li><strong>Back rim:</strong> ~22' doubled 2×6 · Continuous across full width · No break at center</li>
+            <li><strong>Front rim:</strong> ~22' doubled 2×6 · Continuous across full width</li>
+            <li><strong>Side rims:</strong> ~12' doubled 2×6 each · Left and right, front-to-back</li>
+            <li><strong>Field joists:</strong> 2×6 at 16" O.C., running front-to-back (perpendicular to back rim) · 11.5' length = zero joist cuts · ~17 joists across the 22' width</li>
+            <li><strong>Rim joists:</strong> Doubled 2×6 on all four sides · Back/front: ~22' · Sides: ~12'</li>
             <li><strong>Border blocking:</strong> 2×6 blocking pieces every 16" O.C. under all border zones to support perpendicular border boards</li>
-            <li><strong>Mid-span blocking:</strong> One row of 2×6 blocking at ~5.75' from back edge per section · Prevents joist twist</li>
-            <li><strong>Center seam:</strong> 6" wide perpendicular strip running full ~12' depth · Blocking underneath · Boards span the gap</li>
-            <li><strong>Inner field:</strong> 9' 2" × 10' 2" per section · Field boards run left→right (parallel to back edge)</li>
-            <li><strong>Border:</strong> Double-row picture-frame on all four sides of each section · 2 rows of 5/4×6 = 11" total border depth · Border boards run perpendicular to the edge they border</li>
-            <li><strong>Decking direction:</strong> Field boards left→right · Border boards perpendicular · Seam boards perpendicular (front-to-back)</li>
+            <li><strong>Mid-span blocking:</strong> One row of 2×6 blocking at ~5.75' from back edge · Prevents joist twist across the full 22' width</li>
+            <li><strong>Center seam:</strong> 6" wide perpendicular strip running full ~12' depth · Decking-only detail · Blocking underneath for support</li>
+            <li><strong>Inner field per visual section:</strong> ~9' 2" wide × ~10' 6" deep · Created by picture-frame borders, not by framing</li>
+            <li><strong>Border:</strong> Double-row picture-frame on all four edges · 2 rows of 5/4×6 = 11" total border depth · Border boards run perpendicular to the edge they border</li>
+            <li><strong>Decking direction:</strong> Field boards left→right (parallel to back rim) · Border boards perpendicular · Seam boards perpendicular (front-to-back)</li>
         </ul>
 
-        <h3>Dimensions per Section</h3>
+        <h3>Dimensions Summary</h3>
         <table>
-            <tr>
-                <th>Element</th>
-                <th>Dimension</th>
-                <th>Notes</th>
-            </tr>
-            <tr>
-                <td><strong>Overall section</strong></td>
-                <td>11' × ~12'</td>
-                <td>Outer dimensions of framed substructure (11.5' joists + 3" doubled rims each end)</td>
-            </tr>
-            <tr>
-                <td><strong>Inner field</strong></td>
-                <td>9' 2" × 10' 2"</td>
-                <td>After subtracting 11" double border on each side</td>
-            </tr>
-            <tr>
-                <td><strong>Border depth</strong></td>
-                <td>11" (2 rows)</td>
-                <td>5/4×6 board (~5.5" wide) × 2 rows</td>
-            </tr>
-            <tr>
-                <td><strong>Center seam</strong></td>
-                <td>6" × ~12'</td>
-                <td>Gap between sections · Filled with perpendicular boards · Full depth</td>
-            </tr>
-            <tr>
-                <td><strong>Total footprint</strong></td>
-                <td>~22' 6" × ~12'</td>
-                <td>11' + 6" + 11' = 22' 6" width · ~12' depth</td>
-            </tr>
-            <tr>
-                <td><strong>Total height</strong></td>
-                <td>~7"</td>
-                <td>5.5" joist + ~1" decking + ~0.5" pedestal adjustment</td>
-            </tr>
+            <tr><th>Element</th><th>Dimension</th><th>Notes</th></tr>
+            <tr><td><strong>Overall frame</strong></td><td>22' × 12'</td><td>One continuous substructure — no breaks</td></tr>
+            <tr><td><strong>Back/front rims</strong></td><td>~22' each</td><td>Doubled 2×6 · Continuous across full width</td></tr>
+            <tr><td><strong>Side rims</strong></td><td>~12' each</td><td>Doubled 2×6 · Left and right edges</td></tr>
+            <tr><td><strong>Field joists</strong></td><td>11' 6"</td><td>Full length, no cuts · Front-to-back at 16" O.C.</td></tr>
+            <tr><td><strong>Inner field per section</strong></td><td>~9' 2" × ~10' 6"</td><td>Visual section created by border pattern in decking</td></tr>
+            <tr><td><strong>Border depth</strong></td><td>11" (2 rows)</td><td>5/4×6 board (~5.5" wide) × 2 rows on all sides</td></tr>
+            <tr><td><strong>Center seam</strong></td><td>6" × ~12'</td><td>Decking gap only — frame is continuous underneath</td></tr>
+            <tr><td><strong>Total height</strong></td><td>~7"</td><td>5.5" joist + ~1" decking + ~0.5" pedestal adjustment</td></tr>
         </table>
 
         <div class="tip">
-            <strong>💡 Why Two Sections?</strong>
-            Two 11' sections are easier to frame, move, and level than one massive 22'+ deck. Each section is manageable by two people. The 6" center seam is a visual accent that looks intentional — like a boardwalk expansion joint — and it simplifies the build. Picture-frame borders on every edge mean every board direction is deliberate.
+            <strong>💡 Why One Frame?</strong>
+            A single 22' × 12' continuous frame is simpler, stronger, and more rigid than two separate sections. The picture-frame borders in the decking create the visual separation — it looks like two sections but behaves like one solid platform. No shimming between independent frames, no height mismatch, no seam movement.
         </div>
 
-        <!-- FRAMING DETAIL -->
         <h2><span class="num">03</span>Framing Detail</h2>
 
-        <h3>Joist Layout (Per Section — 2×6)</h3>
-        <img src="diagrams/joist_layout_v11.1.png" alt="Joist layout diagram showing rim joists, field joists, and pedestal placement for each 11×12 section" class="diagram-img">
+        <h3>Joist Layout (One Continuous 22' × 12' Frame)</h3>
+        <img src="diagrams/joist_layout_v11.2.png" alt="Joist layout diagram showing one continuous 22×12 frame with joists running front-to-back" class="diagram-img">
         <p><em>Reference: Trex design tool overhead view</em></p>
         <img src="diagrams/trex_plan_topdown_v2.png" alt="Trex design tool overhead framing plan reference" class="reference-img">
         <ul>
-            <li><strong>Outer rim joists:</strong> Doubled 2×6 perimeter band on all four sides of each section · Back/front rims: ~12' from 14' stock · Left/right rims: 11' from 14' stock (or 11' cut from 14') · All doubled = 8 boards per section</li>
-            <li><strong>Field joists:</strong> 2×6 at 16" O.C., running front-to-back (perpendicular to back edge) · Full 11.5' length — <strong>no cuts needed</strong></li>
+            <li><strong>Outer rim joists:</strong> Doubled 2×6 perimeter band on all four sides · Back/front: ~22' continuous · Sides: ~12' each</li>
+            <li><strong>Field joists:</strong> 2×6 at 16" O.C., running front-to-back (perpendicular to 22' back rim) · Full 11.5' length — <strong>no cuts needed</strong></li>
             <li><strong>Joists sit DIRECTLY on pedestals/stone:</strong> No beam underneath · Pedestals contact joist bottom directly</li>
-            <li><strong>Ends:</strong> Joists are face-screwed to rim joists with 3" exterior screws · 2 per end</li>
-            <li><strong>No ledger:</strong> Each section is self-contained · No transition line · No connection to house</li>
+            <li><strong>Ends:</strong> Joists are face-screwed to back/front rim joists with 3" exterior screws · 2 per end</li>
+            <li><strong>No ledger:</strong> The frame is self-contained · No transition line · No connection to house</li>
+            <li><strong>~17 field joists</strong> at 16" O.C. across the 22' width (plus doubled side rim joists on left/right)</li>
         </ul>
 
         <h3>Border Blocking (Critical for Picture-Frame)</h3>
         <ul>
             <li><strong>Purpose:</strong> Perpendicular border boards need support underneath since they don't land on joists · 2×6 blocking provides nailing surface</li>
-            <li><strong>Placement:</strong> Every 16" O.C. under all border zones — back edge, front edge, left side, right side of each section</li>
+            <li><strong>Placement:</strong> Every 16" O.C. under all border zones — back edge, front edge, left side, right side</li>
             <li><strong>Orientation:</strong> Blocking runs parallel to the rim it supports · Back/front blocking runs left→right · Side blocking runs front→back</li>
             <li><strong>Length:</strong> ~14–18" pieces, cut from 2×6 offcuts or extra stock</li>
             <li><strong>Attachment:</strong> Face-screwed to rim joists and adjacent field joists with 2.5" exterior screws</li>
@@ -556,29 +245,27 @@
 
         <h3>Mid-Span Blocking</h3>
         <ul>
-            <li>One row of 2×6 blocking at ~5.75' from back edge of each section · Prevents 11.5' joists from twisting</li>
-            <li>One piece per bay between field joists · ~7–9 pieces per section</li>
+            <li>One row of 2×6 blocking at ~5.75' from back edge · Prevents 11.5' joists from twisting</li>
+            <li>One piece per bay between field joists · ~16 pieces total across the 22' width</li>
             <li>Cut from 2×6 offcuts · Face-screwed to joists</li>
         </ul>
 
         <h3>Center Seam Blocking</h3>
         <ul>
-            <li>6" wide gap between the two sections runs full ~12' depth</li>
+            <li>6" wide gap in the <strong>decking only</strong> — the frame underneath is continuous</li>
             <li>2×6 blocking underneath every 16" O.C. along the seam · Supports perpendicular seam boards</li>
-            <li>~9–10 blocking pieces total · Cut from 2×6 scrap · Screwed to inner rim joists of both sections</li>
+            <li>~9–10 blocking pieces total · Cut from 2×6 scrap · Screwed to field joists on either side of the seam line</li>
         </ul>
 
         <h3>Support Pedestals</h3>
         <ul>
             <li><strong>ECO M (1.4"–2.6"):</strong> Primary pedestal for lowest profile · Use where grade is already level</li>
             <li><strong>ECO L (2.6"–5.1"):</strong> Use where ground slopes or needs more lift · Adjustable by rotating threaded barrel</li>
-            <li><strong>Placement:</strong> Roughly 2–3 per joist under field joists · Additional pedestals under rim joists and blocking points · ~25–30 pedestals per section = ~55–65 total</li>
+            <li><strong>Placement:</strong> Roughly 2–3 per joist under field joists · Additional pedestals under rim joists and blocking points · ~55–65 total</li>
             <li><strong>Base:</strong> Flat stone pavers (most stable) OR compacted gravel (cheaper) OR combo — flat stone at corners/peaks, gravel in between</li>
         </ul>
 
-        <!-- STAINS & FINISHING -->
         <h2><span class="num">04</span>Stain &amp; Finishing</h2>
-        
         <p class="lead">Stain BEFORE you build. Every piece gets all six faces sealed on sawhorses before it goes in the truck.</p>
 
         <h3>Product</h3>
@@ -596,7 +283,7 @@
 
         <ol class="step-list">
             <li><strong>Prep:</strong> Pressure wash all boards, apply wood brightener, let dry 48+ hours. No heavy sanding needed — the rough-sawn texture is part of the look.</li>
-            <li><strong>Setup:</strong> Stack boards on flat sawhorses with ½" gaps for air circulation. Label every piece with its planned position (e.g., "SEC-A-FIELD-3", "SEC-A-BORDER-L1") using painter's tape and marker.</li>
+            <li><strong>Setup:</strong> Stack boards on flat sawhorses with ½" gaps for air circulation. Label every piece with its planned position using painter's tape and marker.</li>
             <li><strong>End grain first:</strong> Brush a heavy coat on all cut ends — they drink stain. Let dry 30 min.</li>
             <li><strong>Faces:</strong> Roll the broad surfaces with a ¼" nap roller for speed, then back-brush with a quality 3" brush to work stain into cracks and give that hand-finished look.</li>
             <li><strong>Edges:</strong> Brush all four edges, especially where boards will butt together.</li>
@@ -633,51 +320,48 @@
             </div>
         </div>
 
-        <!-- BUILD SEQUENCE -->
         <h2><span class="num">05</span>Build Sequence</h2>
-
         <p class="lead">Build in phases: Prep → Frame → Block → Deck. Each phase needs dry weather.</p>
 
         <h3>Phase 1: Site Prep</h3>
         <ol class="step-list">
             <li>Clear site of debris, roots, and any vegetation within deck footprint (~23' × 12').</li>
             <li>Rough-grade the area with a rake and shovel. Goal: within ±1" of level across entire area.</li>
-            <li>Mark out two 11' × ~12' rectangles side by side with 6" gap between them. Use string lines and spray paint.</li>
+            <li>Mark out one 22' × 12' rectangle. Use string lines and spray paint.</li>
             <li>Spread 4–5 tons of crushed stone (¾" or smaller) OR place flat stone pavers at pedestal locations. Tamp well.</li>
             <li>Lay out pedestal locations with spray paint. Grid: 2–3 pedestals per joist, plus extras under rims and blocking.</li>
             <li>Install ECO M/L pedestals, adjusting height so tops are roughly level. Fine-tune during framing.</li>
         </ol>
 
-        <h3>Phase 2: Frame Two Sections</h3>
+        <h3>Phase 2: Frame the Deck (One Continuous 22' × 12')</h3>
         <ol class="step-list">
-            <li>Cut 2×6 back/front rims: cut four 14' boards to ~12' each (2 per section). Offcuts (~2') save for blocking.</li>
-            <li>Assemble Section A outer rim on ground: rectangle 11' × ~12' with doubled 2×6 on all sides. Check diagonal for square.</li>
-            <li>Install Section A field joists: 2×6 at 16" O.C., running front-to-back. Face-screw to rim with <strong>3" exterior screws</strong> or structural screws. Use 2 per end.</li>
-            <li>Repeat for Section B.</li>
-            <li>Place assembled frames onto pedestals. Adjust pedestal heights so frames are level and at correct height (~7" total, leaving room for 1" decking). Check that the 6" seam gap is consistent.</li>
-            <li>Add <strong>diagonal bracing</strong> inside each section: Install 2×4 or 2×6 cross-bracing between field joists at corners to prevent racking. Screw through joists into brace ends.</li>
+            <li>Cut back/front rims: four ~22' 2×6s (or two 22' boards doubled each). These are continuous — no splice at center.</li>
+            <li>Assemble outer rim on ground: rectangle 22' × 12' with doubled 2×6 on all sides. Check diagonal for square.</li>
+            <li>Install field joists: 2×6 at 16" O.C., running front-to-back. Face-screw to back/front rims with <strong>3" exterior screws</strong> or structural screws. Use 2 per end.</li>
+            <li>Place assembled frame onto pedestals. Adjust pedestal heights so frame is level and at correct height (~7" total, leaving room for 1" decking).</li>
+            <li>Add <strong>diagonal bracing</strong> inside the frame: Install 2×4 or 2×6 cross-bracing between field joists at corners to prevent racking. Screw through joists into brace ends.</li>
         </ol>
 
         <h3>Phase 3: Blocking</h3>
         <ol class="step-list">
-            <li><strong>Mid-span blocking:</strong> Install one row of 2×6 blocking at ~5.75' from back edge in each section. One piece per bay between field joists.</li>
-            <li><strong>Border blocking:</strong> Install 2×6 pieces every 16" O.C. under all border zones of each section — back edge, front edge, left side, right side. This is critical for supporting perpendicular border boards.</li>
-            <li><strong>Center seam blocking:</strong> Install 2×6 blocking every 16" O.C. underneath the 6" seam gap. Screwed to inner rim joists of both sections.</li>
+            <li><strong>Mid-span blocking:</strong> Install one row of 2×6 blocking at ~5.75' from back edge. One piece per bay between field joists across the full 22' width.</li>
+            <li><strong>Border blocking:</strong> Install 2×6 pieces every 16" O.C. under all border zones — back edge, front edge, left side, right side. This is critical for supporting perpendicular border boards.</li>
+            <li><strong>Center seam blocking:</strong> Install 2×6 blocking every 16" O.C. along the 6" seam line. Screwed to adjacent field joists on both sides.</li>
             <li>Apply butyl joist tape to tops of all joists, rims, and blocking before decking.</li>
         </ol>
 
         <h3>Phase 4: Decking — Inner Field</h3>
         <ol class="step-list">
-            <li>Start at back edge of each section. Lay 5/4×6 field boards left→right (parallel to back edge), working toward the front.</li>
-            <li>Each field board is cut to ~10' 2" (from 12' stock). The ~1' 10" offcut becomes border stock.</li>
+            <li>Start at back edge. Lay 5/4×6 field boards left→right (parallel to back rim), working toward the front.</li>
+            <li>Stop the field decking 11" from all edges — leave room for the double border.</li>
+            <li>At the center, leave a 6" gap between the left field and right field — this is the center seam.</li>
             <li>Space boards <strong>⅛"–3/16"</strong> apart for drainage. Screw with 2.5" exterior screws, two per joist.</li>
-            <li>Stop each section's field decking 11" from all edges — leave room for the double border.</li>
             <li>Verify field boards end cleanly at the border line. Trim if needed before installing borders.</li>
         </ol>
 
         <h3>Phase 5: Decking — Picture-Frame Borders</h3>
         <ol class="step-list">
-            <li>Install <strong>outer border row</strong> first on all four sides of each section. Boards run perpendicular to the edge they border.</li>
+            <li>Install <strong>outer border row</strong> first on all four sides. Boards run perpendicular to the edge they border.</li>
             <li>Back/front borders: boards run front-to-back, butted against the field edge. Each piece is ~11" long (spanning the full border depth). Space ⅛" apart.</li>
             <li>Side borders: boards run left→right, butted against the field edge. Each piece ~11" long.</li>
             <li>Install <strong>inner border row</strong> inside the outer row, same perpendicular direction. This creates the double-row picture-frame effect.</li>
@@ -690,19 +374,17 @@
             <li>Lay 5/4×6 boards across the 6" seam gap, running front-to-back (perpendicular to the seam).</li>
             <li>Each piece is ~6" long, cut to span the gap. Space ⅛" apart.</li>
             <li>Screw into seam blocking underneath. ~24–26 pieces total.</li>
-            <li>The seam boards create a visual "expansion joint" that looks intentional.</li>
+            <li>The seam boards create a visual "expansion joint" that looks intentional — like a boardwalk detail.</li>
         </ol>
 
         <h3>Phase 7: Railings &amp; Step</h3>
         <ol class="step-list">
-            <li><strong>Rail posts:</strong> Surface-mount short 6×6 posts (~3' total length) at outer corners and mid-points of the combined deck. Pre-drill, attach with ½" lag screws and washers into blocking below.</li>
-            <li><strong>Rails:</strong> Two 2×6 horizontal rails per section, 36" above deck surface. Butt joints at posts.</li>
+            <li><strong>Rail posts:</strong> Surface-mount short 6×6 posts (~3' total length) at outer corners and mid-points. Pre-drill, attach with ½" lag screws and washers into blocking below.</li>
+            <li><strong>Rails:</strong> Two 2×6 horizontal rails, 36" above deck surface. Butt joints at posts.</li>
             <li><strong>Box step:</strong> Wide box step on back/outer edge. Single 7" rise using 2×6 frame and 5/4 tread. Size: at least 3' wide for comfortable access.</li>
         </ol>
 
-        <!-- RAILINGS -->
         <h2><span class="num">06</span>Railings &amp; Safety</h2>
-
         <ul>
             <li><strong>Height:</strong> 36" above deck surface (standard residential)</li>
             <li><strong>Posts:</strong> 6×6 nominal (actual 5.5" × 5.5") · Short pieces (~3' total) · Surface-mounted with lag screws into blocking</li>
@@ -710,20 +392,20 @@
             <li><strong>No gate:</strong> Continuous railing around outer perimeter — box step provides access</li>
         </ul>
 
-        <!-- DECKING NOTES -->
         <h2><span class="num">07</span>Decking Notes</h2>
 
         <h3>Picture-Frame Double Border</h3>
-        <img src="diagrams/decking_layout_v11.1.png" alt="Decking layout diagram showing field boards, double picture-frame borders, and center seam" class="diagram-img">
+        <img src="diagrams/decking_layout_v11.2.png" alt="Decking layout diagram showing field boards, double picture-frame borders, and center seam" class="diagram-img">
         <p><em>Reference: Trex design tool 3D perspective view</em></p>
         <img src="diagrams/trex_3d_perspective_v2.png" alt="Trex design tool 3D perspective view of decking layout" class="reference-img">
         <p>The double-row picture-frame border is the signature detail of this deck. Here's how it works:</p>
         <ul>
-            <li><strong>Field boards</strong> run left→right (parallel to back edge), covering the 9' 2" × 10' 2" inner area of each section</li>
-            <li><strong>Border boards</strong> run perpendicular to the edge they border · Back/front borders run front-to-back · Side borders run left→-right</li>
+            <li><strong>Field boards</strong> run left→right (parallel to back rim), covering the inner area</li>
+            <li><strong>Border boards</strong> run perpendicular to the edge they border · Back/front borders run front-to-back · Side borders run left→right</li>
             <li><strong>Two rows deep:</strong> Each border zone is 11" deep (2 rows of 5/4×6 at ~5.5" wide each)</li>
             <li><strong>Visual effect:</strong> The perpendicular border creates a crisp frame around the field, like a picture frame. The double row adds visual weight and a crafted, intentional look.</li>
             <li><strong>Structural benefit:</strong> Perpendicular borders interlock with the field edge, reducing lateral movement and giving the deck edge more rigidity</li>
+            <li><strong>Center seam:</strong> A 6" gap in the decking, filled with short perpendicular boards, creates the visual break between the two "sections" — but the frame underneath is one continuous piece</li>
         </ul>
 
         <h3>Border Blocking Is Essential</h3>
@@ -732,23 +414,22 @@
             Perpendicular border boards only touch the rim joist at one end. Without blocking underneath every 16", the free end of each short border piece will flex, squeak, and eventually crack. The 2×6 blocking pieces are cut from offcuts — there's no reason to skip this step.
         </div>
 
-        <h3>Center Seam</h3>
-        <p>The 6" center seam between sections is both practical and visual:</p>
+        <h3>Center Seam — Decking Detail Only</h3>
+        <p>The 6" center seam is purely a visual and drainage feature in the decking layer:</p>
         <ul>
-            <li><strong>Practical:</strong> Allows each section to expand/contract independently · Simplifies framing — no need to splice or join two sections</li>
+            <li><strong>Structural reality:</strong> The 2×6 frame underneath is continuous — no break, no gap, no separate sections</li>
             <li><strong>Visual:</strong> Short perpendicular boards across the seam look like an expansion joint — common on boardwalks and docks</li>
             <li><strong>Drainage:</strong> The gap allows water to drain through instead of pooling</li>
+            <li><strong>Expansion:</strong> Allows the left and right decking fields to expand/contract independently within their bordered areas</li>
         </ul>
 
         <h3>Cut Strategy for 5/4×6</h3>
         <div class="tip">
             <strong>💡 Optimize Your Cuts</strong>
-            Each 12' board yields one ~10' 2" field board + one ~1' 10" offcut. Each offcut yields ~1 border piece (~11" each). Plan your cuts so the offcuts are clean and straight — wavy or cracked ends should be trimmed before cutting border stock.
+            Field boards are cut from 12' stock. Each 12' board yields one ~10' 6" field piece + one ~1' 6" offcut. Plan your cuts so the offcuts are clean and straight — wavy or cracked ends should be trimmed before cutting border stock.
         </div>
 
-        <!-- TOOLS -->
         <h2><span class="num">08</span>Tools Needed</h2>
-
         <div class="materials-grid">
             <div class="material-card">
                 <div class="qty">🔧</div>
@@ -782,90 +463,47 @@
             </div>
         </div>
 
-        <!-- TIMELINE -->
         <h2><span class="num">09</span>Build Timeline</h2>
-
         <table>
-            <tr>
-                <th>Phase</th>
-                <th>Duration</th>
-                <th>Weather</th>
-                <th>Team</th>
-            </tr>
-            <tr>
-                <td>Site Prep + Stain</td>
-                <td>2–3 days</td>
-                <td>Dry, 60–80°F</td>
-                <td>All hands</td>
-            </tr>
-            <tr>
-                <td>Framing (two sections)</td>
-                <td>1–2 days</td>
-                <td>Dry, no wind</td>
-                <td>You + 1 helper</td>
-            </tr>
-            <tr>
-                <td>Blocking + Joist Tape</td>
-                <td>½ day</td>
-                <td>Dry</td>
-                <td>You + helper</td>
-            </tr>
-            <tr>
-                <td>Decking (field + border + seam)</td>
-                <td>1–2 days</td>
-                <td>Dry</td>
-                <td>You + 1 helper</td>
-            </tr>
-            <tr>
-                <td>Railings + Step</td>
-                <td>½ day</td>
-                <td>Any</td>
-                <td>You + helper</td>
-            </tr>
-            <tr>
-                <td><strong>Total</strong></td>
-                <td><strong>4–7 days</strong></td>
-                <td>—</td>
-                <td>—</td>
-            </tr>
+            <tr><th>Phase</th><th>Duration</th><th>Weather</th><th>Team</th></tr>
+            <tr><td>Site Prep + Stain</td><td>2–3 days</td><td>Dry, 60–80°F</td><td>All hands</td></tr>
+            <tr><td>Framing (one 22'×12' frame)</td><td>1–2 days</td><td>Dry, no wind</td><td>You + 1 helper</td></tr>
+            <tr><td>Blocking + Joist Tape</td><td>½ day</td><td>Dry</td><td>You + helper</td></tr>
+            <tr><td>Decking (field + border + seam)</td><td>1–2 days</td><td>Dry</td><td>You + 1 helper</td></tr>
+            <tr><td>Railings + Step</td><td>½ day</td><td>Any</td><td>You + helper</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>4–7 days</strong></td><td>—</td><td>—</td></tr>
         </table>
 
-        <!-- QUICK TIPS -->
         <h2><span class="num">10</span>Quick Tips &amp; Gotchas</h2>
 
         <div class="tip">
             <strong>💡 Start staining before you think you're ready</strong>
             Staining takes longer than building. If you have dry weather coming, start washing boards 2 days before you plan to stain. They need 48 hours to dry.
         </div>
-
         <div class="tip">
             <strong>💡 Build a "test section"</strong>
-            Before committing both sections, build a 4' × 4' test section with a few pedestals, one joist, and a couple decking boards. Verify heights, pedestal stability, and how it feels to walk on before scaling up.
+            Before committing the full frame, build a 4' × 4' test section with a few pedestals, one joist, and a couple decking boards. Verify heights, pedestal stability, and how it feels to walk on before scaling up.
         </div>
-
         <div class="warning">
             <strong>⚠️ Don't over-tighten pedestal screws</strong>
             The ECO pedestals have a threaded barrel for height adjustment. Crank them snug, but don't reef on them — the plastic threads can strip if you're aggressive.
         </div>
-
         <div class="tip">
             <strong>💡 Picture-frame corners look best mitered</strong>
             For the outer border row, miter the corners at 45° for a clean, finished look. The inner border row can butt directly against the outer row — no need to miter both rows.
         </div>
-
         <div class="tip">
             <strong>💡 Leave the labels on during build</strong>
-            The painter's tape labels you put on during staining? Leave them on until the piece is installed. You'll thank yourself when you're hunting for "SEC-A-BORDER-L3" in a pile of identical boards.
+            The painter's tape labels you put on during staining? Leave them on until the piece is installed. You'll thank yourself when you're hunting for a specific board in a pile of identical boards.
         </div>
-
         <div class="warning">
-            <strong>⚠️ Check the 6" seam gap before decking</strong>
-            Verify the center seam is consistently 6" before you cut seam boards. If one end is 5" and the other is 7", your seam pieces won't fit. Adjust framing or shim as needed.
+            <strong>⚠️ One frame = simpler leveling</strong>
+            With a single continuous frame, you don't have to worry about two separate sections being at different heights. Level the one frame, and the whole deck is flat. The picture-frame borders and center seam do the visual separation for you.
         </div>
 
         <footer>
-            <p>Pool Deck Build Guide — Final Design v11.1 · Updated May 17, 2026</p>
-            <p>Two-Section Ultra-Low Profile Boardwalk · BEHR Stonehedge · Reclaimed Lumber</p>
+            <p>Pool Deck Build Guide — Final Design v11.2 · Updated May 17, 2026</p>
+            <p>One Continuous 22'×12' Frame · Picture-Frame Double Border · BEHR Stonehedge · Reclaimed Lumber</p>
         </footer>
     </div>
 </body>

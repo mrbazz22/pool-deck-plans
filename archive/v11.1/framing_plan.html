@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://mrbazz22.github.io/pool-deck-plans/apple-touch-icon.png">
+    <meta name="theme-color" content="#6b6560">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Deck Framing Plan">
+    <title>Pool Deck Framing Plan &amp; Cut List — v11.1</title>
+    <style>
+        :root {
+            --stone: #6b6560;
+            --stone-light: #9a9590;
+            --stone-dark: #4a4540;
+            --cream: #f5f0eb;
+            --warm-white: #faf8f6;
+            --sage: #7a8b6e;
+            --sage-light: #a3b094;
+            --terracotta: #c17a5c;
+            --terracotta-light: #d99a7a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--cream);
+            color: var(--stone-dark);
+            line-height: 1.7;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            min-height: 100dvh;
+        }
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--warm-white);
+            padding: 50px 40px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--stone);
+        }
+        h1 {
+            font-size: 2.2em;
+            color: var(--stone-dark);
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 1em;
+            color: var(--stone);
+            font-weight: 300;
+        }
+        h2 {
+            font-size: 1.35em;
+            color: var(--stone-dark);
+            margin: 35px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--terracotta);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2 .num {
+            background: var(--terracotta);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            flex-shrink: 0;
+        }
+        h3 {
+            font-size: 1.1em;
+            color: var(--stone-dark);
+            margin: 25px 0 10px;
+            font-weight: 600;
+        }
+        p { margin-bottom: 12px; }
+        .lead {
+            font-size: 1.05em;
+            color: var(--stone);
+            margin-bottom: 20px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, var(--sage) 0%, #5a6b4e 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .highlight-box h3 { color: white; margin-top: 0; }
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid var(--terracotta);
+            padding: 12px 18px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95em;
+        }
+        .warning strong { color: var(--terracotta); }
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid var(--sage);
+            padding: 12px 18px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95em;
+        }
+        .tip strong { color: var(--sage); }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.92em;
+        }
+        th {
+            background: var(--stone-dark);
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--cream);
+        }
+        tr:nth-child(even) { background: var(--warm-white); }
+        .diagram {
+            background: #fff;
+            border: 2px solid var(--cream);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.82em;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .cut-card {
+            background: white;
+            border: 2px solid var(--cream);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .cut-card .from {
+            font-size: 0.8em;
+            color: var(--stone-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .cut-card .yield {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: var(--stone-dark);
+        }
+        .cut-card .offcut {
+            font-size: 0.85em;
+            color: var(--terracotta);
+            margin-top: 4px;
+        }
+        .cut-card .offcut strong { color: var(--terracotta); }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .big-number {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--terracotta);
+            line-height: 1;
+        }
+        .stat-card {
+            background: white;
+            border: 2px solid var(--cream);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card .label {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--stone-light);
+            margin-bottom: 8px;
+        }
+        .diagram-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border: 2px solid var(--cream);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .reference-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto 20px;
+            border: 1px solid var(--cream);
+            border-radius: 6px;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 600px) {
+            .page { padding: 25px 20px; }
+            h1 { font-size: 1.7em; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .diagram { font-size: 0.72em; padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <h1>Pool Deck Framing Plan &amp; Cut List — v11.1</h1>
+            <div class="subtitle">Picture-Frame Double Border — Cut List &amp; Layout · <strong>v11.1</strong> · May 17, 2026</div>
+        </header>
+
+        <div class="highlight-box">
+            <h3>📐 Design Summary</h3>
+            <p><strong>Two sections:</strong> Each 11' wide × ~12' deep · Separated by 6" center seam · <strong>Doubled 2×6 rims</strong> all around each section · Joists run front-to-back, 11.5' length · <strong>Zero joist cuts</strong> · ~12' total depth with rims</p>
+            <p><strong>Inner field:</strong> 9' 2" × 10' 2" per section · <strong>Double border:</strong> 11" deep on all four sides (2 rows of 5/4×6) · <strong>Picture-frame:</strong> Border boards run perpendicular to the edge</p>
+            <p><strong>Total footprint:</strong> ~22' 6" × ~12' · <strong>Pedestals:</strong> ~55–65 total · <strong>No ledger, no curved section, no transition</strong></p>
+        </div>
+
+        <!-- STATS -->
+        <div class="grid-2" style="margin: 25px 0;">
+            <div class="stat-card">
+                <div class="label">Per Section</div>
+                <div class="big-number">11' × ~12'</div>
+                <div style="font-size: 0.85em; color: var(--stone); margin-top: 5px;">overall (11.5' joists + doubled rims)</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Inner Field</div>
+                <div class="big-number">9' 2" × 10' 2"</div>
+                <div style="font-size: 0.85em; color: var(--stone); margin-top: 5px;">field board area per section</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Border Depth</div>
+                <div class="big-number">11"</div>
+                <div style="font-size: 0.85em; color: var(--stone); margin-top: 5px;">double row on all sides</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Center Seam</div>
+                <div class="big-number">6"</div>
+                <div style="font-size: 0.85em; color: var(--stone); margin-top: 5px;">gap between sections</div>
+            </div>
+        </div>
+
+        <!-- FRAMING PLAN -->
+        <h2><span class="num">01</span>2×6 Framing Plan</h2>
+
+        <p class="lead">Each section is framed independently as an 11' × ~12' rectangle. Joists run front-to-back at 11.5' length — no cuts. Doubled 2×6 rims on all four sides give ~12' total depth. The key win: zero joist cuts and identical sections.</p>
+
+        <h3>Joist Layout Diagram (Per Section — Looking Down)</h3>
+        <img src="diagrams/joist_layout_v11.1.png" alt="Joist layout diagram showing rim joists, field joists, and pedestal placement for each 11×12 section" class="diagram-img">
+
+        <h3>Full Cut List — 2×6 Lumber (Per Section × 2)</h3>
+
+        <div class="tip">
+            <strong>💡 Doubled Rims for Strength</strong><br>
+            All four rim joists are <strong>doubled 2×6</strong> (two boards face-screwed together). This makes the frame beefier, gives the border blocking something solid to anchor to, and matches the substantial look of the railings.
+        </div>
+
+        <table>
+            <tr>
+                <th>Piece</th>
+                <th>Qty per Section</th>
+                <th>Qty Total</th>
+                <th>Cut From</th>
+                <th>Length</th>
+                <th>Offcut</th>
+            </tr>
+            <tr>
+                <td><strong>Back Rim Joist (doubled)</strong></td>
+                <td>2 boards</td>
+                <td>4 boards</td>
+                <td>2×6 × 14'</td>
+                <td>~12' each</td>
+                <td>~2' each → blocking</td>
+            </tr>
+            <tr>
+                <td><strong>Front Rim Joist (doubled)</strong></td>
+                <td>2 boards</td>
+                <td>4 boards</td>
+                <td>2×6 × 14'</td>
+                <td>~12' each</td>
+                <td>~2' each → blocking</td>
+            </tr>
+            <tr>
+                <td><strong>Left Side Rim (doubled)</strong></td>
+                <td>2 boards</td>
+                <td>4 boards</td>
+                <td>2×6 × 14'</td>
+                <td>~12' each</td>
+                <td>~2' each → blocking</td>
+            </tr>
+            <tr>
+                <td><strong>Right Side Rim (doubled)</strong></td>
+                <td>2 boards</td>
+                <td>4 boards</td>
+                <td>2×6 × 14'</td>
+                <td>~12' each</td>
+                <td>~2' each → blocking</td>
+            </tr>
+            <tr>
+                <td><strong>Field Joists</strong></td>
+                <td>7–9</td>
+                <td>14–18</td>
+                <td>2×6 × ~11.5'</td>
+                <td>11.5' (full)</td>
+                <td>None!</td>
+            </tr>
+            <tr>
+                <td><strong>Mid-Span Blocking</strong></td>
+                <td>~8</td>
+                <td>~16</td>
+                <td>2×6 offcuts/scrap</td>
+                <td>~14–18" each</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td><strong>Border Blocking</strong></td>
+                <td>~30</td>
+                <td>~60</td>
+                <td>2×6 offcuts/scrap</td>
+                <td>~14–18" each</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td><strong>Center Seam Blocking</strong></td>
+                <td>~5</td>
+                <td>~10</td>
+                <td>2×6 offcuts/scrap</td>
+                <td>~6" each</td>
+                <td>—</td>
+            </tr>
+        </table>
+
+        <div class="tip">
+            <strong>💡 The Big Win: Zero Joist Cuts</strong><br>
+            All field joists and side rims use full stock length. Only the back/front rims need cutting (11' from 14' stock). The 3' offcuts become perfect blocking stock.
+        </div>
+
+        <div class="tip">
+            <strong>💡 Joist Spacing Math</strong><br>
+            11' = 132". At 16" O.C. with rim on both sides: joists at 0, 16, 32, 48, 64, 80, 96, 112, 128, and rim at 132". That's ~8–9 joists per section (6–7 field + 2 rim). Clean, simple numbers.
+        </div>
+
+        <h3>Blocking Plan</h3>
+
+        <h4>Mid-Span Blocking</h4>
+        <p>One row of 2×6 blocking at ~5.75' from back edge of each section. Prevents the 11.5' joists from twisting and adds stiffness.</p>
+        <ul>
+            <li>~8 pieces per section (one per bay between field joists)</li>
+            <li>~14–18" long (bay width minus 1.5" joist width)</li>
+            <li>Cut from 3' rim offcuts or scrap 2×6</li>
+            <li>Face-screw to joists with 2.5" exterior screws</li>
+        </ul>
+
+        <h4>Border Blocking (Picture-Frame Support)</h4>
+        <p>Critical support for perpendicular border boards. Installed every 16" O.C. under all border zones.</p>
+        <ul>
+            <li><strong>Back edge:</strong> 2×6 pieces running left→right, every 16" O.C. · ~8 pieces per section · Screwed to back rim and field joist ends</li>
+            <li><strong>Front edge:</strong> 2×6 pieces running left→right, every 16" O.C. · ~8 pieces per section</li>
+            <li><strong>Left/right sides:</strong> 2×6 pieces running front-to-back, every 16" O.C. · ~6 pieces per side per section · ~12 per section total</li>
+            <li><strong>Total per section:</strong> ~28–30 border blocking pieces · ~60 total</li>
+            <li><strong>Length:</strong> ~14–18" each · Cut from 2×6 scrap or rim offcuts</li>
+        </ul>
+
+        <h4>Center Seam Blocking</h4>
+        <p>Supports the short perpendicular boards spanning the 6" gap between sections.</p>
+        <ul>
+            <li>~5 pieces per side of seam = ~10 total (spaced every 16" O.C. along ~12' depth)</li>
+            <li>Each piece ~6" long · Cut from 2×6 scrap</li>
+            <li>Screwed to inner rim joists of both sections</li>
+        </ul>
+
+        <!-- DECKING LAYOUT -->
+        <h2><span class="num">02</span>5/4×6 Decking Layout — Picture-Frame Double Border</h2>
+
+        <p class="lead">Field boards run left→right. Border boards run perpendicular. Center seam boards run front-to-back. Every direction change is intentional and visually crisp.</p>
+
+        <h3>Decking Plan per Section</h3>
+
+        <img src="diagrams/decking_layout_v11.1.png" alt="Decking layout diagram showing field boards, double picture-frame borders, and center seam" class="diagram-img">
+        <p><em>Reference: Trex design tool 3D perspective view</em></p>
+        <img src="diagrams/trex_3d_perspective_v2.png" alt="Trex design tool 3D perspective view of decking layout" class="reference-img">
+
+        <h3>Decking Cut List — Per Section</h3>
+
+        <table>
+            <tr>
+                <th>Section</th>
+                <th>Boards Needed</th>
+                <th>Cut Length</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td><strong>Inner Field</strong> (9' 2" wide × 10' 2" deep)</td>
+                <td>~18 boards</td>
+                <td>~10' 2" (from 12' stock)</td>
+                <td>~1' 10" offcut becomes border stock</td>
+            </tr>
+            <tr>
+                <td><strong>Back Border (double row)</strong></td>
+                <td>~34 pieces</td>
+                <td>~11" each</td>
+                <td>2 rows × ~17 pieces · Run front-to-back</td>
+            </tr>
+            <tr>
+                <td><strong>Front Border (double row)</strong></td>
+                <td>~34 pieces</td>
+                <td>~11" each</td>
+                <td>2 rows × ~17 pieces · Run front-to-back</td>
+            </tr>
+            <tr>
+                <td><strong>Left Border (double row)</strong></td>
+                <td>~28 pieces</td>
+                <td>~11" each</td>
+                <td>2 rows × ~14 pieces · Run left→right</td>
+            </tr>
+            <tr>
+                <td><strong>Right Border (double row)</strong></td>
+                <td>~28 pieces</td>
+                <td>~11" each</td>
+                <td>2 rows × ~14 pieces · Run left→right</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL per section</strong></td>
+                <td><strong>~24 boards</strong></td>
+                <td>—</td>
+                <td>~16 field + ~8 worth of border from offcuts</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL both sections</strong></td>
+                <td><strong>~48 boards</strong></td>
+                <td>—</td>
+                <td>~32 field + ~16 worth of border from offcuts</td>
+            </tr>
+        </table>
+
+        <h3>Center Seam Decking</h3>
+        <p>Short boards spanning the 6" gap between sections:</p>
+        <ul>
+            <li>~24 pieces total (12 per side of gap, spaced along 11.5' depth)</li>
+            <li>Each piece ~6" long × 5.5" wide · Cut from 5/4×6 offcuts or extra boards</li>
+            <li>Run front-to-back (perpendicular to the seam)</li>
+            <li>Screw into seam blocking underneath</li>
+        </ul>
+
+        <div class="tip">
+            <strong>💡 Decking Row Count Math</strong><br>
+            Inner field is 10' 2" deep = 122". Each 5/4×6 board is ~5.5" wide + ¼" gap = 5.75" effective. 122" ÷ 5.75" = ~21.2 rows. Adjust gap slightly (⅛"–¼") to land clean without ripping the last board. Border rows are 11" deep = 2 rows of 5.5" boards.
+        </div>
+
+        <div class="tip">
+            <strong>💡 Border Piece Yield from Offcuts</strong><br>
+            Each 12' field board yields one ~10' 2" field piece + one ~1' 10" offcut. Each ~1' 10" offcut yields ~1–2 border pieces (~11" each). With ~36 field boards (both sections), you get ~36–72 border pieces from offcuts. Additional border pieces come from extra 12' boards cut specifically for border stock.
+            <br><br>
+            Back border: 11' wide ÷ ~5.75" eff. = ~23 pieces per row × 2 rows = ~46 pieces per section. Same for front. Side borders: ~12' depth ÷ ~5.75" = ~25 pieces per row × 2 rows = ~50 per side.
+            <br><br>
+            Actually, the borders frame the entire section. Back/front borders span the full 11' width. Left/right borders span the full ~12' depth. But the inner row of border sits inside the outer row, so both rows share roughly the same span.
+            <br><br>
+            <strong>Approx per section:</strong><br>
+            Back: 11' = 132" ÷ 5.75" = ~23 per row × 2 = ~46<br>
+            Front: same = ~46<br>
+            Left: ~12' = 144" ÷ 5.75" = ~25 per row × 2 = ~50<br>
+            Right: same = ~50<br>
+            Total per section: ~192 pieces. Each piece is only ~11" long, so one 12' board yields ~13 border pieces. ~192 ÷ 13 = ~15 boards per section for borders. Plus ~18 field boards = ~33 boards per section × 2 = ~66 total. Need ~54 boards on hand + ~12 extra.
+        </div>
+
+        <!-- BORDER BLOCKING LAYOUT -->
+        <h2><span class="num">03</span>Border Blocking Layout</h2>
+
+        <p class="lead">The picture-frame border only works if every short perpendicular board has solid support underneath. Here's the blocking plan.</p>
+
+        <h3>Back Edge Border Blocking</h3>
+        <div class="diagram">
+BACK EDGE (looking at rim from inside section)
+
+←————————————————————————————————————————————————————————————————→
+                      11' wide
+
+    ┌────────────────────────────────────────────────────────────┐
+    │  Back Rim (doubled 2×6)                                     │
+    │  ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←    │
+    │                                                            │
+    │  ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐                │
+    │  │██│ │██│ │██│ │██│ │██│ │██│ │██│ │██│  ← 2×6 blocking  │
+    │  └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘    pieces        │
+    │     ↑     ↑     ↑     ↑     ↑     ↑     ↑     ↑           │
+    │    16"   16"   16"   16"   16"   16"   16"  16"          │
+    │                                                            │
+    │  ○ ○ ○ ○ ○ ○ ○ ○  ← Field Joists (front-to-back)         │
+    │  │ │ │ │ │ │ │ │                                          │
+    └────────────────────────────────────────────────────────────┘
+
+Each blocking piece is ~14–18" long, face-screwed to back rim
+and the adjacent field joist end. Provides nailing surface
+for perpendicular border boards.
+        </div>
+
+        <h3>Side Edge Border Blocking</h3>
+        <div class="diagram">
+LEFT SIDE (looking at rim from inside section)
+
+←————————————————————————————————————————————————————————————————→
+                      ~12' deep
+
+    ┌────────────────────────────────────────────────────────────┐
+    │  Side Rim (doubled 2×6)                                     │
+    │  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑    │
+    │                                                            │
+    │  ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐               │
+    │  │█│ │█│ │█│ │█│ │█│ │█│ │█│ │█│ │█│ │█│ ← 2×6 blocking │
+    │  └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘   pieces       │
+    │     ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑       │
+    │    16"  16"  16"  16"  16"  16"  16"  16"  16"  16"     │
+    │                                                            │
+    │  ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○  │
+    │  ← Field boards (left→right, into the page)               │
+    └────────────────────────────────────────────────────────────┘
+
+Blocking runs front-to-back, parallel to the side rim.
+Screwed to side rim and to the ends of field boards (or
+adjacent blocking in the field). ~10 pieces per side.
+        </div>
+
+        <h3>Border Blocking Summary Table</h3>
+        <table>
+            <tr>
+                <th>Location</th>
+                <th>Pieces per Section</th>
+                <th>Length</th>
+                <th>O.C. Spacing</th>
+                <th>Total (2 Sections)</th>
+            </tr>
+            <tr>
+                <td>Back edge</td>
+                <td>~8</td>
+                <td>~14–18"</td>
+                <td>16"</td>
+                <td>~16</td>
+            </tr>
+            <tr>
+                <td>Front edge</td>
+                <td>~8</td>
+                <td>~14–18"</td>
+                <td>16"</td>
+                <td>~16</td>
+            </tr>
+            <tr>
+                <td>Left side</td>
+                <td>~6</td>
+                <td>~14–18"</td>
+                <td>16"</td>
+                <td>~12</td>
+            </tr>
+            <tr>
+                <td>Right side</td>
+                <td>~6</td>
+                <td>~14–18"</td>
+                <td>16"</td>
+                <td>~12</td>
+            </tr>
+            <tr>
+                <td><strong>Total border blocking</strong></td>
+                <td><strong>~28</strong></td>
+                <td>—</td>
+                <td>—</td>
+                <td><strong>~56</strong></td>
+            </tr>
+        </table>
+
+        <div class="warning">
+            <strong>⚠️ Do Not Skip Border Blocking</strong><br>
+            Without blocking, each ~11" border piece is only supported at one end (the rim). The free end will flex under foot traffic, eventually crack, and always squeak. The 2×6 blocking takes 10 minutes per section and makes the border feel as solid as the field.
+        </div>
+
+        <!-- PEDESTALS -->
+        <h2><span class="num">04</span>Pedestal Placement Plan</h2>
+
+        <p class="lead">~55–65 pedestals total. You have 38 on hand (mix of ECO M and L). Need to buy ~20–25 more.</p>
+
+        <div class="diagram">
+PEDESTAL GRID (per section — looking down)
+
+○ = Pedestal (ECO M or L, depending on height needed)
+
+Back Edge
+←——————————————————————————————————————————————————————→
+ 11' wide
+
+    ○    ○    ○    ○    ○    ○    ○    ○    ○
+    │    │    │    │    │    │    │    │    │
+    ○    ○    ○    ○    ○    ○    ○    ○    ○
+    │    │    │    │    │    │    │    │    │
+    ○    ○    ○    ○    ○    ○    ○    ○    ○
+    │    │    │    │    │    │    │    │    │
+    ○    ○    ○    ○    ○    ○    ○    ○    ○
+
+    ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑    ↑
+   Rim  J1   J2   J3   J4   J5   J6   J7   Rim
+
+Joists run front-to-back (into the page).
+4 rows of pedestals across 11.5' depth = ~3.8' spacing.
+~9 pedestals per row × 4 rows = ~36 per section.
+Plus ~8–10 under blocking points and seams.
+Total: ~25–30 per section = ~55–65 total.
+        </div>
+
+        <table>
+            <tr>
+                <th>Location</th>
+                <th>Pedestals per Section</th>
+                <th>Model</th>
+                <th>Approx Height</th>
+            </tr>
+            <tr>
+                <td>Field joists (×7–9)</td>
+                <td>2 per joist = 14–18</td>
+                <td>ECO M (1.4"–2.6")</td>
+                <td>~0.5"–1" (low, just leveling)</td>
+            </tr>
+            <tr>
+                <td>Rim joists + corners</td>
+                <td>~8</td>
+                <td>ECO L (2.6"–5.1") or M</td>
+                <td>~1"–2" (corners may need more lift)</td>
+            </tr>
+            <tr>
+                <td>Blocking points</td>
+                <td>~4</td>
+                <td>ECO M</td>
+                <td>~0.5"–1"</td>
+            </tr>
+            <tr>
+                <td>Center seam (shared)</td>
+                <td>~5</td>
+                <td>ECO M</td>
+                <td>~0.5"–1"</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL per section</strong></td>
+                <td><strong>~25–30</strong></td>
+                <td>—</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td><strong>GRAND TOTAL</strong></td>
+                <td><strong>~55–65</strong></td>
+                <td>—</td>
+                <td><strong>38 on hand → need ~20–25 more</strong></td>
+            </tr>
+        </table>
+
+        <div class="tip">
+            <strong>💡 Pedestal Spacing for 11.5' Joists</strong><br>
+            For 2×6 joists at ~11.5' span, use 2 pedestals per field joist (one near each third point) plus extras under rim and blocking. The 11.5' span is fine with 2 supports for foot traffic — it's a deck, not a dance floor.
+        </div>
+
+        <!-- SUMMARY -->
+        <h2><span class="num">05</span>Summary: Build Day Cut Order</h2>
+
+        <p class="lead">Stain everything first, then cut. Here's the order:</p>
+
+        <ol>
+            <li><strong>Back/front rims:</strong> Cut four 14' 2×6s to 11' each (2 back + 2 front per section). Offcuts (~3' each = 8 pieces) → blocking stock.</li>
+            <li><strong>Side rims:</strong> Use four ~11.5' 2×6s at full length (2 per section). NO cuts needed!</li>
+            <li><strong>Field joists:</strong> Use ~16 ~11.5' 2×6s at full length (~8 per section). NO cuts needed!</li>
+            <li><strong>Mid-span blocking:</strong> From offcut pile, cut ~16 pieces: ~14–18" each.</li>
+            <li><strong>Border blocking:</strong> From offcuts/scrap, cut ~56 pieces: ~14–18" each.</li>
+            <li><strong>Center seam blocking:</strong> From scrap, cut ~10 pieces: ~6" each.</li>
+            <li><strong>Field decking:</strong> Set aside ~32 full 12' boards. Cut each to ~9' 6". Save ~2' 6" offcuts for border stock.</li>
+            <li><strong>Border decking:</strong> Cut offcuts and ~8–10 extra boards into ~11" border pieces. Need ~188 per section × 2 = ~376 total? Recheck: ~14 extra boards × ~13 pieces each = ~182. Plus ~64 from offcuts = ~246. Need ~376. Hmm, adjust: use ~20 extra boards. Or accept that some border pieces come from boards dedicated to border stock. Recalculate with actual math at build time.</li>
+        </ol>
+
+        <div class="warning">
+            <strong>⚠️ Don't Forget</strong><br>
+            All cuts get stain on the fresh end grain BEFORE assembly. End grain drinks stain — hit it twice. The offcuts for blocking also need their ends sealed if they'll be exposed.
+        </div>
+
+        <div class="highlight-box">
+            <h3>📊 Stock Check</h3>
+            <p><strong>2×6 (~11.5') used:</strong> ~20 of ~16 pieces? Wait — you have ~16 total. Need ~4 for side rims + ~16 for field joists = 20. Short by ~4. Buy ~4 more ~11.5' 2×6s or use 14' stock cut to 11.5'.</p>
+            <p><strong>2×6 (14') used:</strong> 8 of 8 pieces (4 back rims + 4 front rims, 2 each per section) → 0 remaining! Need more for blocking stock or buy 2×6 × 8' for blocking.</p>
+            <p><strong>5/4×6 decking used:</strong> ~48–55 of ~54 boards → ~0–6 spares for mistakes. Tight but doable.</p>
+            <p><strong>Pedestals:</strong> ~55–65 needed, 38 on hand → buy ~20–25 more (recommend ECO M).</p>
+        </div>
+
+        <footer style="margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--cream); text-align: center; color: var(--stone-light); font-size: 0.85em;">
+            <p>Pool Deck Framing Plan — v11.1 · Updated May 17, 2026</p>
+            <p>Picture-Frame Double Border · Two-Section Design · Reclaimed Lumber</p>
+        </footer>
+    </div>
+</body>
+</html>

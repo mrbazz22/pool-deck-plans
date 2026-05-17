@@ -8,320 +8,111 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Deck QuickRef">
-    <title>Pool Deck Quick Reference — v11.1</title>
+    <title>Pool Deck Quick Reference — v11.2</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f0eb;
-            color: #4a4540;
-            line-height: 1.5;
-            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-            width: 100%;
-            min-height: 100dvh;
-        }
-        
-        .page {
-            max-width: 210mm;
-            margin: 0 auto;
-            background: white;
-            padding: 25px 30px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #6b6560;
-        }
-        
-        h1 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 1.8em;
-            color: #4a4540;
-            margin-bottom: 5px;
-        }
-        
-        .subtitle {
-            font-size: 0.85em;
-            color: #9a9590;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .quick-facts {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 12px;
-            font-size: 0.8em;
-            flex-wrap: wrap;
-        }
-        .quick-facts span {
-            background: #f5f0eb;
-            padding: 4px 12px;
-            border-radius: 15px;
-        }
-        
-        .callout {
-            background: linear-gradient(135deg, #7a8b6e 0%, #5a6b4e 100%);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin: 15px 0;
-            text-align: center;
-            font-size: 0.9em;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f0eb; color: #4a4540; line-height: 1.5; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); width: 100%; min-height: 100dvh; }
+        .page { max-width: 210mm; margin: 0 auto; background: white; padding: 25px 30px; }
+        header { text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 3px solid #6b6560; }
+        h1 { font-size: 1.8em; color: #4a4540; margin-bottom: 5px; }
+        .subtitle { font-size: 0.85em; color: #9a9590; text-transform: uppercase; letter-spacing: 2px; }
+        .quick-facts { display: flex; justify-content: center; gap: 25px; margin-top: 12px; font-size: 0.8em; flex-wrap: wrap; }
+        .quick-facts span { background: #f5f0eb; padding: 4px 12px; border-radius: 15px; }
+        .callout { background: linear-gradient(135deg, #7a8b6e 0%, #5a6b4e 100%); color: white; padding: 15px 20px; border-radius: 10px; margin: 15px 0; text-align: center; font-size: 0.9em; }
         .callout strong { font-size: 1.1em; display: block; margin-bottom: 5px; }
-        
-        h2 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 0.95em;
-            font-weight: 600;
-            color: white;
-            background: #6b6560;
-            padding: 6px 12px;
-            border-radius: 6px;
-            margin: 18px 0 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        h2 .num {
-            background: #c17a5c;
-            color: white;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75em;
-            flex-shrink: 0;
-        }
-        
-        h3 {
-            font-size: 0.85em;
-            font-weight: 600;
-            color: #4a4540;
-            margin: 12px 0 6px;
-        }
-        
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 10px 0;
-        }
-        
-        .card {
-            background: #faf8f6;
-            border: 2px solid #e8e2db;
-            border-radius: 8px;
-            padding: 12px;
-        }
-        .card .label {
-            font-size: 0.75em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #9a9590;
-            margin-bottom: 4px;
-        }
-        .card .value {
-            font-weight: 600;
-            font-size: 1.1em;
-            color: #4a4540;
-        }
-        .card .note {
-            font-size: 0.75em;
-            color: #9a9590;
-            margin-top: 4px;
-        }
-        
-        .highlight {
-            background: #c17a5c;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
-        
-        ul {
-            margin: 8px 0 12px 18px;
-            font-size: 0.85em;
-        }
+        h2 { font-size: 0.95em; font-weight: 600; color: white; background: #6b6560; padding: 6px 12px; border-radius: 6px; margin: 18px 0 10px; display: flex; align-items: center; gap: 8px; }
+        h2 .num { background: #c17a5c; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75em; flex-shrink: 0; }
+        h3 { font-size: 0.85em; font-weight: 600; color: #4a4540; margin: 12px 0 6px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0; }
+        .card { background: #faf8f6; border: 2px solid #e8e2db; border-radius: 8px; padding: 12px; }
+        .card .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; color: #9a9590; margin-bottom: 4px; }
+        .card .value { font-weight: 600; font-size: 1.1em; color: #4a4540; }
+        .card .note { font-size: 0.75em; color: #9a9590; margin-top: 4px; }
+        .highlight { background: #c17a5c; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 600; }
+        ul { margin: 8px 0 12px 18px; font-size: 0.85em; }
         li { margin-bottom: 5px; }
-        
-        .step {
-            display: flex;
-            gap: 10px;
-            margin: 8px 0;
-            align-items: flex-start;
-            font-size: 0.85em;
-        }
-        .step .num {
-            background: #c17a5c;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.8em;
-            flex-shrink: 0;
-        }
-        
-        .warning {
-            background: #fff3e0;
-            border-left: 3px solid #c17a5c;
-            padding: 10px 12px;
-            margin: 10px 0;
-            font-size: 0.8em;
-            border-radius: 0 6px 6px 0;
-        }
+        .step { display: flex; gap: 10px; margin: 8px 0; align-items: flex-start; font-size: 0.85em; }
+        .step .num { background: #c17a5c; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8em; flex-shrink: 0; }
+        .warning { background: #fff3e0; border-left: 3px solid #c17a5c; padding: 10px 12px; margin: 10px 0; font-size: 0.8em; border-radius: 0 6px 6px 0; }
         .warning strong { color: #c17a5c; }
-        
-        .tip {
-            background: #e8f5e9;
-            border-left: 3px solid #7a8b6e;
-            padding: 10px 12px;
-            margin: 10px 0;
-            font-size: 0.8em;
-            border-radius: 0 6px 6px 0;
-        }
+        .tip { background: #e8f5e9; border-left: 3px solid #7a8b6e; padding: 10px 12px; margin: 10px 0; font-size: 0.8em; border-radius: 0 6px 6px 0; }
         .tip strong { color: #7a8b6e; }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0;
-            font-size: 0.8em;
-        }
-        th {
-            background: #6b6560;
-            color: white;
-            padding: 6px 8px;
-            text-align: left;
-            font-weight: 600;
-        }
-        td {
-            padding: 6px 8px;
-            border-bottom: 1px solid #e8e2db;
-        }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.8em; }
+        th { background: #6b6560; color: white; padding: 6px 8px; text-align: left; font-weight: 600; }
+        td { padding: 6px 8px; border-bottom: 1px solid #e8e2db; }
         tr:nth-child(even) { background: #faf8f6; }
-        
-        .team {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-            margin: 10px 0;
-        }
-        .team-member {
-            background: #faf8f6;
-            border: 2px solid #e8e2db;
-            border-radius: 6px;
-            padding: 10px;
-            text-align: center;
-            font-size: 0.8em;
-        }
-        .team-member .role {
-            font-weight: 600;
-            color: #4a4540;
-        }
-        .team-member .task {
-            color: #9a9590;
-            margin-top: 4px;
-        }
-        
-        footer {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 2px solid #e8e2db;
-            text-align: center;
-            font-size: 0.75em;
-            color: #9a9590;
-        }
-        
-        .diagram-img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 12px auto;
-            border: 2px solid #e8e2db;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        
-        @media (max-width: 500px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            .team { grid-template-columns: 1fr; }
-            .page { padding: 15px; }
-        }
+        .team { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 10px 0; }
+        .team-member { background: #faf8f6; border: 2px solid #e8e2db; border-radius: 6px; padding: 10px; text-align: center; font-size: 0.8em; }
+        .team-member .role { font-weight: 600; color: #4a4540; }
+        .team-member .task { color: #9a9590; margin-top: 4px; }
+        footer { margin-top: 25px; padding-top: 15px; border-top: 2px solid #e8e2db; text-align: center; font-size: 0.75em; color: #9a9590; }
+        .diagram-img { max-width: 100%; height: auto; display: block; margin: 12px auto; border: 2px solid #e8e2db; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        @media (max-width: 500px) { .grid-2 { grid-template-columns: 1fr; } .team { grid-template-columns: 1fr; } .page { padding: 15px; } }
     </style>
 </head>
 <body>
     <div class="page">
-        
         <header>
             <h1>Pool Deck Quick Ref</h1>
-            <div class="subtitle">Ultra-Low Profile Boardwalk — v11.1</div>
+            <div class="subtitle">One Continuous Frame — v11.2</div>
             <div class="quick-facts">
-                <span>Two 11' × ~12'</span>
-                <span>~7" height</span>
-                <span>Double rims</span>
+                <span>22' × 12' Frame</span>
+                <span>~7" Height</span>
+                <span>Doubled Rims</span>
                 <span>Picture-Frame Border</span>
             </div>
         </header>
 
         <div class="callout">
-            <strong>🏗️ Two-Section Boardwalk on Pedestals</strong>
-            Freestanding · No house · Doubled 2×6 rims · Picture-frame double borders · ECO M + ECO L on stone
+            <strong>🏗️ One Continuous 22'×12' Frame on Pedestals</strong>
+            Freestanding · No house · Doubled 2×6 rims · Picture-frame double borders · ECO M + ECO L on stone · Two visual sections created by decking pattern
         </div>
 
         <h2><span class="num">0</span>Diagrams</h2>
         <div class="grid-2">
             <div class="card" style="text-align:center">
-                <img src="diagrams/joist_layout_v11.1.png" alt="Joist layout" class="diagram-img" style="margin:0 0 8px 0">
+                <img src="diagrams/joist_layout_v11.2.png" alt="Joist layout" class="diagram-img" style="margin:0 0 8px 0">
                 <div class="label">Joist Layout</div>
             </div>
             <div class="card" style="text-align:center">
-                <img src="diagrams/decking_layout_v11.1.png" alt="Decking layout" class="diagram-img" style="margin:0 0 8px 0">
+                <img src="diagrams/decking_layout_v11.2.png" alt="Decking layout" class="diagram-img" style="margin:0 0 8px 0">
                 <div class="label">Decking Layout</div>
             </div>
         </div>
 
-        <!-- SPECS -->
         <h2><span class="num">1</span>Specs at a Glance</h2>
-        
         <div class="grid-2">
             <div class="card">
-                <div class="label">Section Size</div>
-                <div class="value">11' × ~12'</div>
-                <div class="note">Two sections · 6" center seam · 22' total width · ~12' total depth</div>
+                <div class="label">Frame Size</div>
+                <div class="value">22' × 12'</div>
+                <div class="note">One continuous substructure — no breaks</div>
             </div>
             <div class="card">
-                <div class="label">Inner Field</div>
-                <div class="value">9' 2" × 10' 2"</div>
-                <div class="note">Per section · After removing 11" double border from all sides</div>
+                <div class="label">Inner Field / Section</div>
+                <div class="value">~9' 2" × ~10' 6"</div>
+                <div class="note">Visual section created by border pattern in decking</div>
             </div>
             <div class="card">
                 <div class="label">Deck Height</div>
                 <div class="value">~7"</div>
-                <div class="note">2×6 (5.5") + 5/4 (~1") + pedestal · Uniform across both sections</div>
+                <div class="note">2×6 (5.5") + 5/4 (~1") + pedestal · Uniform across frame</div>
             </div>
             <div class="card">
                 <div class="label">Decking Border</div>
                 <div class="value">Picture-Frame Double</div>
-                <div class="note">2 rows of 5/4×6 on all sides · 11" total depth · Perpendicular to field</div>
+                <div class="note">2 rows of 5/4×6 on all edges · 11" total depth · Perpendicular to field</div>
             </div>
         </div>
 
-        <!-- STRUCTURE -->
         <h2><span class="num">2</span>Structure</h2>
+
+        <h3>Frame (One Continuous Piece)</h3>
+        <ul>
+            <li><strong>Back rim:</strong> ~22' doubled 2×6 · Continuous across full width · No splice at center</li>
+            <li><strong>Front rim:</strong> ~22' doubled 2×6 · Continuous across full width</li>
+            <li><strong>Side rims:</strong> ~12' doubled 2×6 each · Left and right</li>
+            <li><strong>NO separate sections structurally:</strong> The "two sections" are visual only — created by decking borders</li>
+        </ul>
 
         <h3>Support</h3>
         <ul>
@@ -334,19 +125,19 @@
         <h3>Framing</h3>
         <ul>
             <li><strong>NO doubled beam</strong> · Joists sit directly on pedestals/stone</li>
-            <li><strong>Doubled 2×6 rims</strong> all around each section (two boards face-screwed)</li>
-            <li><strong>Field joists:</strong> 2×6, 16" O.C., 11.5' full length, front-to-back · ~8 per section</li>
-            <li><strong>Border blocking:</strong> 2×6 pieces every 16" O.C. under all double-row borders · NEW for v11.1</li>
-            <li><strong>Mid-span blocking:</strong> 2×6 at ~5.75' from back (one row per section)</li>
-            <li><strong>Center seam:</strong> 6" gap between sections · Doubled rims on inner edges</li>
-            <li><strong>Diagonal bracing:</strong> 2×4 cross-bracing between field joists at corners/mid-span · Prevents racking</li>
+            <li><strong>Doubled 2×6 rims</strong> all around (back/front ~22', sides ~12')</li>
+            <li><strong>Field joists:</strong> 2×6, 16" O.C., 11.5' full length, front-to-back · ~17 joists across 22' width</li>
+            <li><strong>Border blocking:</strong> 2×6 pieces every 16" O.C. under all double-row borders (all 4 sides)</li>
+            <li><strong>Mid-span blocking:</strong> 2×6 at ~5.75' from back · One row across full 22' width</li>
+            <li><strong>Center seam blocking:</strong> 2×6 every 16" O.C. along seam line · Under decking gap only</li>
+            <li><strong>Diagonal bracing:</strong> 2×4 cross-bracing between field joists at corners · Prevents racking</li>
         </ul>
 
         <h3>Decking Direction</h3>
         <ul>
-            <li><strong>Inner field:</strong> Runs left→right (parallel to back edge) · 9' 2" span per section</li>
-            <li><strong>Double borders:</strong> Run perpendicular (front-to-back on sides, left→right on front/back)</li>
-            <li><strong>Center seam:</strong> 6" wide strip runs front-to-back (perpendicular to field)</li>
+            <li><strong>Inner field:</strong> Runs left→right (parallel to back rim) · Two visual sections separated by 6" seam</li>
+            <li><strong>Double borders:</strong> Run perpendicular (front-to-back on back/front, left→right on sides)</li>
+            <li><strong>Center seam:</strong> 6" wide strip runs front-to-back (perpendicular to field) · Decking-only detail</li>
             <li><strong>Border blocking</strong> supports perpendicular border boards under border zones</li>
         </ul>
 
@@ -365,181 +156,64 @@
             <li>36" railing height is residential standard</li>
         </ul>
 
-        <!-- MATERIALS -->
         <h2><span class="num">3</span>Materials (On Hand)</h2>
-
         <table>
-            <tr>
-                <th>Qty</th>
-                <th>Size</th>
-                <th>Use</th>
-            </tr>
-            <tr>
-                <td><strong>38 + 16</strong></td>
-                <td>5/4 × 6 × ~12'</td>
-                <td>Decking — 40 field (cut from 12') + ~96 border pieces + 8 spare · Need 16 more boards</td>
-            </tr>
-            <tr>
-                <td><strong>8</strong></td>
-                <td>2 × 6 × 14'</td>
-                <td>Back rims (4) + front rims (4) · All doubled = 8 boards · Cut to 11' each</td>
-            </tr>
-            <tr>
-                <td><strong>8</strong></td>
-                <td>2 × 6 × ~11.5'</td>
-                <td>Side rims (4) + field joists (4) · Full length, no cuts · 8 boards per section × 2 = 16 total · Need 16 more</td>
-            </tr>
-            <tr>
-                <td><strong>~80</strong></td>
-                <td>2 × 6 (scrap)</td>
-                <td>Border blocking + mid-span blocking · Cut from joist offcuts or extra 2×6</td>
-            </tr>
-            <tr>
-                <td><strong>38</strong></td>
-                <td>Eurotec ECO M + L</td>
-                <td>Pedestals · Mix of M (1.4"–2.6") + L (2.6"–5.1") · ~55–65 needed total</td>
-            </tr>
-            <tr>
-                <td><strong>✓</strong></td>
-                <td>1-5/8" Butyl Joist Tape</td>
-                <td>2 rolls on hand · Apply to all joist/rim/blocking tops before decking · May need 1 more</td>
-            </tr>
-            <tr>
-                <td><strong>1.5 lb</strong></td>
-                <td>GRK RSS 5/16"×4" Structural Screws</td>
-                <td>Rim-to-joist + rim-to-blocking connections · ~$35</td>
-            </tr>
+            <tr><th>Qty</th><th>Size</th><th>Use</th></tr>
+            <tr><td><strong>38 + 16</strong></td><td>5/4 × 6 × ~12'</td><td>Decking — field boards + border stock + seam pieces · Need 16 more</td></tr>
+            <tr><td><strong>4</strong></td><td>2 × 6 × ~22'</td><td>Back rim (2) + front rim (2) · Doubled = 4 boards total · Continuous</td></tr>
+            <tr><td><strong>4</strong></td><td>2 × 6 × ~12'</td><td>Left side rim (2) + right side rim (2) · Doubled = 4 boards total</td></tr>
+            <tr><td><strong>~17</strong></td><td>2 × 6 × 11'6"</td><td>Field joists · Full length, no cuts · ~17 at 16" O.C. across 22'</td></tr>
+            <tr><td><strong>~80</strong></td><td>2 × 6 (scrap)</td><td>Border blocking + mid-span blocking · Cut from offcuts</td></tr>
+            <tr><td><strong>38</strong></td><td>Eurotec ECO M + L</td><td>Pedestals · Mix of M (1.4"–2.6") + L (2.6"–5.1") · ~55–65 needed total</td></tr>
+            <tr><td><strong>✓</strong></td><td>1-5/8" Butyl Joist Tape</td><td>2 rolls on hand · Apply to all joist/rim/blocking tops before decking · May need 1 more</td></tr>
+            <tr><td><strong>1.5 lb</strong></td><td>GRK RSS 5/16"×4" Structural Screws</td><td>Rim-to-joist + rim-to-blocking connections · ~$35</td></tr>
         </table>
 
-        <!-- STAIN -->
         <h2><span class="num">4</span>Stain Checklist</h2>
-
         <div class="tip">
             <strong>💡 All stain supplies on hand:</strong> 5 gal BEHR Stonehedge, 9" roller + covers, 3" brush, 2" edge brush, painter's tape, drop cloths
         </div>
-
-        <div class="step">
-            <span class="num">1</span>
-            <div><strong>Pressure wash</strong> all boards · Let dry <span class="highlight">48+ hrs</span></div>
-        </div>
-        <div class="step">
-            <span class="num">2</span>
-            <div><strong>Label every piece</strong> with position (e.g., "DECK-ROW-3") · Painter's tape + marker</div>
-        </div>
-        <div class="step">
-            <span class="num">3</span>
-            <div><strong>End grain first:</strong> Heavy coat on all cut ends · Double coat · Let dry 30 min</div>
-        </div>
-        <div class="step">
-            <span class="num">4</span>
-            <div><strong>Roll faces:</strong> 9" roller, ¼" nap · Work in sections · Maintain wet edge</div>
-        </div>
-        <div class="step">
-            <span class="num">5</span>
-            <div><strong>Back-brush:</strong> 3" quality brush · Work stain into cracks · Hand-finished look</div>
-        </div>
-        <div class="step">
-            <span class="num">6</span>
-            <div><strong>Flip & repeat:</strong> Dry 4–6 hrs, flip, stain back faces and edges</div>
-        </div>
-        <div class="step">
-            <span class="num">7</span>
-            <div><strong>Second coat (optional):</strong> After 24 hrs · Two thin > one heavy</div>
-        </div>
+        <div class="step"><span class="num">1</span><div><strong>Pressure wash</strong> all boards · Let dry <span class="highlight">48+ hrs</span></div></div>
+        <div class="step"><span class="num">2</span><div><strong>Label every piece</strong> with position · Painter's tape + marker</div></div>
+        <div class="step"><span class="num">3</span><div><strong>End grain first:</strong> Heavy coat on all cut ends · Double coat · Let dry 30 min</div></div>
+        <div class="step"><span class="num">4</span><div><strong>Roll faces:</strong> 9" roller, ¼" nap · Work in sections · Maintain wet edge</div></div>
+        <div class="step"><span class="num">5</span><div><strong>Back-brush:</strong> 3" quality brush · Work stain into cracks · Hand-finished look</div></div>
+        <div class="step"><span class="num">6</span><div><strong>Flip &amp; repeat:</strong> Dry 4–6 hrs, flip, stain back faces and edges</div></div>
+        <div class="step"><span class="num">7</span><div><strong>Second coat (optional):</strong> After 24 hrs · Two thin > one heavy</div></div>
 
         <div class="tip">
             <strong>💡 Morning shade = friend</strong> · Hot sun dries stain too fast · Work early or in shade
         </div>
 
-        <!-- TEAM -->
         <h2><span class="num">5</span>Team Roles</h2>
-
         <div class="team">
-            <div class="team-member">
-                <div class="role">Site Lead</div>
-                <div class="task">You · Cut list · Roller operator · Problem solver</div>
-            </div>
-            <div class="team-member">
-                <div class="role">Stain Boss</div>
-                <div class="task">Wife · Quality control · Catches missed spots</div>
-            </div>
-            <div class="team-member">
-                <div class="role">Prep Crew</div>
-                <div class="task">Daughter-in-Law · Wash · Stack · Label · Move boards</div>
-            </div>
-            <div class="team-member">
-                <div class="role">Brush Crew</div>
-                <div class="task">Daughter · End grain · Edges · Back-brushing</div>
-            </div>
+            <div class="team-member"><div class="role">Site Lead</div><div class="task">You · Cut list · Roller operator · Problem solver</div></div>
+            <div class="team-member"><div class="role">Stain Boss</div><div class="task">Wife · Quality control · Catches missed spots</div></div>
+            <div class="team-member"><div class="role">Prep Crew</div><div class="task">Daughter-in-Law · Wash · Stack · Label · Move boards</div></div>
+            <div class="team-member"><div class="role">Brush Crew</div><div class="task">Daughter · End grain · Edges · Back-brushing</div></div>
         </div>
 
-        <!-- BUILD ORDER -->
         <h2><span class="num">6</span>Build Order</h2>
+        <div class="step"><span class="num">1</span><div><strong>Site Prep:</strong> Clear · Grade ±1" · Stone/gravel base · Layout pedestals for full 22'×12' frame</div></div>
+        <div class="step"><span class="num">2</span><div><strong>Stain:</strong> All 6 faces before assembly · 2–3 days · Dry weather</div></div>
+        <div class="step"><span class="num">3</span><div><strong>Frame:</strong> Doubled 2×6 rims (~22' back/front, ~12' sides) · ~17 field joists 16" O.C. (11.5' length) · On pedestals · Level to ~7"</div></div>
+        <div class="step"><span class="num">4</span><div><strong>Blocking:</strong> Mid-span blocking at ~5.75' across full 22' · Border blocking every 16" O.C. under all double-row borders (all sides) · Center seam blocking</div></div>
+        <div class="step"><span class="num">5</span><div><strong>Joist Tape:</strong> Apply to all joist tops, rim tops, and blocking tops before decking</div></div>
+        <div class="step"><span class="num">6</span><div><strong>Inner Field Decking:</strong> 5/4×6 left→right · <strong>1/8"–3/16" gaps</strong> · 2.5" screws · Two per joist · Leave 6" center seam gap</div></div>
+        <div class="step"><span class="num">7</span><div><strong>Double Borders:</strong> Row 1: perpendicular pieces along all sides · Row 2: second row completing 11" depth · <strong>3/16" gaps</strong> · Use offcuts from field boards</div></div>
+        <div class="step"><span class="num">8</span><div><strong>Center Seam:</strong> 6" wide perpendicular strip · Short boards front-to-back across gap · Cut from remaining offcuts</div></div>
+        <div class="step"><span class="num">9</span><div><strong>Railings + Step:</strong> 6×6 posts · 2×6 rails · 36" height · Box step on back edge · 7" rise</div></div>
 
-        <div class="step">
-            <span class="num">1</span>
-            <div><strong>Site Prep:</strong> Clear · Grade ±1" · Stone/gravel base · Layout pedestals for both sections</div>
-        </div>
-        <div class="step">
-            <span class="num">2</span>
-            <div><strong>Stain:</strong> All 6 faces before assembly · 2–3 days · Dry weather</div>
-        </div>
-        <div class="step">
-            <span class="num">3</span>
-            <div><strong>Frame Section A:</strong> Doubled 2×6 rims · ~8 field joists 16" O.C. (11.5' length) · On pedestals · Level to ~7"</div>
-        </div>
-        <div class="step">
-            <span class="num">4</span>
-            <div><strong>Frame Section B:</strong> Same as A · Leave 6" gap between sections · Doubled inner rims on both sides</div>
-        </div>
-        <div class="step">
-            <span class="num">5</span>
-            <div><strong>Blocking:</strong> Mid-span blocking at ~5.75' · Border blocking every 16" O.C. under all double-row borders (all sides of both sections) · Center seam blocking</div>
-        </div>
-        <div class="step">
-            <span class="num">6</span>
-            <div><strong>Joist Tape:</strong> Apply to all joist tops, rim tops, and blocking tops before decking</div>
-        </div>
-        <div class="step">
-            <span class="num">7</span>
-            <div><strong>Inner Field Decking:</strong> 5/4×6 left→right · <strong>1/8"–3/16" gaps</strong> · 2.5" screws · Two per joist · Cut from 12' stock = ~9'6" use + ~2'6" offcut</div>
-        </div>
-        <div class="step">
-            <span class="num">8</span>
-            <div><strong>Double Borders:</strong> Row 1: perpendicular pieces along all sides · Row 2: second row completing 11" depth · <strong>3/16" gaps</strong> · Use offcuts from field boards</div>
-        </div>
-        <div class="step">
-            <span class="num">9</span>
-            <div><strong>Center Seam:</strong> 6" wide perpendicular strip between sections · Cut from remaining offcuts</div>
-        </div>
-        <div class="step">
-            <span class="num">10</span>
-            <div><strong>Railings + Step:</strong> 6×6 posts · 2×6 rails · 36" height · Box step on back edge · 7" rise</div>
-        </div>
-
-        <!-- HEIGHT TABLE -->
         <h2><span class="num">7</span>Height Reference</h2>
-
         <table>
-            <tr>
-                <th>Section</th>
-                <th>Joist</th>
-                <th>Decking</th>
-                <th>Pedestal</th>
-                <th>Total</th>
-            </tr>
-            <tr>
-                <td>Both sections</td>
-                <td>2×6 (5.5")</td>
-                <td>5/4×6 (~1")</td>
-                <td>ECO M: ~0.5"–1"</td>
-                <td><strong>~7–7.5"</strong></td>
-            </tr>
+            <tr><th>Element</th><th>Dimension</th><th>Notes</th></tr>
+            <tr><td>Joist</td><td>2×6 (5.5")</td><td>Front-to-back, 11.5' length</td></tr>
+            <tr><td>Decking</td><td>5/4×6 (~1")</td><td>Field + double borders + seam</td></tr>
+            <tr><td>Pedestal</td><td>ECO M: ~0.5"–1"</td><td>Adjustable threaded barrel</td></tr>
+            <tr><td><strong>Total Height</strong></td><td><strong>~7–7.5"</strong></td><td>Above grade · Well above coping</td></tr>
         </table>
 
-        <!-- RAILINGS -->
-        <h2><span class="num">8</span>Railings & Step</h2>
-
+        <h2><span class="num">8</span>Railings &amp; Step</h2>
         <ul>
             <li><strong>Posts:</strong> 6×6 short pieces (~3' total) · Surface mount with lags into blocking</li>
             <li><strong>Rails:</strong> 2×6 horizontal · Two per bay · 36" top · ~18" middle</li>
@@ -547,98 +221,37 @@
             <li><strong>No gate:</strong> Continuous railing · Step provides access</li>
         </ul>
 
-        <!-- TOOLS -->
         <h2><span class="num">9</span>Tool Checklist</h2>
-
         <div class="grid-2">
-            <div class="card">
-                <div class="value">Impact Driver</div>
-                <div class="note">T25 + square bits · Primary tool</div>
-            </div>
-            <div class="card">
-                <div class="value">Circular Saw</div>
-                <div class="note">Fine-tooth blade · Joist + board cuts</div>
-            </div>
-            <div class="card">
-                <div class="value">Tape + Square</div>
-                <div class="note">25' tape · Speed square · Layout</div>
-            </div>
-            <div class="card">
-                <div class="value">Level + String</div>
-                <div class="note">2' level · String line for straight</div>
-            </div>
-            <div class="card">
-                <div class="value">Roller + Brushes</div>
-                <div class="note">9" roller, ¼" nap · 3" + 2" brushes</div>
-            </div>
-            <div class="card">
-                <div class="value">Sawhorses + Tarps</div>
-                <div class="note">Staining station · Keep boards off ground</div>
-            </div>
+            <div class="card"><div class="value">Impact Driver</div><div class="note">T25 + square bits · Primary tool</div></div>
+            <div class="card"><div class="value">Circular Saw</div><div class="note">Fine-tooth blade · Joist + board cuts</div></div>
+            <div class="card"><div class="value">Tape + Square</div><div class="note">25' tape · Speed square · Layout</div></div>
+            <div class="card"><div class="value">Level + String</div><div class="note">2' level · String line for straight</div></div>
+            <div class="card"><div class="value">Roller + Brushes</div><div class="note">9" roller, ¼" nap · 3" + 2" brushes</div></div>
+            <div class="card"><div class="value">Sawhorses + Tarps</div><div class="note">Staining station · Keep boards off ground</div></div>
         </div>
 
-        <!-- TIMELINE -->
         <h2><span class="num">10</span>Timeline</h2>
-
         <table>
-            <tr>
-                <th>Phase</th>
-                <th>Days</th>
-                <th>Weather</th>
-            </tr>
-            <tr>
-                <td>Site Prep + Stain</td>
-                <td>2–3</td>
-                <td>Dry, 60–80°F</td>
-            </tr>
-            <tr>
-                <td>Main + Curved Framing</td>
-                <td>1–2</td>
-                <td>Dry, no wind</td>
-            </tr>
-            <tr>
-                <td>Decking</td>
-                <td>1–2</td>
-                <td>Dry</td>
-            </tr>
-            <tr>
-                <td>Railings + Step</td>
-                <td>½</td>
-                <td>Any</td>
-            </tr>
-            <tr>
-                <td><strong>Total</strong></td>
-                <td><strong>4–7 days</strong></td>
-                <td>—</td>
-            </tr>
+            <tr><th>Phase</th><th>Days</th><th>Weather</th></tr>
+            <tr><td>Site Prep + Stain</td><td>2–3</td><td>Dry, 60–80°F</td></tr>
+            <tr><td>Framing (one 22'×12' frame)</td><td>1–2</td><td>Dry, no wind</td></tr>
+            <tr><td>Decking</td><td>1–2</td><td>Dry</td></tr>
+            <tr><td>Railings + Step</td><td>½</td><td>Any</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>4–7 days</strong></td><td>—</td></tr>
         </table>
 
-        <!-- REMINDERS -->
         <h2><span class="num">11</span>Reminders</h2>
-
-        <div class="tip">
-            <strong>💡 Test section first</strong> · Build 4'×4' prototype before full build · Verify heights and feel
-        </div>
-
-        <div class="tip">
-            <strong>💡 Leave labels on</strong> · Painter's tape labels stay until piece is installed
-        </div>
-
-        <div class="warning">
-            <strong>⚠️ Don't over-tighten pedestal threads</strong> · Plastic threads strip if reefed · Snug is enough
-        </div>
-
-        <div class="tip">
-            <strong>💡 Faceted curve is fine</strong> · 9–11 straight cuts look good · Easier than true radius
-        </div>
-
-        <div class="tip">
-            <strong>💡 Start staining early</strong> · Takes longer than building · Wash boards 2 days before
-        </div>
+        <div class="tip"><strong>💡 One frame = simpler leveling</strong> · Level one continuous frame and the whole deck is flat. No worrying about two separate sections at different heights.</div>
+        <div class="tip"><strong>💡 Test section first</strong> · Build 4'×4' prototype before full build · Verify heights and feel</div>
+        <div class="tip"><strong>💡 Leave labels on</strong> · Painter's tape labels stay until piece is installed</div>
+        <div class="warning"><strong>⚠️ Don't over-tighten pedestal threads</strong> · Plastic threads strip if reefed · Snug is enough</div>
+        <div class="tip"><strong>💡 Start staining early</strong> · Takes longer than building · Wash boards 2 days before</div>
+        <div class="warning"><strong>⚠️ Center seam is decking-only</strong> · The 6" gap is in the decking layer · The 2×6 frame underneath is continuous — don't cut the rim at center!</div>
 
         <footer>
-            <p>Pool Deck Quick Reference — v11.1 · May 17, 2026</p>
-            <p>Two 11' × ~12' Sections · Picture-Frame Double Border · 6" Center Seam · No Posts · Freestanding</p>
+            <p>Pool Deck Quick Reference — v11.2 · May 17, 2026</p>
+            <p>22'×12' Continuous Frame · Picture-Frame Double Border · 6" Center Seam (Decking Only) · No Posts · Freestanding</p>
         </footer>
     </div>
 </body>
