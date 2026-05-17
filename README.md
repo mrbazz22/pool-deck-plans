@@ -1,20 +1,19 @@
-# Pool Deck Plans — v11.2
+# Pool Deck Plans — v11.3
 
-**Final design for a freestanding, modern rustic pool deck.**
+**Simple freestanding rectangular pool deck. No overcomplication.**
 
 ---
 
-## Design Philosophy: One Continuous Frame, Two Visual Sections
+## Design: One Simple 22' × 12' Frame
 
-This deck is built as **one continuous 22' × 12' frame** — not two separate sections structurally. The "two sections" are created entirely by the **picture-frame double border pattern** in the decking layer. The 6" center seam is a decking detail, not a structural break.
+This deck is built as **one continuous 22' × 12' rectangular frame** — nothing fancy. Doubled 2×6 rims on all four sides. Joists run front-to-back at full 11.5' length with zero cuts. A single-row picture-frame border with 45° mitered corners finishes the edges.
 
-### Why One Frame?
-- **Simpler:** One frame to level, shim, and square. No height mismatch between independent sections.
-- **Stronger:** Continuous doubled 2×6 rims (back/front ~22', sides ~12') create a rigid perimeter band.
-- **More stable:** No movement at a center seam — the frame is solid underneath.
-- **Easier to build:** Joists are all one length (11.5'), no complex cuts, no splices at the center.
-
-The visual separation comes from the craftsmanship of the decking borders — not from structural gymnastics.
+### Why Simple?
+- **One frame to level** — no center seam, no separate sections, no height mismatch
+- **Zero joist cuts** — all ~17 joists at full 11.5' length
+- **Minimal blocking** — just standard mid-span blocking (~16 pieces)
+- **No border blocking needed** — the doubled rim supports the single-row border directly
+- **45° mitered corners** — clean, professional look without tons of small pieces
 
 ---
 
@@ -22,20 +21,20 @@ The visual separation comes from the craftsmanship of the decking borders — no
 
 | Element | Dimension | Notes |
 |---------|-----------|-------|
-| **Overall frame** | 22' × 12' | One continuous substructure — no breaks |
+| **Overall frame** | 22' × 12' | One continuous rectangle — no breaks |
 | **Back rim** | ~22' doubled 2×6 | Continuous across full width |
 | **Front rim** | ~22' doubled 2×6 | Continuous across full width |
 | **Side rims** | ~12' doubled 2×6 each | Left and right edges |
 | **Field joists** | 2×6, 11.5' full length | ~17 joists at 16" O.C. across 22' width · **No cuts needed** |
-| **Inner field per section** | ~9' 2" × ~10' 6" | Visual section created by border pattern in decking |
-| **Border depth** | 11" (2 rows) | Double-row picture-frame on all edges |
-| **Center seam** | 6" × ~12' | Decking gap only — frame is continuous underneath |
+| **Inner field** | ~20' 10" × ~10' 6" | After 5.5" single-row border on each side |
+| **Border depth** | 5.5" (1 row) | Single-row picture-frame on all edges |
 | **Total height** | ~7" | 5.5" joist + ~1" decking + ~0.5" pedestal adjustment |
 
 ### Decking Direction
-- **Field boards:** Run left→right (parallel to back rim)
-- **Borders:** Run perpendicular to the edge they border (front-to-back on back/front, left→right on sides)
-- **Center seam:** 6" wide strip with short perpendicular boards running front-to-back
+- **Field boards:** Run left→right (parallel to back rim), continuous across full 22' width
+- **Border boards:** Run perpendicular to the edge they border (front-to-back on back/front, left→right on sides)
+- **Corners:** 45° mitered joints where border boards meet at corners
+- **No center seam:** The field is one continuous surface
 
 ---
 
@@ -52,13 +51,13 @@ The visual separation comes from the craftsmanship of the decking borders — no
 
 | Qty | Size | Use |
 |-----|------|-----|
-| ~54 | 5/4 × 6 × ~12' | Decking — field boards + border stock + seam pieces |
+| ~54 | 5/4 × 6 × ~12' | Decking — field boards + border stock |
 | 4 | 2 × 6 × ~22' | Back rim (2) + front rim (2), doubled = 4 boards total |
 | 4 | 2 × 6 × ~12' | Side rims (2 left + 2 right), doubled = 4 boards total |
 | ~17 | 2 × 6 × 11'6" | Field joists — full length, no cuts |
-| ~80 | 2 × 6 scrap | Border blocking + mid-span blocking + seam blocking |
+| ~16 | 2 × 6 scrap | Mid-span blocking only · Cut from offcuts |
 | 55–65 | Eurotec pedestals | ECO M (1.4"–2.6") + L (2.6"–5.1") |
-| 2–3 rolls | 1-5/8" Butyl Joist Tape | Apply to all joist/rim/blocking tops before decking |
+| 2–3 rolls | 1-5/8" Butyl Joist Tape | Apply to all joist/rim tops before decking |
 | ~1.5 lb | GRK RSS 5/16"×4" screws | Structural connections |
 | ✓ | BEHR #SC-125 Stonehedge | Solid color stain — 5 gal on hand |
 
@@ -76,20 +75,20 @@ The visual separation comes from the craftsmanship of the decking borders — no
 
 ## Key Features
 
-- 🏗️ **One continuous 22'×12' frame** — simpler, stronger, no center break
-- 🖼️ **Picture-frame double borders** — creates two visual sections without structural complexity
-- 🔲 **6" center seam** — decking-only detail, not a structural break
+- 🏗️ **One simple 22'×12' frame** — no center break, no separate sections
+- 🖼️ **Single-row picture-frame border** — 45° mitered corners, clean and classic
 - 🎨 **BEHR Stonehedge solid stain** — warm, earthy gray-brown on reclaimed lumber
 - 🪵 **Reclaimed lumber** — 5/4×6 and 2×6 on hand, stained before assembly
-- 🦶 **Eurotec pedestal system** — freestanding, ultra-low profile, fully removable
+- 🦶 **Eurotec pedestal system** — freestanding, low profile, fully removable
 - 📱 **PWA-ready guides** — View on phone at the job site, works offline
 
 ---
 
 ## Version History
 
-- **v11.2** (May 2026) — Corrected to one continuous 22'×12' frame. Picture-frame borders create two visual sections. 6" center seam is decking-only. ~17 joists at 11.5' full length. No structural center break.
-- **v11.1** (archived) — Incorrectly showed two separate 11' sections structurally. Rims and joist lengths did not match actual design.
+- **v11.3** (May 2026) — **STRIPPED DOWN** to actual simple design. One 22'×12' frame. Single-row picture-frame border with 45° mitered corners. No center seam. No border blocking. ~16 mid-span blocking pieces. No "two sections" language. Matches actual Trex design intent.
+- **v11.2** (May 2026) — Overcomplicated with 6" center seam, double-row borders, ~80 blocking pieces, "two visual sections" framing language. Did not match actual simple design.
+- **v11.1** (archived) — Incorrectly showed two separate 11' sections structurally.
 - **Earlier versions** — Progressive refinements from 10'×10' through 22'×12' with various railing, step, and material iterations.
 
 ---
