@@ -2,267 +2,164 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#1a2a1a">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://mrbazz22.github.io/pool-deck-plans/apple-touch-icon.png">
+    <meta name="theme-color" content="#6b6560">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Pool Deck v11.2">
-    <link rel="apple-touch-icon" href="diagrams/joist_layout_v11.2.png">
-    <title>Pool Deck Plans v11.2</title>
+    <meta name="apple-mobile-web-app-title" content="Pool Deck Plans">
+    <title>Pool Deck Plans — v11.2</title>
     <style>
         :root {
+            --stone: #6b6560;
+            --stone-light: #9a9590;
+            --stone-dark: #4a4540;
             --cream: #f5f0eb;
-            --dark: #1a2a1a;
-            --accent: #c17a5c;
-            --light: #252a20;
-            --card: #2a3025;
-            --text-secondary: #a0a090;
+            --warm-white: #faf8f6;
+            --sage: #7a8b6e;
+            --sage-light: #a3b094;
+            --terracotta: #c17a5c;
+            --terracotta-light: #d99a7a;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--dark);
-            color: var(--cream);
-            min-height: 100vh;
-            -webkit-tap-highlight-color: transparent;
+            background: var(--cream);
+            color: var(--stone-dark);
+            line-height: 1.6;
+            min-height: 100dvh;
+            width: 100%;
         }
-
         .hero {
-            padding: 50px 25px 35px;
+            background: linear-gradient(135deg, var(--stone-dark) 0%, var(--stone) 100%);
+            color: white;
             text-align: center;
-            background: linear-gradient(180deg, #1a2a1a 0%, #252a20 60%, #1a2a1a 100%);
-            border-bottom: 1px solid rgba(193, 122, 92, 0.15);
+            padding: 60px 20px 50px;
+            position: relative;
+            overflow: hidden;
         }
-
-        .version-badge {
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .hero > * { position: relative; }
+        .hero h1 { font-size: 2.4em; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .hero .version {
             display: inline-block;
-            background: var(--accent);
-            color: #1a2a1a;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 5px 14px;
+            background: var(--terracotta);
+            color: white;
+            padding: 4px 14px;
             border-radius: 20px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
-
-        .hero h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-
-        .hero .subtitle {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            max-width: 280px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            padding: 25px 20px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 15px 10px;
-            background: rgba(193, 122, 92, 0.08);
-            border-radius: 12px;
-            border: 1px solid rgba(193, 122, 92, 0.1);
-        }
-
-        .stat .value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            display: block;
-        }
-
-        .stat .label {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 4px;
-        }
-
-        .cards {
-            padding: 10px 20px 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
+        .hero .tagline { font-size: 1.1em; color: var(--stone-light); font-weight: 300; max-width: 500px; margin: 0 auto; }
+        .hero .meta { display: flex; justify-content: center; gap: 25px; margin-top: 25px; flex-wrap: wrap; font-size: 0.85em; color: var(--stone-light); }
+        .hero .meta span { display: flex; align-items: center; gap: 6px; }
+        .cards { max-width: 900px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
         .card {
-            background: var(--card);
-            border: 1px solid rgba(193, 122, 92, 0.12);
-            border-radius: 16px;
-            padding: 28px 16px 22px;
-            text-align: center;
+            background: white;
+            border: 2px solid var(--cream);
+            border-radius: 14px;
+            padding: 28px 24px;
             text-decoration: none;
-            color: var(--cream);
-            transition: transform 0.15s ease, border-color 0.15s ease;
+            color: inherit;
+            transition: all 0.2s ease;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
-
-        .card:active {
-            transform: scale(0.96);
+        .card:hover { border-color: var(--terracotta); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .card .icon { font-size: 2em; margin-bottom: 12px; }
+        .card h3 { font-size: 1.15em; color: var(--stone-dark); margin-bottom: 6px; }
+        .card p { font-size: 0.9em; color: var(--stone); line-height: 1.5; }
+        .card .badge {
+            display: inline-block;
+            background: var(--sage-light);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-top: 12px;
+            align-self: flex-start;
         }
-
-        .card .icon {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-            filter: grayscale(0.3);
+        .github-card {
+            background: linear-gradient(135deg, #24292e 0%, #2f363d 100%);
+            color: white;
+            border-color: #3a424a;
         }
-
-        .card h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--cream);
-        }
-
-        .card p {
-            font-size: 0.78rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        .card.full-width {
-            grid-column: 1 / -1;
-            flex-direction: row;
-            justify-content: center;
-            gap: 15px;
-            padding: 18px 16px;
-        }
-
-        .card.full-width .icon {
-            margin-bottom: 0;
-            font-size: 1.8rem;
-        }
-
-        .card.full-width h3 {
-            margin-bottom: 2px;
-        }
-
-        .card.full-width p {
-            text-align: left;
-        }
-
-        .footer {
-            padding: 25px 20px 40px;
+        .github-card:hover { border-color: #58a6ff; }
+        .github-card h3 { color: white; }
+        .github-card p { color: #b0b8c0; }
+        .github-card .badge { background: #58a6ff; }
+        footer {
             text-align: center;
+            padding: 30px 20px;
+            color: var(--stone-light);
+            font-size: 0.8em;
+            border-top: 1px solid var(--cream);
         }
-
-        .footer p {
-            color: rgba(160, 160, 144, 0.6);
-            font-size: 0.75rem;
-            line-height: 1.6;
-        }
-
-        .footer a {
-            color: var(--accent);
-            text-decoration: none;
-            opacity: 0.8;
-        }
-
-        .footer a:hover {
-            opacity: 1;
-        }
-
-        @media (max-width: 360px) {
-            .cards { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 1.7rem; }
-            .stat .value { font-size: 1.3rem; }
-        }
-
-        @media (min-width: 600px) {
-            .cards { max-width: 540px; }
-            .hero { padding-top: 60px; }
-            .hero h1 { font-size: 2.4rem; }
+        @media (max-width: 500px) {
+            .hero h1 { font-size: 1.8em; }
+            .hero { padding: 40px 20px 35px; }
+            .cards { padding: 25px 15px; grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
     <div class="hero">
-        <span class="version-badge">v11.2</span>
+        <div class="version">v11.2</div>
         <h1>Pool Deck Plans</h1>
-        <p class="subtitle">One continuous frame. Picture-frame borders create two visual sections. Tap any card for on-site reference.</p>
-    </div>
-
-    <div class="stats">
-        <div class="stat">
-            <span class="value">22'</span>
-            <span class="label">Width</span>
-        </div>
-        <div class="stat">
-            <span class="value">12'</span>
-            <span class="label">Depth</span>
-        </div>
-        <div class="stat">
-            <span class="value">~7"</span>
-            <span class="label">Height</span>
+        <div class="tagline">One continuous 22'×12' frame. Picture-frame double borders create two visual sections. Freestanding on pedestals.</div>
+        <div class="meta">
+            <span>📐 22' × 12'</span>
+            <span>🎨 Stonehedge</span>
+            <span>🏊 24' Round Pool</span>
+            <span>🪵 Reclaimed Lumber</span>
         </div>
     </div>
 
     <div class="cards">
         <a href="build_guide.html" class="card">
-            <div class="icon">🔨</div>
+            <div class="icon">🏗️</div>
             <h3>Build Guide</h3>
-            <p>Full construction from framing to finish</p>
+            <p>Full construction walkthrough: materials, team roles, stain process, framing sequence, and decking installation.</p>
+            <span class="badge">Primary</span>
         </a>
 
         <a href="framing_plan.html" class="card">
             <div class="icon">📐</div>
             <h3>Framing Plan</h3>
-            <p>Cut list, joist layout & materials</p>
+            <p>Cut list, joist layout, blocking plan, pedestal grid, and decking math for one continuous 22'×12' frame.</p>
+            <span class="badge">Reference</span>
         </a>
 
         <a href="quick_reference.html" class="card">
-            <div class="icon">⚡</div>
-            <h3>Quick Ref</h3>
-            <p>Fast facts & build order</p>
+            <div class="icon">📋</div>
+            <h3>Quick Reference</h3>
+            <p>One-page printable with all specs, materials checklist, build order, and dimensions. Keep on your phone at the site.</p>
+            <span class="badge">Printable</span>
         </a>
 
         <a href="stake_string.html" class="card">
-            <div class="icon">📍</div>
-            <h3>Stake &amp; String</h3>
-            <p>Site layout &amp; footprint guide</p>
+            <div class="icon">🎯</div>
+            <h3>Stake & String Layout</h3>
+            <p>Site layout guide: mark the 22'×12' rectangle, verify square, and position pedestals before assembly.</p>
+            <span class="badge">Field Guide</span>
         </a>
 
-        <a href="https://github.com/mrbazz22/pool-deck-plans" class="card full-width">
-            <div class="icon">📁</div>
-            <div>
-                <h3>GitHub Repo</h3>
-                <p>All files, versions &amp; history</p>
-            </div>
+        <a href="https://github.com/mrbazz22/pool-deck-plans" class="card github-card">
+            <div class="icon">💻</div>
+            <h3>GitHub Repository</h3>
+            <p>View source, track versions, download files, or open issues. v11.2 is the current corrected design.</p>
+            <span class="badge">Source</span>
         </a>
     </div>
 
-    <div class="footer">
-        <p>Pool Deck v11.2 · One Continuous Frame · Picture-Frame Double Border<br>
-        <a href="https://github.com/mrbazz22/pool-deck-plans">View on GitHub</a> · Updated May 17, 2026</p>
-    </div>
-
+    <footer>
+        <p>Pool Deck Plans v11.2 · Updated May 17, 2026 · One Continuous Frame · Picture-Frame Double Border · Freestanding</p>
+    </footer>
 </body>
 </html>
