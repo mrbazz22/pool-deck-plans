@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://mrbazz22.github.io/pool-deck-plans/apple-touch-icon.png">
+    <meta name="theme-color" content="#6b6560">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Pool Deck Guide">
+    <title>Pool Deck Build Guide — v11.0</title>
+    <style>
+        :root {
+            --stone: #6b6560;
+            --stone-light: #9a9590;
+            --stone-dark: #4a4540;
+            --cream: #f5f0eb;
+            --warm-white: #faf8f6;
+            --sage: #7a8b6e;
+            --sage-light: #a3b094;
+            --terracotta: #c17a5c;
+            --terracotta-light: #d99a7a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--cream);
+            color: var(--stone-dark);
+            line-height: 1.7;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            width: 100%;
+            min-height: 100dvh;
+        }
+        
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--warm-white);
+            padding: 60px 50px;
+            min-height: 100vh;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 3px solid var(--stone);
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: var(--terracotta);
+        }
+        
+        h1 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 2.8em;
+            color: var(--stone-dark);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.15em;
+            color: var(--stone);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item { text-align: center; }
+        .meta-item .label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--stone-light);
+            margin-bottom: 4px;
+        }
+        .meta-item .value {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: var(--stone-dark);
+        }
+        
+        h2 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1.5em;
+            color: var(--stone-dark);
+            margin: 50px 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--terracotta);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        h2 .num {
+            background: var(--terracotta);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65em;
+            flex-shrink: 0;
+        }
+        
+        h3 {
+            font-size: 1.15em;
+            color: var(--stone-dark);
+            margin: 30px 0 12px;
+            font-weight: 600;
+        }
+        
+        .lead {
+            font-size: 1.15em;
+            color: var(--stone);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        p { margin-bottom: 15px; }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--sage) 0%, #5a6b4e 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 12px;
+        }
+        
+        .highlight-box > * { position: relative; }
+        .highlight-box h3 { color: white; margin-top: 0; }
+        .highlight-box p { margin-bottom: 10px; }
+        .highlight-box p:last-child { margin-bottom: 0; }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .material-card {
+            background: white;
+            border: 2px solid var(--cream);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+        
+        .material-card:hover {
+            border-color: var(--terracotta);
+            transform: translateY(-2px);
+        }
+        
+        .material-card .qty {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--terracotta);
+            line-height: 1;
+        }
+        
+        .material-card .desc {
+            font-size: 0.9em;
+            color: var(--stone);
+            margin-top: 8px;
+        }
+        
+        .material-card .note {
+            font-size: 0.8em;
+            color: var(--stone-light);
+            margin-top: 6px;
+            font-style: italic;
+        }
+        
+        ul, ol {
+            margin: 15px 0 20px 25px;
+        }
+        
+        li { margin-bottom: 10px; }
+        
+        .step-list {
+            list-style: none;
+            margin-left: 0;
+            counter-reset: step;
+        }
+        
+        .step-list li {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 20px;
+            min-height: 30px;
+        }
+        
+        .step-list li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background: var(--terracotta);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85em;
+        }
+        
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid var(--terracotta);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning strong {
+            color: var(--terracotta);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid var(--sage);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip strong {
+            color: var(--sage);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        
+        th {
+            background: var(--stone-dark);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--cream);
+        }
+        
+        tr:nth-child(even) { background: var(--warm-white); }
+        tr:hover { background: #f0ebe5; }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid var(--cream);
+        }
+        
+        .team-member .role {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--stone-dark);
+            margin-bottom: 5px;
+        }
+        
+        .team-member .name {
+            font-size: 0.9em;
+            color: var(--stone);
+        }
+        
+        .team-member .task {
+            font-size: 0.8em;
+            color: var(--stone-light);
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .diagram-note {
+            background: var(--cream);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid var(--cream);
+            text-align: center;
+            color: var(--stone-light);
+            font-size: 0.85em;
+        }
+        
+        @media (max-width: 600px) {
+            .page { padding: 30px 20px; }
+            h1 { font-size: 2em; }
+            .project-meta { gap: 20px; }
+            .materials-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <h1>Pool Deck Build Guide</h1>
+            <div class="subtitle">Ultra-Low Profile Boardwalk — Final Design v11.0</div>
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="label">Size</div>
+                    <div class="value">22' × ~18'</div>
+                </div>
+                <div class="meta-item">
+                    <div class="label">Style</div>
+                    <div class="value">Modern Rustic</div>
+                </div>
+                <div class="meta-item">
+                    <div class="label">Stain</div>
+                    <div class="value">Stonehedge</div>
+                </div>
+                <div class="meta-item">
+                    <div class="label">Pool</div>
+                    <div class="value">24' Round</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="highlight-box">
+            <h3>🏗️ Design Philosophy: Boardwalk on Stone</h3>
+            <p>This is NOT a traditional deck. It's a <strong>boardwalk-style floating platform</strong> that sits directly on flat stone or compacted gravel. No posts in the ground. No concrete footings. No ledger board attached to a house. The entire structure rests on Eurotec ECO M/L pedestals, making it fully freestanding, ultra-low profile, and removable if needed.</p>
+            <p><strong>Key Heights:</strong> Main deck ~7" above grade · Curved pool edge ~5" above grade · Both sit well above coping</p>
+        </div>
+
+        <!-- MATERIALS -->
+        <h2><span class="num">01</span>Materials &amp; Inventory</h2>
+        
+        <p class="lead">Everything on hand is reclaimed lumber. The only purchases needed are stain and maybe some crushed stone for leveling.</p>
+        
+        <div class="materials-grid">
+            <div class="material-card">
+                <div class="qty">38</div>
+                <div class="desc">5/4 × 6 × ~12'</div>
+                <div class="note">Decking boards · Actual 1" thick · Slightly rough-sawn</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">11</div>
+                <div class="desc">2 × 6 × 14'</div>
+                <div class="note">Back rim (2) + border sleeper (1) + 1 spare · All doubled where needed</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">31</div>
+                <div class="desc">2 × 6 × ~11.5'</div>
+                <div class="note">Side rims (4) + field joists (15) · Full length, no cuts · 12 remaining</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">✓</div>
+                <div class="desc">2 × 4 (various)</div>
+                <div class="note">Curved edge joists (3.5") + 2×4 ledger · On hand</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">19+19</div>
+                <div class="desc">Eurotec Pedestals</div>
+                <div class="note">19× ECO M (1.4"–2.6") + 19× ECO L (2.6"–5.1")</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">1–2</div>
+                <div class="desc">Precast Concrete Bases</div>
+                <div class="note">For left corners · Accept 2× lumber directly · Optional</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">✓</div>
+                <div class="desc">BEHR #SC-125 Stonehedge</div>
+                <div class="note">Solid color stain · 5 gal on hand · ~$0 (already purchased)</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">✓</div>
+                <div class="desc">Roller + Covers + Brushes</div>
+                <div class="note">9" roller, ¼" nap covers, 3" quality brush, 2" edge brush · On hand</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">4–5 tons</div>
+                <div class="desc">Crushed Stone / Gravel</div>
+                <div class="note">For leveling base under pedestals · Optional if using flat stone</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">✓</div>
+                <div class="desc">Butyl Joist Tape</div>
+                <div class="note">1-5/8" wide · 2 rolls on hand · Apply to all joist/rim/blocking tops before decking</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">1 lb</div>
+                <div class="desc">Structural Screws</div>
+                <div class="note">GRK RSS 5/16"×4" or equivalent · For rim-to-joist connections · ~$25</div>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Lumber Challenge</strong>
+            Your 5/4×6 decking boards are ~12' long, but the deck is 22' wide. You'll need a creative layout — either framing in the extra foot with blocking, using some boards at a slight angle, or accepting a small gap/pieced section. 38 boards should be enough with smart planning.
+        </div>
+
+        <!-- DESIGN OVERVIEW -->
+        <h2><span class="num">02</span>Design Overview</h2>
+        
+        <p class="lead">A freestanding 22' × ~18' boardwalk deck with a curved front edge that follows the pool's shape. Two framing heights: main deck at ~7" and curved pool edge at ~5". No house connection. No posts in ground.</p>
+
+        <h3>Structure at a Glance</h3>
+        <ul>
+            <li><strong>Support:</strong> Eurotec ECO M/L pedestals on flat stone, compacted gravel, or combo base · NO posts in ground</li>
+            <li><strong>Main deck framing:</strong> 2×6 joists (5.5") at 16" O.C., running front-to-back (perpendicular to back edge)</li>
+            <li><strong>Curved edge framing:</strong> 2×4 joists (3.5") fanning from 2×4 ledger toward pool, following curve</li>
+            <li><strong>Ledger:</strong> 2×4 ledger board across deck at transition line (~11.5' from back edge), connecting curved section to main deck</li>
+            <li><strong>Main decking:</strong> 5/4×6 boards, run left→right (parallel to back edge)</li>
+            <li><strong>Curved decking:</strong> 2×6 boards, run perpendicular (radial/front-to-back) to follow curve</li>
+            <li><strong>Edge detail:</strong> Curved front overhangs pool coping by ~1", following pool radius</li>
+        </ul>
+
+        <h3>Height Breakdown</h3>
+        <table>
+            <tr>
+                <th>Section</th>
+                <th>Joist</th>
+                <th>Decking</th>
+                <th>Pedestal Range</th>
+                <th>Total Height</th>
+            </tr>
+            <tr>
+                <td><strong>Main deck</strong> (back ~11.5')</td>
+                <td>2×6 (5.5")</td>
+                <td>5/4×6 (~1")</td>
+                <td>ECO M: 1.4"–2.6"</td>
+                <td><strong>~7–7.5"</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Curved edge</strong> (front ~3–4')</td>
+                <td>2×4 (3.5")</td>
+                <td>5/4×6 (~1")</td>
+                <td>ECO M: 1.4"–2.6"</td>
+                <td><strong>~5–5.5"</strong></td>
+            </tr>
+        </table>
+
+        <div class="tip">
+            <strong>💡 Why Two Heights?</strong>
+            The 2" height difference between main deck and curved edge is barely perceptible when standing on it, but it saves lumber (2×4 vs 2×6) on the section that only needs to span a short distance to the pool edge. The 2×4 ledger at the transition provides bearing for the curved joists and a clean attachment point.
+        </div>
+
+        <!-- FRAMING DETAIL -->
+        <h2><span class="num">03</span>Framing Detail</h2>
+
+        <h3>Joist Layout (Main Deck — 2×6)</h3>
+        <ul>
+            <li><strong>Outer rim joists:</strong> 2×6 perimeter band around full deck perimeter · Doubled 2×6 on all four sides (back, left, right, and front/ledger area)</li>
+            <li><strong>Field joists:</strong> 2×6 at 16" O.C., running front-to-back (perpendicular to back edge)</li>
+            <li><strong>Joists sit DIRECTLY on pedestals/stone:</strong> No beam underneath · Pedestals contact joist bottom directly</li>
+            <li><strong>Ends:</strong> Joists are face-screwed to rim joists with 3" exterior screws · 2 per end</li>
+            <li><strong>Ledger attachment:</strong> Main deck joists butt into 2×4 ledger at transition line · Ledger is face-screwed to rim or blocking</li>
+        </ul>
+
+        <h3>Curved Section (2×4)</h3>
+        <ul>
+            <li><strong>2×4 ledger:</strong> Runs full width of deck at transition line (~8' from back edge) · Screwed to main deck rim/ blocking · Provides bearing for curved joists</li>
+            <li><strong>2×4 joists:</strong> Fan outward from ledger toward pool edge · Lengths vary (longest at center, shortest at corners) · Spaced ~12–16" O.C.</li>
+            <li><strong>Joist ends:</strong> Cut at angle to follow pool curve · Face-screwed to ledger with 2.5" screws · Ends rest on ECO M pedestals near coping</li>
+            <li><strong>Curved rim:</strong> Optional 2×4 face board along curved front edge, screwed to joist ends for clean appearance</li>
+        </ul>
+
+        <h3>Support Pedestals</h3>
+        <ul>
+            <li><strong>ECO M (1.4"–2.6"):</strong> Primary pedestal for lowest profile · Use where grade is already level · 19 on hand</li>
+            <li><strong>ECO L (2.6"–5.1"):</strong> Use where ground slopes or needs more lift · 19 on hand · Adjustable by rotating threaded barrel</li>
+            <li><strong>Placement:</strong> One pedestal under each joist intersection (approx 3 per joist) · Corners get precast concrete bases if using</li>
+            <li><strong>Base:</strong> Flat stone pavers (most stable) OR compacted gravel (cheaper) OR combo — flat stone at corners/peaks, gravel in between</li>
+        </ul>
+
+        <!-- STAINS & FINISHING -->
+        <h2><span class="num">04</span>Stain &amp; Finishing</h2>
+        
+        <p class="lead">Stain BEFORE you build. Every piece gets all six faces sealed on sawhorses before it goes in the truck.</p>
+
+        <h3>Product</h3>
+        <ul>
+            <li><strong>BEHR PREMIUM #SC-125 Stonehedge</strong> — Solid Color Weatherproofing All-In-One Wood Stain</li>
+            <li>5-gallon bucket (covers ~1,000–1,500 sq ft for two coats)</li>
+            <li>Color: Warm, earthy gray-brown that complements the wooded backyard</li>
+        </ul>
+
+        <h3>Application Method</h3>
+        <div class="warning">
+            <strong>⚠️ Critical: Stain ALL 6 Faces Before Assembly</strong>
+            Every board gets top, bottom, and all four edges sealed before it leaves the sawhorses. End grain gets a double coat. This is your moisture barrier — don't skip it.
+        </div>
+
+        <ol class="step-list">
+            <li><strong>Prep:</strong> Pressure wash all boards, apply wood brightener, let dry 48+ hours. No heavy sanding needed — the rough-sawn texture is part of the look.</li>
+            <li><strong>Setup:</strong> Stack boards on flat sawhorses with ½" gaps for air circulation. Label every piece with its planned position (e.g., "DECK-ROW-3", "CURVED-JOIST-5") using painter's tape and marker.</li>
+            <li><strong>End grain first:</strong> Brush a heavy coat on all cut ends — they drink stain. Let dry 30 min.</li>
+            <li><strong>Faces:</strong> Roll the broad surfaces with a ¼" nap roller for speed, then back-brush with a quality 3" brush to work stain into cracks and give that hand-finished look.</li>
+            <li><strong>Edges:</strong> Brush all four edges, especially where boards will butt together.</li>
+            <li><strong>Dry &amp; flip:</strong> Let dry 4–6 hours, flip, repeat on the back face.</li>
+            <li><strong>Second coat (optional):</strong> After 24 hours, assess coverage. Solid stain usually needs one good coat, but high-traffic areas benefit from two thin coats vs one heavy one.</li>
+        </ol>
+
+        <div class="tip">
+            <strong>💡 Pro Tip: The "Wet Edge"</strong>
+            On hot days, stain dries fast. Work in sections and maintain a wet edge — don't let a rolled section dry before you back-brush it, or you'll see lap marks. Morning shade is your friend.
+        </div>
+
+        <h3>Team Roles for Staining</h3>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="role">Stain Boss</div>
+                <div class="name">Your Wife</div>
+                <div class="task">Quality control · Makes sure every face gets hit · Catches missed spots</div>
+            </div>
+            <div class="team-member">
+                <div class="role">Prep Crew</div>
+                <div class="name">Daughter-in-Law</div>
+                <div class="task">Pressure wash · Move boards · Stack · Label pieces with tape</div>
+            </div>
+            <div class="team-member">
+                <div class="role">Brush Crew</div>
+                <div class="name">Daughter</div>
+                <div class="task">End grain · Edge touch-ups · Back-brushing rolled sections</div>
+            </div>
+            <div class="team-member">
+                <div class="role">Site Lead</div>
+                <div class="name">You</div>
+                <div class="task">Roller operator · Cut list · Problem solver · Coffee runs</div>
+            </div>
+        </div>
+
+        <!-- BUILD SEQUENCE -->
+        <h2><span class="num">05</span>Build Sequence</h2>
+
+        <p class="lead">Build in three phases: Prep → Frame → Deck. Each phase needs dry weather.</p>
+
+        <h3>Phase 1: Site Prep</h3>
+        <ol class="step-list">
+            <li>Clear site of debris, roots, and any vegetation within deck footprint.</li>
+            <li>Rough-grade the area with a rake and shovel. Goal: within ±1" of level across entire 22' × ~18' area.</li>
+            <li>Spread 4–5 tons of crushed stone (¾" or smaller) OR place flat stone pavers at pedestal locations. Tamp well.</li>
+            <li>Lay out pedestal locations with spray paint. Grid: one pedestal under each joist intersection, roughly 3 per joist line.</li>
+            <li>Set precast concrete bases at left/right corners if using (accept 2× lumber directly).</li>
+            <li>Install ECO M/L pedestals, adjusting height so tops are roughly level. Fine-tune during framing.</li>
+        </ol>
+
+        <h3>Phase 2: Main Deck Framing</h3>
+        <ol class="step-list">
+            <li>Cut 2×6 rim joists: back rim (spliced to 22'), transition rim (spliced to 22'), and two 11.5' side rims · Full length, no cuts on sides. Cut transition rim to accept 2×4 ledger later.</li>
+            <li>Assemble outer rim on ground (or on pedestals if you have help): rectangle 22' × ~11.5' (back portion only). Check diagonal for square.</li>
+            <li>Install field joists: 2×6 at 16" O.C., running front-to-back (perpendicular to back edge). Face-screw to rim with <strong>3" exterior screws</strong> or structural screws (GRK RSS 5/16"×4"). Use 2 per end.</li>
+            <li>Add <strong>diagonal bracing</strong>: Install 2×4 cross-bracing between field joists at corners and mid-span to prevent racking. Screw through joists into brace ends.</li>
+            <li>Place assembled frame onto pedestals. Adjust pedestal heights so frame is level and at correct height (~7" total, leaving room for 1" decking).</li>
+            <li>Install 2×4 ledger across transition line (where curved section begins). Screwed to rim joists and blocking. This is the bearing point for curved joists.</li>
+            <li>Add blocking between joists near ledger and at mid-span for rigidity.</li>
+        </ol>
+
+        <h3>Phase 3: Curved Section Framing</h3>
+        <ol class="step-list">
+            <li>Cut 2×4 joists for curved section. Lengths vary: longest at center (~3–4'), shortest at corners (~2'). Cut ends at angle to follow pool curve.</li>
+            <li>Space joists ~12–16" O.C. fanning from ledger toward pool. Face-screw to ledger with 2.5" exterior screws.</li>
+            <li>Joist ends rest on ECO M pedestals near coping. Adjust pedestal height for ~5" total (3.5" joist + 1" decking = 4.5", pedestal makes up rest).</li>
+            <li>Optional: Install curved 2×4 face board along front edge for clean appearance.</li>
+        </ol>
+
+        <h3>Phase 4: Decking</h3>
+        <ol class="step-list">
+            <li><strong>Main deck:</strong> Start at back edge. Lay 5/4×6 boards left→right (parallel to back edge). Space <strong>1/8"–3/16"</strong> apart for drainage (wider in humid Georgia climate). Screw with 2.5" exterior screws, two per joist.</li>
+            <li><strong>22' challenge:</strong> 12' boards need extra foot. Options: (a) Frame in a 1' border with blocking and butt-join shorter pieces, (b) Use some boards at slight diagonal, (c) Accept a pieced section near back edge where it's less visible.</li>
+            <li><strong>Curved section:</strong> Lay boards perpendicular (radial/front-to-back), starting at ledger and working toward pool edge. Space <strong>3/16"</strong> apart (2×6 boards expand more than 5/4). Boards follow the curve naturally when laid radially. Cut ends to match curved rim.</li>
+            <li><strong>Overhang:</strong> Curved decking should extend ~1" past coping for clean look. Verify from pool level that overhang is consistent.</li>
+        </ol>
+
+        <h3>Phase 5: Railings &amp; Step</h3>
+        <ol class="step-list">
+            <li><strong>Rail posts:</strong> Surface-mount short 6×6 posts (~3' total length) at corners and mid-points. Pre-drill, attach with ½" lag screws and washers into blocking below.</li>
+            <li><strong>Rails:</strong> Two 2×6 horizontal rails per section, 36" above deck surface. Butt joints at posts, no fancy joinery needed.</li>
+            <li><strong>Box step:</strong> Wide box step on back/outer edge. Single 7" rise using 2×6 frame and 5/4 tread. Size: at least 3' wide for comfortable access.</li>
+        </ol>
+
+        <!-- RAILINGS -->
+        <h2><span class="num">06</span>Railings &amp; Safety</h2>
+
+        <ul>
+            <li><strong>Height:</strong> 36" above deck surface (standard residential)</li>
+            <li><strong>Posts:</strong> 6×6 nominal (actual 5.5" × 5.5") · Short pieces (~3' total) · Surface-mounted with lag screws into blocking</li>
+            <li><strong>Rails:</strong> 2×6 horizontal, two per bay · Top rail at 36", mid-rail at ~18" · Butt-joined at posts</li>
+            <li><strong>No gate:</strong> Continuous railing all around — box step provides access</li>
+        </ul>
+
+        <!-- DECKING NOTES -->
+        <h2><span class="num">07</span>Decking Notes</h2>
+
+        <h3>Direction Change</h3>
+        <p>The decking changes direction at the 2×4 ledger:</p>
+        <ul>
+            <li><strong>Main deck:</strong> Boards run left→right (parallel to back edge, perpendicular to joists). This is the "normal" way decking runs.</li>
+            <li><strong>Curved section:</strong> Boards run radial/perpendicular (front-to-back, following the curve). This looks intentional and follows the pool's geometry.</li>
+            <li><strong>Visual transition:</strong> The 2×4 ledger creates a natural "break line" where the decking direction changes. This looks designed, not accidental.</li>
+        </ul>
+
+        <h3>22' Width Solution</h3>
+        <div class="warning">
+            <strong>⚠️ Your 5/4×6 boards are 12' — deck is 22' wide</strong>
+            You need to cover an extra foot. Options (pick one or combine):
+            <br><br>
+            <strong>Option A:</strong> Frame in a 1' border along back edge with 2×4 blocking. Butt-join shorter decking pieces (cut from board ends) into this border. Least visible since it's against the back edge.
+            <br><br>
+            <strong>Option B:>/strong> Run every 4th or 5th board at a slight angle, gaining ~1" per board over 12'. Subtle and effective.
+            <br><br>
+            <strong>Option C:</strong> Accept a small pieced area. Cut 1' off some boards, use the offcuts to piece together the extra foot in one row.
+        </div>
+
+        <!-- TOOLS -->
+        <h2><span class="num">08</span>Tools Needed</h2>
+
+        <div class="materials-grid">
+            <div class="material-card">
+                <div class="qty">🔧</div>
+                <div class="desc">Impact Driver + Bits</div>
+                <div class="note">Primary fastening tool · T25 for decking · Square for framing</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">🪚</div>
+                <div class="desc">Circular Saw</div>
+                <div class="note">Joist and board cuts · Fine-tooth blade for clean cuts</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">📏</div>
+                <div class="desc">Tape + Speed Square</div>
+                <div class="note">Layout and marking · 25' tape minimum</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">🔨</div>
+                <div class="desc">Level + String Line</div>
+                <div class="note">2' level for joists · String for long straight checks</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">🎨</div>
+                <div class="desc">Roller + Brushes</div>
+                <div class="note">9" roller with ¼" nap · 3" quality brush · 2" for edges</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">🏠</div>
+                <div class="desc">Sawhorses &amp; Tarps</div>
+                <div class="note">For staining station · Keep boards off ground while drying</div>
+            </div>
+        </div>
+
+        <!-- TIMELINE -->
+        <h2><span class="num">09</span>Build Timeline</h2>
+
+        <table>
+            <tr>
+                <th>Phase</th>
+                <th>Duration</th>
+                <th>Weather</th>
+                <th>Team</th>
+            </tr>
+            <tr>
+                <td>Site Prep + Stain</td>
+                <td>2–3 days</td>
+                <td>Dry, 60–80°F</td>
+                <td>All hands</td>
+            </tr>
+            <tr>
+                <td>Framing (main + curved)</td>
+                <td>1–2 days</td>
+                <td>Dry, no wind</td>
+                <td>You + 1 helper</td>
+            </tr>
+            <tr>
+                <td>Decking</td>
+                <td>1–2 days</td>
+                <td>Dry</td>
+                <td>You + 1 helper</td>
+            </tr>
+            <tr>
+                <td>Railings + Step</td>
+                <td>½ day</td>
+                <td>Any</td>
+                <td>You + helper</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>4–7 days</strong></td>
+                <td>—</td>
+                <td>—</td>
+            </tr>
+        </table>
+
+        <!-- QUICK TIPS -->
+        <h2><span class="num">10</span>Quick Tips &amp; Gotchas</h2>
+
+        <div class="tip">
+            <strong>💡 Start staining before you think you're ready</strong>
+            Staining takes longer than building. If you have dry weather coming, start washing boards 2 days before you plan to stain. They need 48 hours to dry.
+        </div>
+
+        <div class="tip">
+            <strong>💡 Build a "test section"</strong>
+            Before committing the whole deck, build a 4' × 4' test section with a few pedestals, one joist, and a couple decking boards. Verify heights, pedestal stability, and how it feels to walk on before scaling up.
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Don't over-tighten pedestal screws</strong>
+            The ECO pedestals have a threaded barrel for height adjustment. Crank them snug, but don't reef on them — the plastic threads can strip if you're aggressive.
+        </div>
+
+        <div class="tip">
+            <strong>💡 Curved cuts don't need to be perfect</strong>
+            The curved decking is forgiving. A faceted curve (9–11 straight cuts) looks fine and is much easier than a true radius cut. Sand the transitions smooth if needed.
+        </div>
+
+        <div class="tip">
+            <strong>💡 Leave the labels on during build</strong>
+            The painter's tape labels you put on during staining? Leave them on until the piece is installed. You'll thank yourself when you're hunting for "CURVED-JOIST-3" in a pile of identical boards.
+        </div>
+
+        <footer>
+            <p>Pool Deck Build Guide — Final Design v11.0 · Updated May 17, 2026</p>
+            <p>22' × ~18' Ultra-Low Profile Boardwalk · BEHR Stonehedge · Reclaimed Lumber</p>
+        </footer>
+    </div>
+</body>
+</html>
