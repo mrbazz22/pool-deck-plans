@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://mrbazz22.github.io/pool-deck-plans/apple-touch-icon.png">
+    <meta name="theme-color" content="#6b6560">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Curved Pool Section">
+    <title>Curved Pool Section — Pool Deck Plans</title>
+    <style>
+        :root {
+            --stone: #6b6560;
+            --stone-light: #9a9590;
+            --stone-dark: #4a4540;
+            --cream: #f5f0eb;
+            --warm-white: #faf8f6;
+            --sage: #7a8b6e;
+            --sage-light: #a3b094;
+            --terracotta: #c17a5c;
+            --terracotta-light: #d99a7a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--cream);
+            color: var(--stone-dark);
+            line-height: 1.7;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            width: 100%;
+            min-height: 100dvh;
+        }
+        .page { max-width: 900px; margin: 0 auto; background: var(--warm-white); padding: 60px 50px; min-height: 100vh; }
+        header { text-align: center; margin-bottom: 50px; padding-bottom: 40px; border-bottom: 3px solid var(--stone); position: relative; }
+        header::after { content: ''; position: absolute; bottom: -3px; left: 50%; transform: translateX(-50%); width: 120px; height: 3px; background: var(--terracotta); }
+        h1 { font-size: 2.8em; color: var(--stone-dark); margin-bottom: 8px; letter-spacing: -0.5px; }
+        .subtitle { font-size: 1.15em; color: var(--stone); font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
+        .project-meta { display: flex; justify-content: center; gap: 40px; margin-top: 25px; flex-wrap: wrap; }
+        .meta-item { text-align: center; }
+        .meta-item .label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 1.5px; color: var(--stone-light); margin-bottom: 4px; }
+        .meta-item .value { font-weight: 600; font-size: 1.1em; color: var(--stone-dark); }
+        h2 { font-size: 1.5em; color: var(--stone-dark); margin: 50px 0 20px; padding-bottom: 12px; border-bottom: 2px solid var(--terracotta); display: flex; align-items: center; gap: 12px; }
+        h2 .num { background: var(--terracotta); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65em; flex-shrink: 0; }
+        h3 { font-size: 1.15em; color: var(--stone-dark); margin: 30px 0 12px; font-weight: 600; }
+        .lead { font-size: 1.15em; color: var(--stone); margin-bottom: 25px; line-height: 1.8; }
+        p { margin-bottom: 15px; }
+        .highlight-box {
+            background: linear-gradient(135deg, var(--sage) 0%, #5a6b4e 100%);
+            color: white; padding: 25px 30px; border-radius: 12px; margin: 25px 0; position: relative;
+        }
+        .highlight-box::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 12px;
+        }
+        .highlight-box > * { position: relative; }
+        .highlight-box h3 { color: white; margin-top: 0; }
+        .highlight-box p { margin-bottom: 10px; }
+        .highlight-box p:last-child { margin-bottom: 0; }
+        .materials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 20px 0; }
+        .material-card { background: white; border: 2px solid var(--cream); border-radius: 10px; padding: 20px; transition: all 0.2s; }
+        .material-card:hover { border-color: var(--terracotta); transform: translateY(-2px); }
+        .material-card .qty { font-size: 2em; font-weight: 700; color: var(--terracotta); line-height: 1; }
+        .material-card .desc { font-size: 0.9em; color: var(--stone); margin-top: 8px; }
+        .material-card .note { font-size: 0.8em; color: var(--stone-light); margin-top: 6px; font-style: italic; }
+        ul, ol { margin: 15px 0 20px 25px; }
+        li { margin-bottom: 10px; }
+        .step-list { list-style: none; margin-left: 0; counter-reset: step; }
+        .step-list li { position: relative; padding-left: 50px; margin-bottom: 20px; min-height: 30px; }
+        .step-list li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 32px; height: 32px; background: var(--terracotta); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; }
+        .warning { background: #fff3e0; border-left: 4px solid var(--terracotta); padding: 15px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .warning strong { color: var(--terracotta); display: block; margin-bottom: 5px; }
+        .tip { background: #e8f5e9; border-left: 4px solid var(--sage); padding: 15px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .tip strong { color: var(--sage); display: block; margin-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; }
+        th { background: var(--stone-dark); color: white; padding: 12px 15px; text-align: left; font-weight: 600; }
+        td { padding: 12px 15px; border-bottom: 1px solid var(--cream); }
+        tr:nth-child(even) { background: var(--warm-white); }
+        tr:hover { background: #f0ebe5; }
+        .diagram-img { max-width: 100%; height: auto; display: block; margin: 15px auto; border: 2px solid var(--cream); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .reference-img { max-width: 100%; height: auto; display: block; margin: 10px auto 20px; border: 1px solid var(--cream); border-radius: 6px; opacity: 0.9; }
+        .back-link { display: inline-block; background: var(--terracotta); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 20px; transition: background 0.2s; }
+        .back-link:hover { background: var(--stone-dark); }
+        @media (max-width: 600px) { .page { padding: 30px 20px; } h1 { font-size: 2em; } .project-meta { gap: 20px; } .materials-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <a href="index.html" class="back-link">← Back to Index</a>
+
+        <header>
+            <h1>Curved Pool Section</h1>
+            <div class="subtitle">Concave Beach-Entry Deck · Standalone Build</div>
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="label">Width</div>
+                    <div class="value">~20'</div>
+                </div>
+                <div class="meta-item">
+                    <div class="label">Depth</div>
+                    <div class="value">~3'–5'</div>
+                </div>
+                <div class="meta-item">
+                    <div class="label">Height</div>
+                    <div class="value">~5" above coping</div>
+                </div>
+                <div class="meta-item">
+                    <div class="label">Pool</div>
+                    <div class="value">24' Round</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="highlight-box">
+            <h3>🏖️ What This Is</h3>
+            <p>A <strong>concave curved transition deck</strong> that hugs the pool edge like a beach entry. It sits just below the main deck — a gentle step down — and gives the dogs (and people) an easy, low-profile surface near the water.</p>
+            <p><strong>Completely freestanding.</strong> Not attached to the main deck. Built on Eurotec pedestals with its own frame, joists, and decking. ~1" gap between this section and the main deck lets both move independently.</p>
+            <p><strong>Height:</strong> ~5" above coping (main deck is ~7") · <strong>Style:</strong> Modern rustic · <strong>Stain:</strong> BEHR Stonehedge to match</p>
+        </div>
+
+        <!-- DIAGRAM PLACEHOLDER: Curved section framing layout to be added later -->
+
+        <h2><span class="num">01</span>Overview &amp; Design Intent</h2>
+        <p class="lead">This is a separate build — freestanding, lighter duty, and shaped by the pool.</p>
+
+        <ul>
+            <li><strong>Shape:</strong> Concave curve on the back edge following a 24' diameter round pool. Straight front edge meets the main deck. Straight sides on left and right.</li>
+            <li><strong>Purpose:</strong> "Beach entry" transition — lower than the main deck, close to coping level. The dogs will love having a wide, stable surface to lounge on right next to the water.</li>
+            <li><strong>Independence:</strong> This frame does NOT attach to the main deck. A ~1" gap between the two frames allows for thermal expansion, ground movement, and independent settling.</li>
+            <li><strong>Framing:</strong> 2×4 joists (lighter than the main deck's 2×6) at 12" O.C. — closer spacing compensates for the smaller lumber.</li>
+            <li><strong>Decking:</strong> 2×6 boards (actual 1.5" × 5.5") — heavier and more stable than 5/4×6, better for a low-profile section that may see wet paws.</li>
+            <li><strong>Height difference:</strong> Main deck is ~7" above coping. This section is ~5" above coping — a ~2" step down from the main deck.</li>
+        </ul>
+
+        <div class="tip">
+            <strong>💡 Why 2×4 Joists Here?</strong>
+            Shorter spans (~3' to ~5') mean 2×4 is plenty strong. Using 2×4 keeps the profile lower and uses less lumber. The trade-off is closer joist spacing — 12" O.C. instead of 16".
+        </div>
+
+        <h2><span class="num">02</span>Framing Plan</h2>
+        <p class="lead">Concave back edge · Straight front edge · Straight sides · Joists run front-to-back toward the curve.</p>
+
+        <h3>Perimeter</h3>
+        <ul>
+            <li><strong>Front edge (meets main deck):</strong> Straight, doubled 2×4 rim joist. Butts against (but does not attach to) the main deck's back rim. Maintains ~1" gap. Height is ~2" lower than main deck surface.</li>
+            <li><strong>Back edge (pool side):</strong> Concave curve following the pool. Doubled 2×4 rim joists cut to a smooth arc. This is the signature visual element.</li>
+            <li><strong>Side edges (left/right):</strong> Straight, doubled 2×4 rim joists connecting the front and back edges. Vary in length from ~3' on the center to ~5' at the outer ends.</li>
+        </ul>
+
+        <h3>Joists</h3>
+        <ul>
+            <li><strong>Direction:</strong> Front-to-back — perpendicular to the straight front edge, pointing toward the curved back edge.</li>
+            <li><strong>Spacing:</strong> 12" O.C. (closer than main deck's 16" O.C. because 2×4 spans less).</li>
+            <li><strong>Lengths:</strong> Vary from ~3' at center to ~5' at the sides. Each joist is cut to butt into the curved back rim at the correct angle.</li>
+            <li><strong>Ends:</strong> Face-screwed to front and back rim joists with 3" exterior screws — 2 per end.</li>
+        </ul>
+
+        <h3>Dimensions Summary</h3>
+        <table>
+            <tr><th>Element</th><th>Dimension</th><th>Notes</th></tr>
+            <tr><td><strong>Overall width</strong></td><td>~20'</td><td>Spans most of the main deck's 22' width</td></tr>
+            <tr><td><strong>Depth at center</strong></td><td>~3'</td><td>Shortest joists, near pool's closest point</td></tr>
+            <tr><td><strong>Depth at sides</strong></td><td>~5'</td><td>Longest joists, where curve sweeps away from deck</td></tr>
+            <tr><td><strong>Joist size</strong></td><td>2×4</td><td>Actual 1.5" × 3.5" · Lighter duty than main deck</td></tr>
+            <tr><td><strong>Joist spacing</strong></td><td>12" O.C.</td><td>Closer spacing for 2×4 spans</td></tr>
+            <tr><td><strong>Rim joists</strong></td><td>Doubled 2×4</td><td>All four edges doubled for rigidity</td></tr>
+            <tr><td><strong>Total height</strong></td><td>~5" above coping</td><td>2×4 (3.5") + 2×6 decking (1.5") + pedestal (~0–1")</td></tr>
+            <tr><td><strong>Step down from main</strong></td><td>~2"</td><td>Main deck ~7" above coping · This ~5"</td></tr>
+        </table>
+
+        <div class="warning">
+            <strong>⚠️ Keep the Gap</strong>
+            Maintain ~1" clearance between this frame and the main deck frame. Do NOT bridge them with screws, brackets, or shared joists. They must move independently.
+        </div>
+
+        <h2><span class="num">03</span>Materials List</h2>
+        <p class="lead">Smaller framing, heavier decking, more pedestals per square foot.</p>
+
+        <div class="materials-grid">
+            <div class="material-card">
+                <div class="qty">~40 lin ft</div>
+                <div class="desc">2×4 Rim Joists (doubled)</div>
+                <div class="note">Front ~20' + back curved ~20' + sides ~3'–5' each · Double layer = ~80 lin ft total</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">~20</div>
+                <div class="desc">2×4 Field Joists</div>
+                <div class="note">At 12" O.C. across ~20' width · Varying lengths ~3'–5' · Cut to fit curve</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">~35–40</div>
+                <div class="desc">2×6 Decking Boards</div>
+                <div class="note">~8'–12' lengths · Cut to follow curve · Actual 1.5" thick, ~5.5" wide</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">~45–55</div>
+                <div class="desc">Eurotec Pedestals</div>
+                <div class="note">ECO M (1.5"–3") near front · ECO L (3"–5.5") near back · More per sq ft than main deck</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">1–2</div>
+                <div class="desc">Butyl Joist Tape</div>
+                <div class="note">1-5/8" wide · Apply to all joist/rim tops before decking</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">~1 lb</div>
+                <div class="desc">Exterior Screws</div>
+                <div class="note">3" for framing · 2.5" for decking · GRK RSS or equivalent</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">✓</div>
+                <div class="desc">BEHR #SC-125 Stonehedge</div>
+                <div class="note">Solid color stain · Same as main deck · Touch-up cut ends on-site</div>
+            </div>
+        </div>
+
+        <div class="tip">
+            <strong>💡 Decking Math Check</strong>
+            2×6 boards are ~5.5" wide + ¼" gap = 5.75" effective. A ~20' wide section needs roughly 42 rows. With ~3'–5' lengths, plan cuts so offcuts from the curved back edge can be reused for shorter rows near the sides.
+        </div>
+
+        <h2><span class="num">04</span>The Curve</h2>
+        <p class="lead">The concave back rim is the visual centerpiece. Here's how to mark and cut it accurately.</p>
+
+        <h3>Finding the Arc</h3>
+        <ul>
+            <li><strong>Pool center is already known</strong> from the main deck stakeout. Use the same center point.</li>
+            <li><strong>Radius:</strong> 12' from pool center (half of 24' diameter). The pool coping sits at this radius.</li>
+            <li><strong>Back edge of this deck section:</strong> Follows the same 12' radius arc — the deck back rim hugs the pool edge.</li>
+            <li><strong>Mark it on the ground:</strong> Drive a stake at pool center. Tie a string to it at exactly 12' length. Swing the string in an arc across the build area. Mark the arc on the ground with spray paint or flour.</li>
+            <li><strong>Transfer to lumber:</strong> Lay out doubled 2×4s for the back rim. Use the stringline again to transfer the arc onto the boards, or use a flexible batten (thin strip of wood or PVC) bent to match the ground marks.</li>
+        </ul>
+
+        <h3>Cutting the Curved Rim</h3>
+        <ul>
+            <li><strong>Doubled 2×4s:</strong> Cut both layers of the back rim together so they match exactly. Stack them, clamp them, trace the arc on top, and cut through both at once.</li>
+            <li><strong>Tools:</strong> Bandsaw gives the cleanest curve. Jigsaw with a fine-tooth blade works too — go slow and stay outside your line, then sand to the line.</li>
+            <li><strong>Length:</strong> The back rim spans ~20' of arc. If your 2×4 stock is 8' or 10', you'll need to splice pieces with angled scarf joints or simple overlaps. Stagger splices between the two layers.</li>
+        </ul>
+
+        <h3>Field Joists Meet the Curve</h3>
+        <ul>
+            <li>Each field joist butts into the curved back rim at a slightly different angle.</li>
+            <li><strong>At center:</strong> Joist is nearly perpendicular to the curve — square cut is fine.</li>
+            <li><strong>At sides:</strong> Joist meets the curve at an angle — cut the joist end at a slight bevel so it sits flush against the rim.</li>
+            <li><strong>Tip:</strong> Dry-fit each joist, mark the angle directly against the rim, then cut. Don't try to precut all angles — the curve is subtle and it's easy to be off by a degree.</li>
+        </ul>
+
+        <div class="tip">
+            <strong>💡 Flexible Batten Trick</strong>
+            A ¼" × 1" strip of pine or a piece of PVC trim makes a perfect flexible batten. Nail or clamp it at the endpoints and at the center of your arc, let it flex naturally into a fair curve, then trace along it. It'll give you a smoother curve than a string or a freehand line.
+        </div>
+
+        <h2><span class="num">05</span>Decking</h2>
+        <p class="lead">2×6 boards run left→right. The last row follows the curve with angled end cuts.</p>
+
+        <ul>
+            <li><strong>Direction:</strong> Boards run left→right, parallel to the straight front edge and perpendicular to the joists.</li>
+            <li><strong>Gaps:</strong> ¼" between boards. 2×6 moves more than 5/4×6 — especially with dark stain in sun — so err slightly wider.</li>
+            <li><strong>Lengths:</strong> Most boards are full-length left→right across the ~20' width, butted end-to-end over joists if needed (2×6 butt joints are stronger than 5/4). Near the back edge, boards are cut to varying lengths to follow the concave curve.</li>
+            <li><strong>Back edge detail:</strong> The last row of decking follows the curve. Each board end is cut at a slight angle so the row traces the arc cleanly. No single board follows the full curve — instead, a series of short angled cuts create a segmented curve that looks smooth from a few feet back.</li>
+            <li><strong>Picture-frame option:</strong> You can run a border board perpendicular around the front and side edges for a finished look, or just let the clean ends of the left→right boards overhang slightly and bevel-cut them. The back edge against the pool coping is typically left as the curved row — no border needed there.</li>
+        </ul>
+
+        <div class="tip">
+            <strong>💡 Segmented Curve Looks Fine</strong>
+            From 5 feet away, a series of angled 2×6 end cuts reads as a smooth curve. You don't need to bandsaw the decking. Cut each end at the angle where it meets the arc, keep gaps consistent, and it'll look intentional.
+        </div>
+
+        <h2><span class="num">06</span>Pedestal Layout</h2>
+        <p class="lead">More pedestals per square foot than the main deck — 2×4 framing needs the support, and ground slopes toward the pool.</p>
+
+        <ul>
+            <li><strong>Front edge (near main deck):</strong> Lower to the ground. Use ECO M (1.5"–3") here. The frame sits close to grade.</li>
+            <li><strong>Back edge (near pool):</strong> Ground typically slopes toward the pool. Use ECO L (3"–5.5") to compensate. Back pedestals will be noticeably taller.</li>
+            <li><strong>Layout:</strong> Rows follow the curve. Place pedestals in a grid roughly 16" O.C. in both directions — closer than the main deck's spacing.</li>
+            <li><strong>Under rims:</strong> Extra pedestals under all rim joists, especially at the curved back edge where the doubled 2×4 carries load from multiple joist ends.</li>
+            <li><strong>Mid-span:</strong> One pedestal under each field joist near mid-span if the joist is longer than ~4'.</li>
+        </ul>
+
+        <table>
+            <tr><th>Location</th><th>Pedestal Model</th><th>Typical Height</th><th>Notes</th></tr>
+            <tr><td>Front rim</td><td>ECO M</td><td>~1.5"–2.5"</td><td>Low, near main deck grade</td></tr>
+            <tr><td>Field joists (front half)</td><td>ECO M</td><td>~2"–3"</td><td>Moderate lift</td></tr>
+            <tr><td>Field joists (back half)</td><td>ECO L</td><td>~3.5"–5"</td><td>Compensating for ground slope</td></tr>
+            <tr><td>Back rim (curve)</td><td>ECO L</td><td>~4"–5.5"</td><td>Highest points · May need shims on very low spots</td></tr>
+            <tr><td>Corners</td><td>ECO L or M</td><td>Varies</td><td>Level to match neighboring pedestals</td></tr>
+        </table>
+
+        <div class="warning">
+            <strong>⚠️ Slope Away from Pool</strong>
+            Even though the ground slopes toward the pool, the deck surface must slope slightly <em>away</em> from the pool for drainage. Aim for ⅛" per foot fall toward the front edge (away from the water). Adjust pedestal heights accordingly — back pedestals aren't just taller, they're also set slightly lower relative to the front to create that slope.
+        </div>
+
+        <h2><span class="num">07</span>Build Steps</h2>
+        <p class="lead">Build this section after the main deck is framed but before final decking — or after the main deck is complete. Either way, keep it independent.</p>
+
+        <ol class="step-list">
+            <li><strong>Stake out the curve.</strong> Mark pool center, swing 12' string arc, spray-paint the back edge curve on the ground. Mark straight front edge parallel to main deck back rim, ~1" away. Mark side edges connecting front to back.</li>
+            <li><strong>Lay pedestal rows.</strong> Place ECO M/L pedestals in a grid following the curve. Start at front edge, work back. Adjust heights for level frame AND slope away from pool. Use a long level and stringline.</li>
+            <li><strong>Build front rim (straight).</strong> Doubled 2×4, ~20' long. Place on pedestals, level, check for straight. This is your reference edge — everything else builds from here.</li>
+            <li><strong>Build curved back rim.</strong> Cut doubled 2×4s to the marked arc. Splice if needed. Place on pedestals at back. Verify the curve is fair and the width matches your plan (~3' at center, ~5' at sides).</li>
+            <li><strong>Install side rims.</strong> Straight doubled 2×4s connecting front to back. Cut to length. Verify the frame is square-ish (diagonals roughly equal) and the front edge is parallel to the main deck.</li>
+            <li><strong>Install field joists at 12" O.C.</strong> Cut to varying lengths. Butt into curved back rim with angle cuts as needed. Face-screw to front and back rims. Verify each joist sits firmly on its pedestals.</li>
+            <li><strong>Install mid-span blocking.</strong> Short 2×4 pieces between joists where needed — especially near the curved back rim where joist ends converge. Prevents twist and adds stiffness.</li>
+            <li><strong>Apply joist tape.</strong> Butyl tape on all joist tops and rim tops before decking. Pay extra attention to the curved back rim — water tends to collect near the pool edge.</li>
+            <li><strong>Deck the frame.</strong> Lay 2×6 boards left→right. Start at front edge, work toward the curve. Maintain ¼" gaps. Cut last row to follow the curve with angled end cuts.</li>
+            <li><strong>Stain to match main deck.</strong> Touch up all cut ends with Stonehedge. If boards were pre-stained, end grain still needs a coat after cutting. Dark stain hides touch-ups well.</li>
+        </ol>
+
+        <h2><span class="num">08</span>Key Notes / Warnings</h2>
+
+        <div class="warning">
+            <strong>⚠️ Keep ~1" Gap from Main Deck</strong>
+            This frame must remain independent. Do NOT screw, bolt, or bracket it to the main deck. Thermal expansion, ground settling, and seasonal movement will tear apart any rigid connection. A 1" gap is plenty — it'll disappear visually once both decks are stained the same color.
+        </div>
+        <div class="warning">
+            <strong>⚠️ 2×4 Joists Need 12" O.C. Spacing</strong>
+            Do NOT use 16" O.C. with 2×4 joists. The span is short but the lumber is smaller. 12" O.C. is non-negotiable for stiffness and to prevent bounce — especially with dogs running on it.
+        </div>
+        <div class="warning">
+            <strong>⚠️ 2×6 Decking Is Heavy</strong>
+            2×6 weighs more than 5/4×6. The pedestal grid needs to be tighter — 16" O.C. in both directions, not the 2–3 per joist you'd use on the main deck. Undersupporting heavy decking leads to sag over time.
+        </div>
+        <div class="warning">
+            <strong>⚠️ Ground Slopes Toward Pool</strong>
+            Back pedestals will be significantly taller than front pedestals. Buy more ECO L (3"–5.5") than you think you need. If a pedestal maxes out and you still need more height, shim with flat stone or composite shims under the pedestal base.
+        </div>
+        <div class="warning">
+            <strong>⚠️ Water Runoff: Slope Away from Pool</strong>
+            The deck surface must shed water away from the pool, not toward it. Aim for ⅛" per foot fall toward the front edge. The pedestal height adjustments are what create this slope — the frame itself can be dead level front-to-back if the pedestals are graded correctly.
+        </div>
+        <div class="tip">
+            <strong>💡 Pre-Stain What You Can</strong>
+            Stain the 2×4 framing and 2×6 decking boards on sawhorses before cutting, same as the main deck. The curved cuts will expose fresh end grain — touch those up on-site with a brush and a small cup of stain.
+        </div>
+        <div class="tip">
+            <strong>💡 The Dogs Will Approve</strong>
+            This low, wide surface right at pool level is exactly where dogs want to be. Stable footing, easy in/out of the water, and close enough to supervise the humans. Build it strong.
+        </div>
+
+        <h2><span class="num">09</span>Tools Needed</h2>
+        <div class="materials-grid">
+            <div class="material-card">
+                <div class="qty">🔧</div>
+                <div class="desc">Impact Driver + Bits</div>
+                <div class="note">Primary fastening tool · T25 for decking · Square for framing</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">🪚</div>
+                <div class="desc">Circular Saw + Jigsaw</div>
+                <div class="note">Circular for straight cuts · Jigsaw for curved rim and angled deck ends</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">📏</div>
+                <div class="desc">Tape + Speed Square</div>
+                <div class="note">25' tape minimum · String line for arc layout</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">🔨</div>
+                <div class="desc">Level + String Line</div>
+                <div class="note">2' level for joists · Long level or straightedge for surface slope check</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">🎨</div>
+                <div class="desc">Brush + Stain Cup</div>
+                <div class="note">3" brush for touch-ups · Small cup of Stonehedge for cut ends on-site</div>
+            </div>
+            <div class="material-card">
+                <div class="qty">🏠</div>
+                <div class="desc">Flexible Batten</div>
+                <div class="note">¼" × 1" strip or PVC trim for tracing fair curve onto rim joists</div>
+            </div>
+        </div>
+
+        <h2><span class="num">10</span>Build Timeline</h2>
+        <table>
+            <tr><th>Phase</th><th>Duration</th><th>Weather</th><th>Team</th></tr>
+            <tr><td>Site prep + curve stakeout</td><td>½ day</td><td>Dry</td><td>You + 1 helper</td></tr>
+            <tr><td>Pedestal layout + leveling</td><td>½ day</td><td>Dry</td><td>You + helper</td></tr>
+            <tr><td>Frame (rims + joists)</td><td>1 day</td><td>Dry, no wind</td><td>You + helper</td></tr>
+            <tr><td>Blocking + joist tape</td><td>½ day</td><td>Dry</td><td>You</td></tr>
+            <tr><td>Decking</td><td>1 day</td><td>Dry</td><td>You + helper</td></tr>
+            <tr><td>Stain touch-ups</td><td>½ day</td><td>Dry</td><td>You</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>3–4 days</strong></td><td>—</td><td>—</td></tr>
+        </table>
+
+        <div class="tip">
+            <strong>💡 Build This After the Main Deck</strong>
+            The main deck gives you a fixed reference edge and known height. Building the curved section second means you can match the front rim height precisely to create the ~2" step down.
+        </div>
+
+        <footer>
+            <p>Curved Pool Section — Pool Deck Plans · Updated May 17, 2026</p>
+            <p>Freestanding Concave Deck · 2×4 Joists · 2×6 Decking · Eurotec Pedestals · BEHR Stonehedge · Beach Entry for Dogs</p>
+        </footer>
+    </div>
+</body>
+</html>
